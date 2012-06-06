@@ -1,0 +1,72 @@
+b) normalisez les paramètres en utilisant la commande suivante
+
+NormFeat.exe --config ./cfg/NormFeat_energy.cfg --inputFeatureFilename ./lst/all.lst --debug false --verbose true
+
+NormFeat.exe --config ./cfg/NormFeat_energy.cfg --inputFeatureFilename ./lst/MARF_all.lst --debug false --verbose true
+
+c) lancer l'executable de détection d'énergie sur tous les signaux
+ 
+EnergyDetector.exe --config ./cfg/EnergyDetector.cfg --inputFeatureFilename ./lst/all.lst --verbose true --debug false
+
+EnergyDetector.exe --config ./cfg/EnergyDetector.cfg --inputFeatureFilename ./lst/MARF_all.lst --verbose true --debug false
+
+Vérifiez que les labels obtenus dans le repertoire ./lbl sont corrects (pour 2 ou 3 signaux)
+
+
+c) re-normalisez les paramètres en utilisant la commande suivante
+
+NormFeat.exe --config ./cfg/NormFeat.cfg --inputFeatureFilename ./lst/all.lst
+
+NormFeat.exe --config ./cfg/NormFeat.cfg --inputFeatureFilename ./lst/MARF_all.lst
+
+
+d) Apprendre les modeles de genre (male / female) avec les étapes suivantes :
+
+-création d'un modèle du monde :
+TrainWorld.exe --config ./cfg/TrainWorldInit.cfg --inputStreamList ./lst/world.lst --weightStreamList ./lst/world.weight --outputWorldFilename world_init --debug false --verbose true
+TrainWorld.exe --config ./cfg/TrainWorldFinal.cfg --inputStreamList ./lst/world.lst --weightStreamList ./lst/world.weight  --outputWorldFilename world --inputWorldFilename world_init --debug false --verbose true
+ 
+
+-création des modèles de genre [female, male]
+TrainTarget.exe --config ./cfg/target_male.cfg --targetIdList ./ndx/male.ndx --inputWorldFilename world --debug false --verbose true
+TrainTarget.exe --config ./cfg/target_male.cfg --targetIdList ./ndx/female.ndx --inputWorldFilename world --debug false --verbose true
+
+[HIEPNH]
+TrainTarget.exe --config ./cfg/target_male.cfg --targetIdList ./ndx/male_all.ndx --inputWorldFilename world_all --debug false --verbose true
+TrainTarget.exe --config ./cfg/target_male.cfg --targetIdList ./ndx/female_all.ndx --inputWorldFilename world_all --debug false --verbose true
+
+
+e) [HIEPNH] Train target speakers [FTEJ,FUAN]
+TrainTarget.exe --config ./cfg/target_female.cfg --targetIdList ./ndx/FTEJ.ndx --inputWorldFilename world --debug false --verbose true
+TrainTarget.exe --config ./cfg/target_female.cfg --targetIdList ./ndx/FUAN.ndx --inputWorldFilename world --debug false --verbose true
+
+
+
+5) Testez les modèles ainsi obtenus sur les fichiers de tests (voir dans ./lst pour la repartition train/test)
+
+aide : utilisez les commandes suivantes
+ 
+
+ComputeTest.exe --config ./cfg/target_seg_female.cfg  --ndxFilename ./ndx/tests_female.ndx --inputWorldFilename world --outputFilename female.res --debug false --verbose true --channelCompensation "not set"
+ComputeTest.exe --config ./cfg/target_seg_male.cfg  --ndxFilename ./ndx/tests_male.ndx --inputWorldFilename world --outputFilename male.res  --debug false --verbose true --channelCompensation "not set"
+
+[HIEPNH] Test speakers [FTEJ,FUAN]
+ComputeTest.exe --config ./cfg/target_seg_female.cfg  --ndxFilename ./ndx/tests_FTEJ.ndx --inputWorldFilename world --outputFilename FTEJ.res  --debug false --verbose true --channelCompensation "not set"
+ComputeTest.exe --config ./cfg/target_seg_female.cfg  --ndxFilename ./ndx/tests_FTEJ_2.ndx --inputWorldFilename world --outputFilename FTEJ_2.res  --debug false --verbose true --channelCompensation "not set"
+ComputeTest.exe --config ./cfg/target_seg_female.cfg  --ndxFilename ./ndx/tests_FTEJ_all.ndx --inputWorldFilename world_all --outputFilename FTEJ_all.res  --debug false --verbose true --channelCompensation "not set"
+
+
+ComputeTest.exe --config ./cfg/target_seg_female.cfg  --ndxFilename ./ndx/tests_FUAN.ndx --inputWorldFilename world --outputFilename FUAN.res  --debug false --verbose true --channelCompensation "not set"
+
+6) [HIEPNH]
+Imposter (female/male)
+
+ComputeTest.exe --config ./cfg/target_seg_female.cfg  --ndxFilename ./ndx/imposter_female.ndx --inputWorldFilename world --outputFilename imposter_female.res --debug false --verbose true --channelCompensation "not set"
+ComputeTest.exe --config ./cfg/target_seg_male.cfg  --ndxFilename ./ndx/imposter_male.ndx --inputWorldFilename world --outputFilename imposter_male.res  --debug false --verbose true --channelCompensation "not set"
+
+7) [HIEPNH]
+ComputeNorm.exe --config ./cfg/ComputeNorm.cfg --tnormNistFile imposter_female.res --testNistFile female.res --outputFileBaseName female
+
+ComputeNorm.exe --config ./cfg/ComputeNorm.cfg --tnormNistFile ./imp/FAML_impostor2.res --testNistFile FAML_Sr3.res --outputFileBaseName FAML_Sr3
+
+
