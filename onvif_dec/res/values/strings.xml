@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, OnviferActivity!</string>
+    <string name="app_name">Onvifer</string>
+    <string name="New">New</string>
+    <string name="Test">Test</string>
+    <string name="Name">Name</string>
+    <string name="Address">Address</string>
+    <string name="UserName">User Name</string>
+    <string name="Passwrod">Password</string>
+    <string name="add_or_explore_a_new_ip_device">Add or explore a new IP device</string>
+    <string name="check">Check</string>
+    <string name="save">Save</string>
+    <string name="welcome">Welcome to Onvifer - the mobile ONVIF(TM) device explorer. You may click button + to discover/add a new device.</string>
+    <string name="onvifer">Onvifer</string>
+    <string name="my_device">My Device</string>
+    <string name="www_mydomain_com_8080">www.mydomain.com:8080</string>
+    <string name="PlayVideo">Play Video</string>
+    <string name="DeviceInfo">Device Information</string>
+    <string name="capabilities">Capabilities</string>
+    <string name="MediaProfiles">Media Profiles</string>
+    <string name="RTSP_warning">This streaming uses RTP unicast over UDP with RTSP for initialization and control. If this IP device is behind a router, please ensure port 554 is open and forwarded to the device. Some smartphones may not be capable of playing H.264 video of certain profiles.</string>
+    <string name="retrieving_stored_device_data_error">Sorry, unable to retrieve the stored device data. Please report this, and delete it, then add it again.</string>
+    <string name="video_display">Video Display</string>
+    <string name="discover">Discover</string>
+    <string name="ip">IP</string>
+    <string name="probematches">&lt;s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:a=\"http://schemas.xmlsoap.org/ws/2004/08/addressing\">&lt;s:Header>&lt;a:Action s:mustUnderstand=\"1\">http://schemas.xmlsoap.org/ws/2005/04/discovery/Probe&lt;/a:Action>&lt;a:MessageID>uuid:21859bf9-6193-4c8a-ad50-d082e6d296ab&lt;/a:MessageID>&lt;a:ReplyTo>&lt;a:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous&lt;/a:Address>&lt;/a:ReplyTo>&lt;a:To s:mustUnderstand=\"1\">urn:schemas-xmlsoap-org:ws:2005:04:discovery&lt;/a:To>&lt;/s:Header>&lt;s:Body>&lt;Probe xmlns=\"http://schemas.xmlsoap.org/ws/2005/04/discovery\">&lt;d:Types xmlns:d=\"http://schemas.xmlsoap.org/ws/2005/04/discovery\" xmlns:dp0=\"http://www.onvif.org/ver10/network/wsdl\">dp0:NetworkVideoTransmitter&lt;/d:Types>&lt;/Probe>&lt;/s:Body>&lt;/s:Envelope></string>
+    <string name="hi_res_video_warning">Many mobile devices are unable to play high resolution video.</string>
+    <string name="select_a_discovered_device">Select a discovered device</string>
+    <string name="discovery_is_disabled_because_the_device_is_not_on_a_local_network">Discovery is disabled because the device is not on a local network.</string>
+    <string name="select_a_demo_device">Select a demo device</string>
+    <string name="share_a_device">Share a device</string>
+    <string name="remove_yours">Remove yours</string>
+    <string name="from_discovered">From discovered</string>
+    <string name="from_demo">From demo</string>
+    <string name="help">Help</string>
+    <string name="feedback">Feedback</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="snapshot">Snapshot</string>
+    <string name="pause">Pause</string>
+    <string name="uniform_stretch">Uniform stretch</string>
+    <string name="flick_to_pan_tilt">Flick to Pan/Tilt.</string>
+    <string name="try_faster_h_264_over_udp">Try faster H.264 over UDP</string>
+    <string name="switch_back_to_robust_jpeg_over_http">Switch back to robust JPEG over HTTP</string>
+    <string name="select_a_device_for_the_widget">Select a device for the widget</string>
+    <string name="hold_a_device_tile_to_explore">Tap a device tile to stream. Hold one to explore. Use widgets to access videos quickly.</string>
+    <string name="onvif_device_list">ONVIF Device List</string>
+</resources>

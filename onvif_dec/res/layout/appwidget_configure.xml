@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imageViewBackground" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ic_launcher_background" android:contentDescription="@string/onvifer" />
+    <LinearLayout android:gravity="top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false">
+        <TextView android:textSize="20.0dip" android:gravity="top" android:id="@id/textViewWelcome" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/select_a_device_for_the_widget" />
+        <GridView android:gravity="center" android:id="@id/gridview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:horizontalSpacing="10.0dip" android:verticalSpacing="10.0dip" android:stretchMode="columnWidth" android:columnWidth="120.0dip" android:numColumns="auto_fit" />
+        <TextView android:textSize="20.0dip" android:gravity="top" android:id="@id/textViewDebug" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/select_a_device_for_the_widget" />
+    </LinearLayout>
+</merge>

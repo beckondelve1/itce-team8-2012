@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/linearLayoutRoot" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imageViewBackground" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ic_launcher_background" android:contentDescription="@string/onvifer" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ScrollView android:id="@id/scrollViewNewDevice" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textAppearance="?android:textAppearanceSmall" android:id="@id/textViewDiscover" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/discovery_is_disabled_because_the_device_is_not_on_a_local_network" android:singleLine="false" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <Button android:id="@id/btDiscover" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/from_discovered" android:layout_weight="1.0" />
+                        <Button android:id="@id/btDemo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/from_demo" android:layout_weight="1.0" />
+                    </LinearLayout>
+                </LinearLayout>
+                <TableLayout android:id="@id/tableLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="1">
+                    <TableRow android:id="@id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Name" />
+                        <EditText android:id="@id/editTextName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/my_device" android:inputType="textPersonName">
+                            <requestFocus />
+                        </EditText>
+                    </TableRow>
+                    <TableRow android:id="@id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Address" />
+                        <EditText android:id="@id/editTextAddress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="@string/www_mydomain_com_8080" android:inputType="text" />
+                    </TableRow>
+                    <TableRow android:id="@id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/UserName" />
+                        <EditText android:id="@id/editTextUserName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:inputType="textPersonName" />
+                    </TableRow>
+                    <TableRow android:id="@id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Passwrod" />
+                        <EditText android:id="@id/editTextPassword" android:layout_width="wrap_content" android:layout_height="wrap_content" android:inputType="textPassword" />
+                    </TableRow>
+                </TableLayout>
+                <TableLayout android:id="@id/tableLayoutDeviceInfo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="1" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout android:gravity="center" android:id="@id/linearLayout1" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageButton android:layout_gravity="center" android:id="@id/buttonTest" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_done" android:contentDescription="@string/check">
+                <requestFocus />
+            </ImageButton>
+            <ImageButton android:id="@id/imageButtonSave" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_save" android:contentDescription="@string/save">
+                <requestFocus />
+            </ImageButton>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

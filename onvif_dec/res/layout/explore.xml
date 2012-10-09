@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textViewNameModel" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <Button android:layout_gravity="center" android:id="@id/btPlayVideo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/PlayVideo" />
+    <Button android:layout_gravity="center" android:id="@id/btDeviceInfo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/DeviceInfo" />
+    <Button android:layout_gravity="center" android:id="@id/btCapabilities" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/capabilities" />
+    <Button android:layout_gravity="center" android:id="@id/btMediaProfiles" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/MediaProfiles" />
+</LinearLayout>

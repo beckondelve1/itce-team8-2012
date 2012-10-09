@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="169" android:versionName="1.69" package="net.biyee.onvifer"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application android:theme="@android:style/Theme.Black" android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+        <activity android:theme="@android:style/Theme.Black" android:label="@string/app_name" android:name=".OnviferActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:theme="@android:style/Theme.Black" android:name=".NewActivity" android:configChanges="keyboardHidden|orientation" />
+        <activity android:name=".ExploreActivity" />
+        <activity android:name=".PlayVideoActivity" />
+        <activity android:name="DeviceInfoActivity" />
+        <activity android:name="CapabilitiesActivity" />
+        <activity android:name="CapabilitiesDeviceActivity" />
+        <activity android:name="CapabilitiesMediaActivity" />
+        <activity android:name="CapabilitiesPTZActivity" />
+        <activity android:name="CapabilitiesEventsActivity" />
+        <activity android:name="CapabilitiesImagingActivity" />
+        <activity android:name="ProfilesActivity" />
+        <activity android:name="ProfileActivity" />
+        <activity android:name=".DiscoverActivity" />
+        <activity android:name="net.biyee.android.ActivityWebView" />
+        <activity android:name="net.biyee.android.ActivityFeedback" />
+        <activity android:name="DemoListActivity" />
+        <activity android:name=".PTZConfigurationsActivity" />
+        <activity android:name="PTZConfigurationActivity" />
+        <activity android:name="AudioEncoderConfigurationsActivity" />
+        <activity android:name="AudioEncoderConfigurationActivity" />
+        <activity android:name="VideoEncoderConfigurationsActivity" />
+        <activity android:name="VideoEncoderConfigurationActivity" />
+        <activity android:name="debug" />
+        <receiver android:label="Onvifer Widget" android:icon="@drawable/ic_launcher" android:name="OnviferAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+        </receiver>
+        <activity android:name="OnviferAppWedgetConfigure">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <service android:name="UpdateWidgetService" />
+    </application>
+</manifest>
