@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider android:minWidth="@dimen/AppWidgetWidth" android:minHeight="@dimen/AppWidgetHeight" android:updatePeriodMillis="180000" android:initialLayout="@layout/widget_layout" android:configure="net.biyee.onvifer.OnviferAppWedgetConfigure" android:previewImage="@drawable/ic_launcher114x114" android:resizeMode="horizontal|vertical" android:minResizeWidth="@dimen/AppWidgetWidth" android:minResizeHeight="@dimen/AppWidgetHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

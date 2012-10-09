@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="libs/jaad-0.8.4.jar"/>
+	<classpathentry kind="lib" path="libs/jcodec-0.0.5.jar"/>
+	<classpathentry kind="lib" path="libs/ksoap2-j2se-full-2.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/simple-xml-2.6.7.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

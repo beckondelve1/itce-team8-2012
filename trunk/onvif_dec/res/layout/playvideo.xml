@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="top" android:orientation="vertical" android:id="@id/relativelayoutRoot" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <net.biyee.onvifer.SurfaceViewBiyee android:layout_gravity="center" android:id="@id/surface" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center" android:id="@id/imageView" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="0.0dip" android:src="@drawable/ic_launcher_background" android:scaleType="centerCrop" android:contentDescription="@string/video_display" />
+    <RelativeLayout android:orientation="vertical" android:id="@id/relativelayoutAction" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="0.0dip">
+        <RelativeLayout android:orientation="vertical" android:id="@id/relativelayoutPTZ" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="0.0dip" android:layout_above="@id/textViewStatus">
+            <ImageView android:layout_gravity="center" android:id="@id/imagePTZ" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="0.0dip" android:src="@drawable/ptz" android:contentDescription="@string/video_display" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/flick_to_pan_tilt" android:singleLine="false" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+            <Button android:id="@id/buttonZoomOut" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" android:layout_toLeftOf="@id/textViewZoom" android:layout_alignBaseline="@id/textViewZoom" />
+            <TextView android:textAppearance="?android:textAppearanceLarge" android:id="@id/textViewZoom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="Zoom" android:singleLine="false" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+            <Button android:id="@id/buttonZoomIn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+" android:layout_toRightOf="@id/textViewZoom" android:layout_alignBaseline="@id/textViewZoom" />
+        </RelativeLayout>
+        <TextView android:id="@id/textViewProfileInfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" />
+        <TextView android:id="@id/textViewStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/linearLayoutActionBar" />
+        <LinearLayout android:gravity="center" android:id="@id/linearLayoutActionBar" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="0.0dip" android:layout_alignParentBottom="true">
+            <ImageButton android:layout_gravity="bottom" android:id="@id/buttonStretch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_uniform" android:contentDescription="@string/uniform_stretch" />
+            <ImageButton android:layout_gravity="bottom" android:id="@id/buttonPlayPause" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_pause" android:contentDescription="@string/pause" />
+            <ImageButton android:layout_gravity="bottom" android:id="@id/buttonAudio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_volume" android:contentDescription="@string/pause" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:gravity="top" android:orientation="vertical" android:id="@id/linearLayoutWarning" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/buttonSwtichMode" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/try_faster_h_264_over_udp" />
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textViewHirResWarning" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hi_res_video_warning" />
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textViewWarning" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/RTSP_warning" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imageViewBackground" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ic_launcher_background" android:contentDescription="@string/onvifer" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="false">
+        <LinearLayout android:gravity="center" android:id="@id/linearLayoutMain" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="200.0">
+            <TextView android:textSize="20.0dip" android:gravity="center_vertical" android:id="@id/textViewWelcome" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/welcome" />
+            <GridView android:gravity="center" android:id="@id/gridview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:horizontalSpacing="10.0dip" android:verticalSpacing="10.0dip" android:stretchMode="columnWidth" android:columnWidth="120.0dip" android:numColumns="auto_fit" />
+        </LinearLayout>
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/textViewTip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hold_a_device_tile_to_explore" android:layout_weight="1.0" />>
+<Button android:id="@id/buttonONVIFDeviceList" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/onvif_device_list" />
+        <Button android:layout_gravity="center" android:id="@id/buttonNewerVsion" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Newer version is available" />
+        <LinearLayout android:gravity="center" android:id="@id/linearLayout1" android:padding="1.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="1.0dip" android:layout_weight="1.0">
+            <ImageButton android:layout_gravity="center" android:id="@id/buttonNew" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_add" android:contentDescription="@string/add_or_explore_a_new_ip_device" />
+            <ImageButton android:layout_gravity="center" android:id="@id/buttonHelp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_help" android:contentDescription="@string/help" />
+            <ImageButton android:layout_gravity="center" android:id="@id/buttonFeedback" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_feedback" android:contentDescription="@string/feedback" />
+            <ImageButton android:layout_gravity="center" android:id="@id/buttonRate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_action_rating" android:contentDescription="@string/rate_this_app" />
+        </LinearLayout>
+    </LinearLayout>
+</merge>
