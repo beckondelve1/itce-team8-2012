@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="xml"/>
+	<classpathentry kind="src" path="src-kiss"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="D:/setup/Android/ksoap/ksoap2-android-assembly-2.6.5-jar-with-dependencies.jar" sourcepath="D:/setup/Android/ksoap/git/ksoap2-android"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

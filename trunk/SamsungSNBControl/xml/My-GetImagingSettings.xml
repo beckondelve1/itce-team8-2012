@@ -1,0 +1,155 @@
+POST /onvif/imaging_service HTTP/1.1
+
+User-Agent: ksoap2-android/2.6.0+
+
+Content-Type: application/soap+xml;charset=utf-8
+
+Connection: close
+
+Accept-Encoding: gzip
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Host: 119.202.84.99
+
+Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+
+Content-Length: 1146
+<v:Envelope xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:d="http://www.w3.org/2001/XMLSchema"
+    xmlns:c="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:v="http://www.w3.org/2003/05/soap-envelope" >
+
+    <v:Header>
+        <n0:Security xmlns:n0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" >
+            <n0:UsernameToken>
+                <n0:Username>
+admin
+                </n0:Username>
+
+                <n0:Password n0:Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd#PasswordDigest" >
+dd2MUCv7x/F2P5rt6lWd1WTzUnE=
+                </n0:Password>
+
+                <n0:Nonce n0:EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd#Base64Binary" >
+wCSoqnuPXW/Kabg/brQ10HASUyZNwRL1f4gv4Gr8Pcc=
+                </n0:Nonce>
+
+                <n1:Created xmlns:n1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" >
+2012-06-26T06:06:34.126Z
+                </n1:Created>
+            </n0:UsernameToken>
+        </n0:Security>
+    </v:Header>
+
+    <v:Body>
+        <n2:GetImagingSettings
+            xmlns:n2="http://www.onvif.org/ver20/imaging/wsdl"
+            id="o0"
+            c:root="1" >
+            <n2:VideoSourceToken i:type="d:string" >
+bd449516-4c96-44a6-a163-3ad5981c09fd
+            </n2:VideoSourceToken>
+        </n2:GetImagingSettings>
+    </v:Body>
+
+</v:Envelope>HTTP/1.1 200 OK
+
+Status: 200 OK
+
+Server: gSOAP/2.7
+
+Content-Type: application/soap+xml; charset=utf-8
+
+Content-Length: 1669
+
+Connection: close
+
+Date: Sun, 20 May 2012 23:19:58 GMT
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wsa5="http://www.w3.org/2005/08/addressing"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2"
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:ter="http://www.onvif.org/ver10/error" >
+
+    <SOAP-ENV:Header>
+    </SOAP-ENV:Header>
+
+    <SOAP-ENV:Body>
+        <timg:GetImagingSettingsResponse>
+            <timg:ImagingSettings>
+                <tt:BacklightCompensation>
+                    <tt:Mode>
+OFF
+                    </tt:Mode>
+
+                    <tt:Level>
+1
+                    </tt:Level>
+                </tt:BacklightCompensation>
+
+                <tt:Brightness>
+50
+                </tt:Brightness>
+
+                <tt:ColorSaturation>
+50
+                </tt:ColorSaturation>
+
+                <tt:Exposure>
+                    <tt:Mode>
+AUTO
+                    </tt:Mode>
+
+                    <tt:Iris>
+0
+                    </tt:Iris>
+                </tt:Exposure>
+
+                <tt:Sharpness>
+12
+                </tt:Sharpness>
+
+                <tt:WideDynamicRange>
+                    <tt:Mode>
+ON
+                    </tt:Mode>
+
+                    <tt:Level>
+8
+                    </tt:Level>
+                </tt:WideDynamicRange>
+
+                <tt:WhiteBalance>
+                    <tt:Mode>
+AUTO
+                    </tt:Mode>
+
+                    <tt:CrGain>
+420
+                    </tt:CrGain>
+
+                    <tt:CbGain>
+448
+                    </tt:CbGain>
+                </tt:WhiteBalance>
+            </timg:ImagingSettings>
+        </timg:GetImagingSettingsResponse>
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>

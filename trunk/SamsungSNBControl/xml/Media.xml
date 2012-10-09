@@ -1,0 +1,97 @@
+POST /onvif/media_service HTTP/1.1
+
+Content-Type: application/soap+xml; charset=utf-8; action="http://www.onvif.org/ver10/media/wsdlGetVideoSources/"
+
+Host: 119.202.84.139
+
+Content-Length: 922
+
+Accept-Encoding: gzip, deflate
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" >
+
+    <s:Header>
+        <Security
+            xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+            s:mustUnderstand="1" >
+            <UsernameToken>
+                <Username>
+admin
+                </Username>
+
+                <Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest" >
+2bJS6ILei3cuxPkWFH5X/CjwStY=
+                </Password>
+
+                <Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" >
+8jiuCl3XWU265VVkxPke4h8AAAAAAAAA0lX8uxEAAAA=
+                </Nonce>
+
+                <Created xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" >
+2012-05-04T09:12:22.788Z
+                </Created>
+            </UsernameToken>
+        </Security>
+    </s:Header>
+
+    <s:Body
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+        <GetVideoSources xmlns="http://www.onvif.org/ver10/media/wsdl" />
+    </s:Body>
+
+</s:Envelope>HTTP/1.1 200 OK
+
+Status: 200 OK
+
+Server: gSOAP/2.7
+
+Content-Type: application/soap+xml; charset=utf-8
+
+Content-Length: 1323
+
+Connection: close
+
+Date: Fri, 04 May 2012 09:12:23 GMT
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://tempuri.org/wsa.xsd"
+    xmlns:xmime="http://tempuri.org/xmime.xsd"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2"
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:ter="http://www.onvif.org/ver10/error" >
+
+    <SOAP-ENV:Header>
+    </SOAP-ENV:Header>
+
+    <SOAP-ENV:Body>
+        <trt:GetVideoSourcesResponse>
+            <trt:VideoSources token="bd449516-4c96-44a6-a163-3ad5981c09fd" >
+                <tt:Framerate>
+30
+                </tt:Framerate>
+
+                <tt:Resolution>
+                    <tt:Width>
+1280
+                    </tt:Width>
+
+                    <tt:Height>
+1024
+                    </tt:Height>
+                </tt:Resolution>
+            </trt:VideoSources>
+        </trt:GetVideoSourcesResponse>
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>
