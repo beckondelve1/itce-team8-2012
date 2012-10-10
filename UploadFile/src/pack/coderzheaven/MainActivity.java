@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
 
 	private static final int SELECT_AUDIO = 2;
 	String selectedPath = "";
+	String fileName = "";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,9 +48,11 @@ public class MainActivity extends Activity {
 
 			if (requestCode == SELECT_AUDIO) {
 				System.out.println("SELECT_AUDIO");
-				Uri selectedImageUri = data.getData();
-				selectedPath = getPath(selectedImageUri);
+				Uri selectedAudioUri = data.getData();
+				selectedPath = getPath(selectedAudioUri);
 				System.out.println("SELECT_AUDIO Path : " + selectedPath);
+				fileName = selectedPath.substring(selectedPath.lastIndexOf("/")+1);
+				System.out.println("SELECT_AUDIO Name : " + fileName);
 				
 				//doFileUpload();
 				new UploadFileTask().execute();
@@ -59,39 +62,24 @@ public class MainActivity extends Activity {
 	}
 
 	public String getPath(Uri uri) {
-		String[] projection = { MediaStore.Images.Media.DATA };
-		Cursor cursor = managedQuery(uri, projection, null, null, null);
-		int column_index = cursor
-				.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-		cursor.moveToFirst();
-		return cursor.getString(column_index);
+		return uri.getPath();
 	}
 
-	
-	private class UploadFileTask extends AsyncTask{
-
-		@Override
-		protected Object doInBackground(Object... params) {
-			doFileUpload();
-			return null;
-		}
-		
-		
-	}
-	
-	
 	private void doFileUpload() {
 		HttpURLConnection conn = null;
 		DataOutputStream dos = null;
 		DataInputStream inStream = null;
-		String lineEnd = "rn";
+		String lineEnd = "\r\n";
 		String twoHyphens = "--";
 		String boundary = "*****";
 		int bytesRead, bytesAvailable, bufferSize;
 		byte[] buffer;
 		int maxBufferSize = 1 * 1024 * 1024;
 		String responseFromServer = "";
-		String urlString = "http://119.202.84.76/upload_audio_test/upload_audio.php";
+		//String urlString = "http://119.202.84.76/upload_audio_test/upload_audio.php";
+		//String urlString = "http://141.223.83.139/upload_file_test/upload_file.php";
+		//String urlString = "http://141.223.83.139:8080/upload";		//CherryPy (python)
+		String urlString = "http://141.223.83.139:8080/itce600_server/UploadServlet";	//Tomcat (java)
 		try {
 			// ------------------ CLIENT REQUEST
 			FileInputStream fileInputStream = new FileInputStream(new File(selectedPath));
@@ -105,6 +93,7 @@ public class MainActivity extends Activity {
 			conn.setDoOutput(true);
 			// Don't use a cached copy.
 			conn.setUseCaches(false);
+			
 			// Use a post method.
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Connection", "Keep-Alive");
@@ -112,9 +101,10 @@ public class MainActivity extends Activity {
 					"multipart/form-data;boundary=" + boundary);
 			dos = new DataOutputStream(conn.getOutputStream());
 			dos.writeBytes(twoHyphens + boundary + lineEnd);
-			dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\"; filename=\""
-					+ selectedPath + "\"" + lineEnd);
+			dos.writeBytes("Content-Disposition: form-data; name=\"file\"; filename=\""
+					+ fileName + "\"" + lineEnd);
 			dos.writeBytes(lineEnd);
+			
 			// create a buffer of maximum size
 			bytesAvailable = fileInputStream.available();
 			bufferSize = Math.min(bytesAvailable, maxBufferSize);
@@ -153,5 +143,17 @@ public class MainActivity extends Activity {
 		} catch (IOException ioex) {
 			Log.e("Debug", "error: " + ioex.getMessage(), ioex);
 		}
+	}
+	
+	//
+	private class UploadFileTask extends AsyncTask{
+
+		@Override
+		protected Object doInBackground(Object... params) {
+			doFileUpload();
+			return null;
+		}
+		
+		
 	}
 }
