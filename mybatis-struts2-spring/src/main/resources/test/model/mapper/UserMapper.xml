@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="test.model.mapper.UserMapper">
+
+	<select id="findUserList" resultType="test.model.domain.User">
+		SELECT id,name FROM user
+	</select>
+
+	<insert id="create" parameterType="test.model.domain.User">
+		INSERT INTO user (name) VALUES (#{name})
+	</insert>
+
+</mapper>
