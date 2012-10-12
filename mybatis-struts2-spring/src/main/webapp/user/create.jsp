@@ -11,6 +11,6 @@
 	create done
 	<br>
 
-	<a href="<s:url value="/user/list.action"/>">list</a>
+	<a href="<s:url value="/list.action"/>">list</a>
 </body>
 </html>
