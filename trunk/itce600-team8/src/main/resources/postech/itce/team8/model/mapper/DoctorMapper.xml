@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="postech.itce.team8.model.mapper.DoctorMapper">
+
+	<select id="findDoctorList" resultType="postech.itce.team8.model.domain.Doctor">
+		SELECT id,fullname,username,password FROM doctor
+	</select>
+
+	<insert id="insertDoctor" parameterType="postech.itce.team8.model.domain.Doctor">
+		INSERT INTO doctor (fullname,username,password) VALUES (#{fullname},#{username},#{password})
+	</insert>
+
+</mapper>
