@@ -38,20 +38,26 @@ public class AudioRecorder {
 	
 	
 	//
-	private String getFilename(){
+	private String getFilename(String filename){
 		String filepath = Environment.getExternalStorageDirectory().getPath();
 		File file = new File(filepath,AUDIO_RECORDER_FOLDER);
 		
 		if(!file.exists()){
 			file.mkdirs();
 		}
-		savedFilename = System.currentTimeMillis() + AUDIO_RECORDER_FILE_EXT_WAV;
+		//savedFilename = System.currentTimeMillis() + AUDIO_RECORDER_FILE_EXT_WAV;
+		savedFilename = filename + AUDIO_RECORDER_FILE_EXT_WAV;
+		
 		return (file.getAbsolutePath() + "/" + savedFilename);
 	}
 	
 	
 	public String getSavedFilename() {
 		return savedFilename;
+	}
+	
+	public String getAudioRecorderFolder(){
+		return Environment.getExternalStorageDirectory().getPath() + "/" + AUDIO_RECORDER_FOLDER;
 	}
 
 
@@ -125,7 +131,7 @@ public class AudioRecorder {
 		}
 	}
 	
-	public void stopRecording(){
+	public void stopRecording(String filename){
 		if(null != recorder){
 			isRecording = false;
 			
@@ -136,7 +142,7 @@ public class AudioRecorder {
 			recordingThread = null;
 		}
 		
-		copyWaveFile(getTempFilename(),getFilename());
+		copyWaveFile(getTempFilename(),getFilename(filename));
 		deleteTempFile();
 	}
 
