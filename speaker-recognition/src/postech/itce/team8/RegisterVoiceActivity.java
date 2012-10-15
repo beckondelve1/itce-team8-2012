@@ -1,6 +1,8 @@
 package postech.itce.team8;
 
 import postech.itce.team8.util.AudioRecorder;
+import postech.itce.team8.util.FileUpload;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +14,9 @@ import android.widget.TextView;
 
 public class RegisterVoiceActivity extends Activity {
 	private static final String LOG_TAG = "RegisterVoiceActivity";
+	
+	private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600_server/UploadServlet";	
+	
 	//UI controls
 	private Button btnRecord;
 	private Button btnStop;
@@ -20,10 +25,17 @@ public class RegisterVoiceActivity extends Activity {
 	
 	private Button btnFinish;
 	private Button btnCancel;
+	
+	private TextView lblSampleSentence;
 	//audio recorder
 	private AudioRecorder audioRecorder;
 	//file uploader
 	
+	//sample sentences
+	private int currentSentence = 0;
+	private String[] sampleSentences;
+	private String audioRecorderFolder;
+	private int numberOfUploaded = 0;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +50,8 @@ public class RegisterVoiceActivity extends Activity {
         btnFinish = (Button)findViewById(R.id.btnFinish);
         btnCancel = (Button)findViewById(R.id.btnCancel);
         
+        lblSampleSentence = (TextView)findViewById(R.id.lblSampleSentence);
+        
         Bundle savedBasicInfo = this.getIntent().getExtras();
         //debug
         Log.i(LOG_TAG, "fullName=" + savedBasicInfo.get("fullName"));
@@ -45,31 +59,22 @@ public class RegisterVoiceActivity extends Activity {
         Log.i(LOG_TAG, "password=" + savedBasicInfo.get("password"));
         
         //
+        sampleSentences = new String[]{getString(R.string.sample_sentence_1),
+        		getString(R.string.sample_sentence_2),
+        		getString(R.string.sample_sentence_3),
+        		getString(R.string.sample_sentence_4),
+        		getString(R.string.sample_sentence_5),
+        		getString(R.string.sample_sentence_6),
+        		getString(R.string.sample_sentence_7)};
         
-        
-        //btnRecord
+        //
         btnRecord.setOnClickListener(btnRecordHandler);
-        
-        //btnStop
         btnStop.setOnClickListener(btnStopHandler);
-        
-        //btnPlay
-        
-        //btnNext
-        
+        btnPlay.setOnClickListener(btnPlayHandler);
+        btnNext.setOnClickListener(btnNextHandler);
         
         //btnFinish
-        btnFinish.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO check input fields
-				
-				
-				
-				
-			}
-		});
+        btnFinish.setOnClickListener(btnFinishHandler);
         
         btnCancel.setOnClickListener(new View.OnClickListener() {
 			
@@ -103,7 +108,7 @@ public class RegisterVoiceActivity extends Activity {
     
     
     //HANDLERs
-    View.OnClickListener btnRecordHandler = new View.OnClickListener() {
+    private View.OnClickListener btnRecordHandler = new View.OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
@@ -111,19 +116,69 @@ public class RegisterVoiceActivity extends Activity {
 			enableButtons(true);
 			
 			audioRecorder = new AudioRecorder();
+			audioRecorderFolder = audioRecorder.getAudioRecorderFolder();
+			
 			audioRecorder.startRecording();
 		}
 	};
 	
-	View.OnClickListener btnStopHandler = new View.OnClickListener() {
+	private View.OnClickListener btnStopHandler = new View.OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
 			enableButtons(false);
 			
-			audioRecorder.stopRecording();
+			audioRecorder.stopRecording(Integer.toString(currentSentence));
+			
 			Log.i(LOG_TAG, "Finish recording, filename=" + audioRecorder.getSavedFilename());
 			audioRecorder = null;
 		}
 	};
+	
+	private View.OnClickListener btnPlayHandler = new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			
+		}
+	};
+	
+	private View.OnClickListener btnNextHandler = new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			currentSentence++;
+			lblSampleSentence.setText(sampleSentences[currentSentence]);
+		}
+	};
+	
+	//
+	private View.OnClickListener btnFinishHandler = new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			Log.i(LOG_TAG, "Prepare to upload audio files...");
+			
+			numberOfUploaded = 0;
+			for (int i = 0; i <= currentSentence; i++){
+				String fileName = Integer.toString(i) + ".wav";
+				new UploadFileTask().execute(audioRecorderFolder+"/"+fileName, fileName, UPLOAD_URL);
+			}
+		}
+	};
+	
+	//CLASSes
+	private class UploadFileTask extends AsyncTask<String, Integer, Long>{
+
+		@Override
+		protected Long doInBackground(String... params) {
+			FileUpload.doFileUpload(params[0],params[1],params[2]);	//selectedPath, fileName, urlString 
+			return null;
+		}
+		
+		protected void onPostExecute(Long result) {
+			numberOfUploaded++;
+	    }
+		
+	}
 }
