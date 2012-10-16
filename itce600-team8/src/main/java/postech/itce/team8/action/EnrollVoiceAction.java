@@ -1,5 +1,7 @@
 package postech.itce.team8.action;
 
+import postech.itce.team8.action.util.OSCommand;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class EnrollVoiceAction extends ActionSupport {
@@ -29,6 +31,17 @@ public class EnrollVoiceAction extends ActionSupport {
 	public String execute() throws Exception {
 
 		System.out.println("DEBUG - EnrollVoiceAction: " + userName + " " + numberOfFiles);
+		
+		//1.
+		OSCommand.runSPro(userName, numberOfFiles);
+		//2.
+		OSCommand.runNormFeatEnergy(userName, numberOfFiles);
+		//3.
+		OSCommand.runEnergyDetector(userName, numberOfFiles);
+		//4.
+		OSCommand.runReNormFeatEnergy(userName, numberOfFiles);
+		//5.
+		OSCommand.runTrainTarget(userName, numberOfFiles);
 		
 		return SUCCESS;
 	}
