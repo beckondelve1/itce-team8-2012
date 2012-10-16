@@ -65,6 +65,12 @@
 
 		</action>
 		
+		<!-- Voice Model (shell) -->
+		<action name="enrollVoice" class="enrollVoiceAction">
+			<result name="success">enrollVoiceDone.txt</result>
+		</action>
+		
+		
 		<!-- DOCTOR -->
 		<action name="prepare" class="registerDoctorBasicInfoAction" method="prepareDoctorBasicInfo">
 			<result name="success">prepareInsert.jsp</result>

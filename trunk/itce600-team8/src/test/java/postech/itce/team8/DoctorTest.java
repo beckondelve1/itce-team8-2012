@@ -59,6 +59,30 @@ public class DoctorTest {
 //	}
 	
 	
+//	@Test
+//	//testIsDoctorExisted
+//	public void testIsDoctorExisted(){
+//		System.out.println("testIsDoctorExisted");
+//		
+//		System.out.println(doctorService.isDoctorExisted("hiep"));
+//	}
+//	
+	
+	
+//	@Test
+//	//testInsertDoctor
+//	public void testInsertDoctor(){
+//		System.out.println("testInsertDoctor");
+//		
+//		Doctor doctor = new Doctor("hiep ga", "hiep", "ga");
+//		
+//		doctorService.insertDoctor(doctor);
+//		
+//		System.out.println("DONE");
+//		
+//		
+//	}
+	
 	/**
 	 * @param args
 	 */

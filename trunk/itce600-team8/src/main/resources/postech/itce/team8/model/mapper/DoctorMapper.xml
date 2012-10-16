@@ -11,5 +11,9 @@
 	<insert id="insertDoctor" parameterType="postech.itce.team8.model.domain.Doctor">
 		INSERT INTO doctor (fullname,username,password) VALUES (#{fullName},#{userName},#{password})
 	</insert>
+	
+	<select id="isDoctorExisted" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM doctor WHERE username = #{userName}
+	</select>
 
 </mapper>

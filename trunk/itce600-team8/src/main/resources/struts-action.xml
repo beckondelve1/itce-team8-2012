@@ -14,5 +14,6 @@
 
 	<bean id="registerDoctorBasicInfoAction" class="postech.itce.team8.action.RegisterDoctorBasicInfoAction" scope="prototype"/>
 	<bean id="fileUploadAction" class="postech.itce.team8.action.FileUploadAction" scope="prototype"/>
+	<bean id="enrollVoiceAction" class="postech.itce.team8.action.EnrollVoiceAction" scope="prototype"/>
 	
 </beans>

@@ -10,4 +10,6 @@ public interface DoctorMapper {
   
   void insertDoctor(Doctor doctor);
   
+  int isDoctorExisted(String userName);
+	  
 }
