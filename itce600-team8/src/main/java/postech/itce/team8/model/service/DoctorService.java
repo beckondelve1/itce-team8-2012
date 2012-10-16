@@ -23,4 +23,8 @@ public class DoctorService {
 	public void insertDoctor(Doctor doctor){
 		doctorMapper.insertDoctor(doctor);
 	}
+	
+	public boolean isDoctorExisted(String userName){
+		return doctorMapper.isDoctorExisted(userName) > 0;
+	}
 }

@@ -7,9 +7,19 @@ public class Doctor {
 	private String userName;
 	private String password;
 	
+	//ctr
+	public Doctor(String fullName, String userName, String password) {
+		super();
+		this.fullName = fullName;
+		this.userName = userName;
+		this.password = password;
+	}
+	
+	//
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}

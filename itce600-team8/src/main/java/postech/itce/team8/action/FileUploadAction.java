@@ -14,9 +14,20 @@ public class FileUploadAction extends ActionSupport implements ServletRequestAwa
 	private File fileUpload;
 	private String fileUploadContentType;
 	private String fileUploadFileName;
-	private HttpServletRequest request;
-	
 	//
+	private HttpServletRequest request;
+	//
+	private String userName;
+	
+	//getters & setters
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	public String getFileUploadContentType() {
 		return fileUploadContentType;
 	}
@@ -41,12 +52,17 @@ public class FileUploadAction extends ActionSupport implements ServletRequestAwa
 		this.fileUpload = fileUpload;
 	}
 
-	//
+	//1.
 	public String execute() throws Exception {
 		String path = request.getSession().getServletContext().getRealPath("/");
 		
 		System.out.println("Real path = " + path);
-		path = path + "/../data";
+		path = path + "/../data/" + getUserName(); 	//save to user's folder	
+		
+		System.out.println("path = " + path);
+		
+		// TODO make user folder
+		
 		
 		File fileToCreate = null;
 		try {
@@ -62,8 +78,14 @@ public class FileUploadAction extends ActionSupport implements ServletRequestAwa
 
 	}
 
+	//2.
 	public String display() {
 		return NONE;
+	}
+	
+	//3.
+	public String finishUpload() {
+		return "enrollVoice";
 	}
 
 	@Override
