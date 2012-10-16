@@ -23,6 +23,16 @@
 	<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/mybatis_struts2_spring" />
 	-->
 
+	<!--  
+	<bean id="dataSource">
+		<property name="class" value="org.springframework.jdbc.datasource.DriverManagerDataSource"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis_struts2_spring"/>
+        <property name="username" value="root"/>
+        <property name="password" value="asdfgh"/>
+    </bean>
+    -->
+    
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/itce600_team8"/>
@@ -49,11 +59,9 @@
 
 	<!-- enable transaction demarcation with annotations -->
 	<tx:annotation-driven />
-	
-	<!-- Imports configuration -->
-	<import resource="classes/struts-action.xml" />
 
-	<!-- define the SqlSessionFactory, notice that configLocation is not needed when you use MapperFactoryBean -->
+	<!-- define the SqlSessionFactory, notice that configLocation is not needed 
+		when you use MapperFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- <property name="configLocation" value="classpath:mybatis-config.xml" 

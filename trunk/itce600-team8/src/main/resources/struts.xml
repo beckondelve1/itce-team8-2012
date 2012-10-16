@@ -30,17 +30,19 @@
 				result="Exception" />
 		</global-exception-mappings>
 		
-		<!-- ==================================== -->
-		<action name="list" class="test.action.user.ListAction">
-			<result name="success">user/list.jsp</result>
+	</package>
+	
+	
+	<package name="doctor" extends="default" namespace="/doctor">	
+		<!-- DOCTOR -->
+		<action name="prepare" class="registerDoctorBasicInfoAction" method="prepareDoctorBasicInfo">
+			<result name="success">prepareInsert.jsp</result>
 		</action>
 		
-		<action name="create" class="test.action.user.CreateAction">
-			<result name="success">user/create.jsp</result>
+		<action name="insert" class="registerDoctorBasicInfoAction" method="insertDoctorBasicInfo">
+			<result name="success">insertDone.txt</result>
 		</action>
 		
-		
-
 	</package>
 
 </struts>
