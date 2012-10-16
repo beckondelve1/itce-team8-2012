@@ -13,5 +13,6 @@
 	default-autowire="byName">
 
 	<bean id="registerDoctorBasicInfoAction" class="postech.itce.team8.action.RegisterDoctorBasicInfoAction" scope="prototype"/>
+	<bean id="fileUploadAction" class="postech.itce.team8.action.FileUploadAction" scope="prototype"/>
 	
 </beans>
