@@ -5,11 +5,11 @@
 <mapper namespace="postech.itce.team8.model.mapper.DoctorMapper">
 
 	<select id="findDoctorList" resultType="postech.itce.team8.model.domain.Doctor">
-		SELECT id,fullname,username,password FROM doctor
+		SELECT id,fullname as fullName,username as userName,password as password FROM doctor
 	</select>
 
 	<insert id="insertDoctor" parameterType="postech.itce.team8.model.domain.Doctor">
-		INSERT INTO doctor (fullname,username,password) VALUES (#{fullname},#{username},#{password})
+		INSERT INTO doctor (fullname,username,password) VALUES (#{fullName},#{userName},#{password})
 	</insert>
 
 </mapper>

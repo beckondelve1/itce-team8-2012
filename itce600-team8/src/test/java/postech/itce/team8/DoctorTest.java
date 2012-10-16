@@ -39,24 +39,24 @@ public class DoctorTest {
 		dataSource.getConnection();
 	}
 	
-	@Test
-	//testFindDoctorList
-	public void testFindDoctorList(){
-		System.out.println("testFindDoctorList");
-		
-		System.out.println(doctorService == null);
-		
-		List<Doctor> list = doctorService.findDoctorList();
-		Iterator<Doctor> iter = list.iterator();
-		
-		while (iter.hasNext()){
-			Doctor doctor = iter.next();
-			System.out.println(doctor.getId() + "\t" + doctor.getFullName() + "\t"
-					+ doctor.getUserName() + "\t" + doctor.getPassword());
-		}
-		
-		System.out.println("DONE !");
-	}
+//	@Test
+//	//testFindDoctorList
+//	public void testFindDoctorList(){
+//		System.out.println("testFindDoctorList");
+//		
+//		System.out.println(doctorService == null);
+//		
+//		List<Doctor> list = doctorService.findDoctorList();
+//		Iterator<Doctor> iter = list.iterator();
+//		
+//		while (iter.hasNext()){
+//			Doctor doctor = iter.next();
+//			System.out.println(doctor.getId() + "\t" + doctor.getFullName() + "\t"
+//					+ doctor.getUserName() + "\t" + doctor.getPassword());
+//		}
+//		
+//		System.out.println("DONE !");
+//	}
 	
 	
 	/**
