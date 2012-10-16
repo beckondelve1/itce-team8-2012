@@ -5,6 +5,7 @@
 
 <struts>
 
+	<constant name="struts.action.extension" value="do"/> 
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
@@ -34,6 +35,36 @@
 	
 	
 	<package name="doctor" extends="default" namespace="/doctor">	
+		<!-- File Upload -->
+		<action name="prepareUpload" class="fileUploadAction"
+			method="display">
+			<result name="none">fileupload.jsp</result>
+		</action>
+		
+		<action name="executeUpload" class="fileUploadAction">
+			<interceptor-ref name="exception" />
+			<interceptor-ref name="i18n" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">audio/wav</param>
+				<param name="maximumSize">1024000</param>
+			</interceptor-ref>
+			<interceptor-ref name="params">
+				<param name="excludeParams">dojo\..*,^struts\..*</param>
+			</interceptor-ref>
+			<interceptor-ref name="servletConfig">
+			</interceptor-ref>
+			<interceptor-ref name="validation">
+				<param name="excludeMethods">input,back,cancel,browse</param>
+			</interceptor-ref>
+			<interceptor-ref name="workflow">
+				<param name="excludeMethods">input,back,cancel,browse</param>
+			</interceptor-ref>
+
+			<result name="success">uploadDone.txt</result>
+			<result name="input">fileupload.jsp</result>
+
+		</action>
+		
 		<!-- DOCTOR -->
 		<action name="prepare" class="registerDoctorBasicInfoAction" method="prepareDoctorBasicInfo">
 			<result name="success">prepareInsert.jsp</result>
