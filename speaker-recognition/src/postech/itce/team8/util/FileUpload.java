@@ -9,6 +9,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+
 import android.util.Log;
 
 public class FileUpload {
@@ -74,7 +77,7 @@ public class FileUpload {
 			}
 			// send multipart form data necesssary after file data...
 			dos.writeBytes(lineEnd);
-			dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+			dos.writeBytes(twoHyphens + boundary + lineEnd);
 			
 			//2. 
 			dos.writeBytes("Content-Disposition: form-data; name=\"userName\"" + lineEnd);
@@ -112,4 +115,5 @@ public class FileUpload {
 			return "ERROR";
 		}
 	}
+	
 }
