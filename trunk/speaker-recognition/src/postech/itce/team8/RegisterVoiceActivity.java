@@ -11,11 +11,13 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RegisterVoiceActivity extends Activity {
 	private static final String LOG_TAG = "RegisterVoiceActivity";
 	
-	private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600_server/UploadServlet";	
+	//private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600_server/UploadServlet";	
+	private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600-team8/doctor/executeUpload.do";
 	
 	//UI controls
 	private Button btnRecord;
@@ -26,13 +28,14 @@ public class RegisterVoiceActivity extends Activity {
 	private Button btnFinish;
 	private Button btnCancel;
 	
+	private TextView lblSampleSentences;
 	private TextView lblSampleSentence;
 	//audio recorder
 	private AudioRecorder audioRecorder;
 	//file uploader
 	
 	//sample sentences
-	private int currentSentence = 0;
+	private int currentSentence;
 	private String[] sampleSentences;
 	private String audioRecorderFolder;
 	private int numberOfUploaded = 0;
@@ -50,6 +53,7 @@ public class RegisterVoiceActivity extends Activity {
         btnFinish = (Button)findViewById(R.id.btnFinish);
         btnCancel = (Button)findViewById(R.id.btnCancel);
         
+        lblSampleSentences = (TextView)findViewById(R.id.lblSampleSentences);
         lblSampleSentence = (TextView)findViewById(R.id.lblSampleSentence);
         
         Bundle savedBasicInfo = this.getIntent().getExtras();
@@ -59,6 +63,7 @@ public class RegisterVoiceActivity extends Activity {
         Log.i(LOG_TAG, "password=" + savedBasicInfo.get("password"));
         
         //
+        currentSentence = 0;
         sampleSentences = new String[]{getString(R.string.sample_sentence_1),
         		getString(R.string.sample_sentence_2),
         		getString(R.string.sample_sentence_3),
@@ -67,7 +72,10 @@ public class RegisterVoiceActivity extends Activity {
         		getString(R.string.sample_sentence_6),
         		getString(R.string.sample_sentence_7)};
         
-        //
+        lblSampleSentences.setText(getString(R.string.lblSampleSentences) +" [1/"+ 
+        		sampleSentences.length + "]");
+        
+        		//
         btnRecord.setOnClickListener(btnRecordHandler);
         btnStop.setOnClickListener(btnStopHandler);
         btnPlay.setOnClickListener(btnPlayHandler);
@@ -148,6 +156,10 @@ public class RegisterVoiceActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			currentSentence++;
+			
+			lblSampleSentences.setText(getString(R.string.lblSampleSentences) +" ["+ 
+					Integer.toString(currentSentence+1)+"/" + sampleSentences.length + "]");
+			
 			lblSampleSentence.setText(sampleSentences[currentSentence]);
 		}
 	};
@@ -160,10 +172,8 @@ public class RegisterVoiceActivity extends Activity {
 			Log.i(LOG_TAG, "Prepare to upload audio files...");
 			
 			numberOfUploaded = 0;
-			for (int i = 0; i <= currentSentence; i++){
-				String fileName = Integer.toString(i) + ".wav";
-				new UploadFileTask().execute(audioRecorderFolder+"/"+fileName, fileName, UPLOAD_URL);
-			}
+			//new UploadFileTask().execute(audioRecorderFolder, UPLOAD_URL);
+			new UploadFileTask().execute("/sdcard/AudioRecorder", UPLOAD_URL);
 		}
 	};
 	
@@ -172,13 +182,26 @@ public class RegisterVoiceActivity extends Activity {
 
 		@Override
 		protected Long doInBackground(String... params) {
-			FileUpload.doFileUpload(params[0],params[1],params[2]);	//selectedPath, fileName, urlString 
-			return null;
+			//upload all files: 0.wav,1.wav,....
+			for (int i = 0; i <= currentSentence; i++){
+				String fileName = Integer.toString(i) + ".wav";
+				
+				FileUpload.doFileUpload(params[0]+"/"+fileName,fileName,params[1]);	//selectedPath, fileName, urlString
+				numberOfUploaded++;
+			}
+			
+			return Long.valueOf(numberOfUploaded);
 		}
 		
 		protected void onPostExecute(Long result) {
-			numberOfUploaded++;
+			Toast toast = Toast.makeText(getApplicationContext(), "Uploaded " + result + " file(s)", 
+					Toast.LENGTH_SHORT);
+			toast.show();
 	    }
 		
 	}
 }
+
+
+
+
