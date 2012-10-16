@@ -1,7 +1,11 @@
 package postech.itce.team8;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import postech.itce.team8.util.AudioRecorder;
 import postech.itce.team8.util.FileUpload;
+import postech.itce.team8.util.HttpPostRequester;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -18,6 +22,7 @@ public class RegisterVoiceActivity extends Activity {
 	
 	//private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600_server/UploadServlet";	
 	private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600-team8/doctor/executeUpload.do";
+	private static final String ENROLL_URL = "http://141.223.83.139:8080/itce600-team8/doctor/enrollVoice.do";
 	
 	//UI controls
 	private Button btnRecord;
@@ -33,6 +38,9 @@ public class RegisterVoiceActivity extends Activity {
 	//audio recorder
 	private AudioRecorder audioRecorder;
 	//file uploader
+	
+	//
+	Bundle savedBasicInfo;
 	
 	//sample sentences
 	private int currentSentence;
@@ -56,7 +64,7 @@ public class RegisterVoiceActivity extends Activity {
         lblSampleSentences = (TextView)findViewById(R.id.lblSampleSentences);
         lblSampleSentence = (TextView)findViewById(R.id.lblSampleSentence);
         
-        Bundle savedBasicInfo = this.getIntent().getExtras();
+        savedBasicInfo = this.getIntent().getExtras();
         //debug
         Log.i(LOG_TAG, "fullName=" + savedBasicInfo.get("fullName"));
         Log.i(LOG_TAG, "userName=" + savedBasicInfo.get("userName"));
@@ -171,9 +179,14 @@ public class RegisterVoiceActivity extends Activity {
 		public void onClick(View v) {
 			Log.i(LOG_TAG, "Prepare to upload audio files...");
 			
+			String userName = savedBasicInfo.get("userName").toString();
+			
+			//1. upload files
 			numberOfUploaded = 0;
 			//new UploadFileTask().execute(audioRecorderFolder, UPLOAD_URL);
-			new UploadFileTask().execute("/sdcard/AudioRecorder", UPLOAD_URL);
+			new UploadFileTask().execute("/sdcard/AudioRecorder", UPLOAD_URL, userName);
+			
+			
 		}
 	};
 	
@@ -186,7 +199,7 @@ public class RegisterVoiceActivity extends Activity {
 			for (int i = 0; i <= currentSentence; i++){
 				String fileName = Integer.toString(i) + ".wav";
 				
-				FileUpload.doFileUpload(params[0]+"/"+fileName,fileName,params[1]);	//selectedPath, fileName, urlString
+				FileUpload.doFileUpload(params[0]+"/"+fileName,fileName, params[1], params[2]);	//selectedPath, fileName, urlString
 				numberOfUploaded++;
 			}
 			
@@ -197,6 +210,16 @@ public class RegisterVoiceActivity extends Activity {
 			Toast toast = Toast.makeText(getApplicationContext(), "Uploaded " + result + " file(s)", 
 					Toast.LENGTH_SHORT);
 			toast.show();
+			
+			//2. request voice enrollment
+			String userName = savedBasicInfo.get("userName").toString();
+			
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("userName", userName);
+			map.put("numberOfFiles", Long.toString(result));
+			
+			HttpPostRequester.postData(ENROLL_URL, map);
+			
 	    }
 		
 	}

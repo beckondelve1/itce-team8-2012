@@ -31,6 +31,15 @@ public class MainActivity extends Activity {
 			}
 		});
         
+        //
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				startActivity(new Intent(MainActivity.this, LoginActivity.class));
+				
+			}
+		});
     }
 
     @Override

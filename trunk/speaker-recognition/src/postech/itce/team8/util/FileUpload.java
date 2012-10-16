@@ -15,7 +15,8 @@ public class FileUpload {
 	private static final String LOG_TAG = "FileUpload";
 	
 	//
-	public static String doFileUpload(String selectedPath, String fileName, String urlString) {
+	public static String doFileUpload(String selectedPath, String fileName, String urlString, 
+			String userName) {
 		HttpURLConnection conn = null;
 		DataOutputStream dos = null;
 		DataInputStream inStream = null;
@@ -52,11 +53,11 @@ public class FileUpload {
 			conn.setRequestProperty("Content-Type",
 					"multipart/form-data;boundary=" + boundary);
 			dos = new DataOutputStream(conn.getOutputStream());
-			dos.writeBytes(twoHyphens + boundary + lineEnd);
-			dos.writeBytes("Content-Disposition: form-data; name=\"fileUpload\"; filename=\""
-					+ fileName + "\"" + lineEnd);
-			dos.writeBytes("Content-Type: audio/wav" + lineEnd);
 			
+			//1.
+			dos.writeBytes(twoHyphens + boundary + lineEnd);
+			dos.writeBytes("Content-Disposition: form-data; name=\"fileUpload\"; filename=\"" + fileName + "\"" + lineEnd);
+			dos.writeBytes("Content-Type: audio/wav" + lineEnd);
 			dos.writeBytes(lineEnd);
 			
 			// create a buffer of maximum size
@@ -74,6 +75,14 @@ public class FileUpload {
 			// send multipart form data necesssary after file data...
 			dos.writeBytes(lineEnd);
 			dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+			
+			//2. 
+			dos.writeBytes("Content-Disposition: form-data; name=\"userName\"" + lineEnd);
+			dos.writeBytes(lineEnd);
+			
+			dos.writeBytes(userName + lineEnd);
+			dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+			
 			// close streams
 			Log.e(LOG_TAG, "File is written");
 			fileInputStream.close();
