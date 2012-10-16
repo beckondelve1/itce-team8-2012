@@ -6,7 +6,10 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 
-	<package name="default" namespace="/" extends="struts-default">
+	<!--
+	<package name="default" namespace="/" extends="struts-default">  
+	-->
+	<package name="default" namespace="/" extends="json-default">
 
 		<action name="userAction" class="com.mkyong.user.action.UserAction">
 			<result name="success">pages/user.jsp</result>
@@ -44,6 +47,11 @@
 			<result name="success">common/result.jsp</result>
 			<result name="input">common/fileupload.jsp</result>
 
+		</action>
+
+		<!-- JSON -->
+		<action name="getJSONResult" class="com.mkyong.common.action.JSONDataAction">
+			<result type="json" />
 		</action>
 
 
