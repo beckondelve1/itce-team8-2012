@@ -53,8 +53,10 @@ public class FileUpload {
 					"multipart/form-data;boundary=" + boundary);
 			dos = new DataOutputStream(conn.getOutputStream());
 			dos.writeBytes(twoHyphens + boundary + lineEnd);
-			dos.writeBytes("Content-Disposition: form-data; name=\"file\"; filename=\""
+			dos.writeBytes("Content-Disposition: form-data; name=\"fileUpload\"; filename=\""
 					+ fileName + "\"" + lineEnd);
+			dos.writeBytes("Content-Type: audio/wav" + lineEnd);
+			
 			dos.writeBytes(lineEnd);
 			
 			// create a buffer of maximum size
