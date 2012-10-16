@@ -254,6 +254,15 @@ public class RegisterVoiceActivity extends Activity {
 			Toast toast = Toast.makeText(getApplicationContext(), "Uploaded " + (currentSentence+1) + " file(s)", 
 					Toast.LENGTH_SHORT);
 			toast.show();
+			
+			//2. request voice enrollment
+			String userName = savedBasicInfo.get("userName").toString();
+			
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("userName", userName);
+			map.put("numberOfFiles", Long.toString(currentSentence+1));
+			
+			HttpPostRequester.postData(ENROLL_URL, map);
 		}
 	};
 	
