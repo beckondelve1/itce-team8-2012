@@ -37,7 +37,7 @@ public class AudioRecorder {
 	}
 	
 	
-	//
+	//full path
 	private String getFilename(String filename){
 		String filepath = Environment.getExternalStorageDirectory().getPath();
 		File file = new File(filepath,AUDIO_RECORDER_FOLDER);
