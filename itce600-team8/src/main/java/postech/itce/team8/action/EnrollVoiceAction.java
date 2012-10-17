@@ -40,7 +40,7 @@ public class EnrollVoiceAction extends ActionSupport {
 		Thread.sleep(1000);
 		//3.
 		OSCommand.runEnergyDetector(userName, numberOfFiles);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		//4.
 		OSCommand.runReNormFeatEnergy(userName, numberOfFiles);
 		Thread.sleep(1000);

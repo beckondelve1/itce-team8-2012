@@ -24,9 +24,18 @@ public class DoctorService {
 		return doctorMapper.findDoctorUserNameList();
 	}
 	
+	public Doctor findDoctorByUserName(String userName){
+		return doctorMapper.findDoctorByUserName(userName);
+	}
+	
 	@Transactional(rollbackFor = java.lang.Exception.class)
 	public void insertDoctor(Doctor doctor){
 		doctorMapper.insertDoctor(doctor);
+	}
+	
+	@Transactional(rollbackFor = java.lang.Exception.class)
+	public void updateDoctor(Doctor doctor){
+		doctorMapper.updateDoctor(doctor);
 	}
 	
 	public boolean isDoctorExisted(String userName){
