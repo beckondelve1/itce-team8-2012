@@ -15,17 +15,16 @@ import postech.itce.team8.model.service.DoctorService;
 public class OSCommand {
 	
 	
-	//public static final String ROOT_PATH = "E:\\caidat\\";
+	public static final String ROOT_PATH = "E:\\caidat\\";
+	public static final String SPRO_PATH = ROOT_PATH + "Audio-Processing\\SPro\\spro-4.0\\";
+	public static final String WAVE_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
+	public static final String OUTPUT_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
+	/*
 	public static final String ROOT_PATH = "D:\\setup\\";
-	
-	//public static final String SPRO_PATH = "E:\\caidat\\Audio-Processing\\ucungsr-TP-Biometrie\\bin\\spro\\";
-	
-	//public static final String SPRO_PATH = ROOT_PATH + "Audio-Processing\\SPro\\spro-4.0\\";
-	//public static final String WAVE_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
-	//public static final String OUTPUT_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
 	public static final String SPRO_PATH = ROOT_PATH + "Audio-Processing\\spro-4.0\\";
 	public static final String WAVE_PATH = ROOT_PATH + "Apache\\apache-tomcat-6.0.35\\webapps\\data\\";
 	public static final String OUTPUT_PATH = ROOT_PATH + "Apache\\apache-tomcat-6.0.35\\webapps\\data\\";
+	*/
 	
 	//
 	public static final String LIA_RAL_PATH = ROOT_PATH + "Audio-Processing\\ALIZE\\LIA_RAL\\bin\\";

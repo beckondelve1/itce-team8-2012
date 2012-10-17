@@ -75,6 +75,19 @@ public class DoctorTest {
 	
 	
 //	@Test
+//	//testFindDoctorByUserName
+//	public void testFindDoctorByUserName(){
+//		System.out.println("testFindDoctorByUserName");
+//		
+//		Doctor doctor = doctorService.findDoctorByUserName("def");
+//		System.out.println(doctor.getId() + "\t" + doctor.getFullName() + "\t"
+//					+ doctor.getUserName() + "\t" + doctor.getPassword() + "\t" + doctor.getLastLoginId());
+//		
+//		System.out.println("DONE !");
+//	}
+	
+	
+//	@Test
 //	//testIsDoctorExisted
 //	public void testIsDoctorExisted(){
 //		System.out.println("testIsDoctorExisted");
@@ -95,6 +108,20 @@ public class DoctorTest {
 //		
 //		System.out.println("DONE");
 //		
+//		
+//	}
+	
+	
+//	@Test
+//	//testUpdateDoctor
+//	public void testUpdateDoctor(){
+//		System.out.println("testUpdateDoctor");
+//		
+//		Doctor doctor = new Doctor("abc", "def", "gih", 1);
+//		
+//		doctorService.updateDoctor(doctor);
+//		
+//		System.out.println("DONE");
 //		
 //	}
 	

@@ -10,7 +10,11 @@ public interface DoctorMapper {
   
   List<String> findDoctorUserNameList();
   
+  Doctor findDoctorByUserName(String userName);
+  
   void insertDoctor(Doctor doctor);
+  
+  void updateDoctor(Doctor doctor);
   
   int isDoctorExisted(String userName);
 	  

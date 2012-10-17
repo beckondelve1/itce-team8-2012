@@ -61,6 +61,10 @@
 			</interceptor-ref>
 
 			<result name="success">uploadDone.txt</result>
+			<result name="login" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
 			<result name="input">fileupload.jsp</result>
 
 		</action>

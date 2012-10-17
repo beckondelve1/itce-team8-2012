@@ -5,16 +5,31 @@
 <mapper namespace="postech.itce.team8.model.mapper.DoctorMapper">
 
 	<select id="findDoctorList" resultType="postech.itce.team8.model.domain.Doctor">
-		SELECT id,fullname as fullName,username as userName,password as password FROM doctor
+		SELECT id,fullname as fullName,username as userName,password as password, 
+		last_login_id as lastLoginId FROM doctor
 	</select>
 	
 	<select id="findDoctorUserNameList" resultType="string">
 		SELECT username FROM doctor
 	</select>
+	
+	<select id="findDoctorByUserName" parameterType="string" resultType="postech.itce.team8.model.domain.Doctor">
+		SELECT id,fullname as fullName,username as userName,password as password, 
+		last_login_id as lastLoginId FROM doctor WHERE username = #{userName}
+	</select>
 
 	<insert id="insertDoctor" parameterType="postech.itce.team8.model.domain.Doctor">
 		INSERT INTO doctor (fullname,username,password) VALUES (#{fullName},#{userName},#{password})
 	</insert>
+	
+	<update id="updateDoctor" parameterType="postech.itce.team8.model.domain.Doctor">
+		UPDATE doctor 
+		SET 
+			fullname = #{fullName},
+			password = #{password},
+			last_login_id = #{lastLoginId}
+		WHERE userName = #{userName}
+	</update>
 	
 	<select id="isDoctorExisted" resultType="int" parameterType="string">
 		SELECT COUNT(*) FROM doctor WHERE username = #{userName}
