@@ -7,6 +7,10 @@
 	<select id="findDoctorList" resultType="postech.itce.team8.model.domain.Doctor">
 		SELECT id,fullname as fullName,username as userName,password as password FROM doctor
 	</select>
+	
+	<select id="findDoctorUserNameList" resultType="string">
+		SELECT username FROM doctor
+	</select>
 
 	<insert id="insertDoctor" parameterType="postech.itce.team8.model.domain.Doctor">
 		INSERT INTO doctor (fullname,username,password) VALUES (#{fullName},#{userName},#{password})

@@ -34,12 +34,16 @@ public class EnrollVoiceAction extends ActionSupport {
 		
 		//1.
 		OSCommand.runSPro(userName, numberOfFiles);
+		Thread.sleep(1000);
 		//2.
 		OSCommand.runNormFeatEnergy(userName, numberOfFiles);
+		Thread.sleep(1000);
 		//3.
 		OSCommand.runEnergyDetector(userName, numberOfFiles);
+		Thread.sleep(1000);
 		//4.
 		OSCommand.runReNormFeatEnergy(userName, numberOfFiles);
+		Thread.sleep(1000);
 		//5.
 		OSCommand.runTrainTarget(userName, numberOfFiles);
 		

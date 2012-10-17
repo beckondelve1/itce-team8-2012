@@ -8,6 +8,8 @@ public interface DoctorMapper {
 
   List<Doctor> findDoctorList();
   
+  List<String> findDoctorUserNameList();
+  
   void insertDoctor(Doctor doctor);
   
   int isDoctorExisted(String userName);

@@ -58,6 +58,21 @@ public class DoctorTest {
 //		System.out.println("DONE !");
 //	}
 	
+//	@Test
+//	//testFindDoctorUserNameList
+//	public void testFindDoctorUserNameList(){
+//		System.out.println("testFindDoctorUserNameList");
+//		
+//		List<String> list = doctorService.findDoctorUserNameList();
+//		Iterator<String> iter = list.iterator();
+//		
+//		while (iter.hasNext()){
+//			System.out.println(iter.next());
+//		}
+//		
+//		System.out.println("DONE !");
+//	}
+	
 	
 //	@Test
 //	//testIsDoctorExisted

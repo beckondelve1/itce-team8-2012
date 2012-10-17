@@ -8,6 +8,10 @@ public class Doctor {
 	private String password;
 	
 	//ctr
+	public Doctor(){
+		
+	}
+	
 	public Doctor(String fullName, String userName, String password) {
 		super();
 		this.fullName = fullName;

@@ -15,8 +15,13 @@ public class DoctorService {
 	@Autowired
 	private DoctorMapper doctorMapper;
 	
+	//
 	public List<Doctor> findDoctorList(){
 		return doctorMapper.findDoctorList();
+	}
+	
+	public List<String> findDoctorUserNameList(){
+		return doctorMapper.findDoctorUserNameList();
 	}
 	
 	@Transactional(rollbackFor = java.lang.Exception.class)
