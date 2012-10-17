@@ -57,7 +57,7 @@
             android:text="@string/btnRecord" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnStop"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

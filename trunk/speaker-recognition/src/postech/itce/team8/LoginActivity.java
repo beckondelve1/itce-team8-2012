@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import postech.itce.team8.util.AudioRecorder;
+import postech.itce.team8.util.Constants;
 import postech.itce.team8.util.FileUpload;
 import postech.itce.team8.util.HttpPostRequester;
 
@@ -35,13 +36,9 @@ public class LoginActivity extends Activity {
 	private static final String LOG_TAG = "LoginActivity";
 
 	//
-	private static final int ID_DIALOG_LOADING = 0;
+	private static final int ID_DIALOG_UPLOADING = 0;
+	private static final int ID_DIALOG_VERIFYING = 0;
 	
-	//private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600_server/UploadServlet";	
-	//119.202.84.55
-	//172.168.148.228
-	private static final String UPLOAD_URL = "http://119.202.84.125:8080/itce600-team8/doctor/executeUpload.do";
-	private static final String IDENTIFY_URL = "http://119.202.84.125:8080/itce600-team8/doctor/enrollVoice.do";
 	
 	//
 	final Context context = this;
@@ -53,6 +50,8 @@ public class LoginActivity extends Activity {
 	//audio recorder
 	private AudioRecorder audioRecorder;
 	private String audioRecorderFolder;
+	//
+	private String lastLoginId;
 	
 	// UI controls
 	private Spinner spRecentUsers;
@@ -65,6 +64,8 @@ public class LoginActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		//
+        mHandler = new Handler();
 		//
 		spRecentUsers = (Spinner) findViewById(R.id.spRecentUsers);
 		lblCaptcha = (TextView) findViewById(R.id.lblCaptcha);
@@ -226,7 +227,7 @@ public class LoginActivity extends Activity {
 		public void onClick(View v) {
 			enableButtons(false);
 			
-			audioRecorder.stopRecording("temp.wav");
+			audioRecorder.stopRecording("temp");
 			
 			Log.i(LOG_TAG, "Finish recording, filename=" + audioRecorder.getSavedFilename());
 			audioRecorder = null;
@@ -237,30 +238,57 @@ public class LoginActivity extends Activity {
 			String userName = spRecentUsers.getSelectedItem().toString();
 			
 			//1. upload files
-			showDialog(ID_DIALOG_LOADING);
+			showDialog(ID_DIALOG_UPLOADING);
 			startUploadTempFile();
 			
 		}
 	};
 	
 	//
-	private final Runnable postResults = new Runnable() {
+	private final Runnable uploadFileResult = new Runnable() {
 		@Override
 		public void run(){
-			Toast toast = Toast.makeText(getApplicationContext(), "Uploaded temp file", 
+			Toast toast = Toast.makeText(getApplicationContext(), "Uploaded temp.wav file", 
 					Toast.LENGTH_SHORT);
 			toast.show();
 			
-			//2. request voice enrollment
-			String userName = spRecentUsers.getSelectedItem().toString();
-			
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("userName", userName);
-			map.put("loginId", "temp");
-			
-			HttpPostRequester.postData(IDENTIFY_URL, map);
+			//2. request voice identification 
+			showDialog(ID_DIALOG_VERIFYING);
+			startRequestVerifyingAudio();
 		}
 	};
+	
+	private final Runnable verifyFileResult = new Runnable() {
+		@Override
+		public void run(){
+			Toast toast = Toast.makeText(getApplicationContext(), "Verified temp.wav file", 
+					Toast.LENGTH_SHORT);
+			toast.show();
+		}
+	};
+	
+	private void startRequestVerifyingAudio(){
+		Thread t = new Thread() {
+			@Override
+			public void run() {
+				String userName = spRecentUsers.getSelectedItem().toString();
+				
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("userName", userName);
+				map.put("loginId", lastLoginId);
+				
+				String responseStr = HttpPostRequester.postData(Constants.IDENTIFY_URL, map);
+				Log.i(LOG_TAG, "responseStr="+responseStr);
+				
+				//
+				dismissDialog(ID_DIALOG_VERIFYING);
+				mHandler.post(verifyFileResult);
+			}
+		};
+		t.start();
+		
+		
+	}
 	
 	private void startUploadTempFile(){
     	Thread t = new Thread() {
@@ -268,13 +296,15 @@ public class LoginActivity extends Activity {
 			public void run() {
 				//upload all files: 0.wav,1.wav,....
 				String userName = spRecentUsers.getSelectedItem().toString();
-					String fileName = "temp.wav";
+				String fileName = "temp.wav";
 					
-					FileUpload.doFileUpload("/sdcard/AudioRecorder/login/"+fileName,fileName, UPLOAD_URL, userName);	//selectedPath, fileName, urlString
+				lastLoginId = FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName);	//selectedPath, fileName, urlString
 				
 				//
-				dismissDialog(ID_DIALOG_LOADING);
-				mHandler.post(postResults);
+				dismissDialog(ID_DIALOG_UPLOADING);
+				mHandler.post(uploadFileResult);
+				
+				
 			}
 		};
 		t.start();
@@ -282,12 +312,21 @@ public class LoginActivity extends Activity {
 	
 	@Override
 	protected Dialog onCreateDialog(int id, Bundle bundle) {
-		if(id == ID_DIALOG_LOADING){
-			ProgressDialog loadingDialog = new ProgressDialog(this);
-			loadingDialog.setMessage("Uploading login audio file...");
-			loadingDialog.setIndeterminate(true);
-			loadingDialog.setCancelable(true);
-			return loadingDialog;
+		if(id == ID_DIALOG_UPLOADING){
+			ProgressDialog uploadingDialog = new ProgressDialog(this);
+			uploadingDialog.setMessage("Uploading login audio file...");
+			uploadingDialog.setIndeterminate(true);
+			uploadingDialog.setCancelable(true);
+			return uploadingDialog;
+			
+		}
+		
+		if(id == ID_DIALOG_VERIFYING){
+			ProgressDialog verifyingDialog = new ProgressDialog(this);
+			verifyingDialog.setMessage("Verifying login audio file...");
+			verifyingDialog.setIndeterminate(true);
+			verifyingDialog.setCancelable(true);
+			return verifyingDialog;
 			
 		}
 	    	

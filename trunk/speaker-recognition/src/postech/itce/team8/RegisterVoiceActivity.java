@@ -1,9 +1,11 @@
 package postech.itce.team8;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import postech.itce.team8.util.AudioRecorder;
+import postech.itce.team8.util.Constants;
 import postech.itce.team8.util.FileUpload;
 import postech.itce.team8.util.HttpPostRequester;
 import android.os.AsyncTask;
@@ -25,13 +27,12 @@ public class RegisterVoiceActivity extends Activity {
 	private static final String LOG_TAG = "RegisterVoiceActivity";
 	
 	//
-	private static final int ID_DIALOG_LOADING = 0;
+	private static final int ID_DIALOG_UPLOADING = 0;
+	private static final int ID_DIALOG_ENROLLING = 0;
 	
 	//private static final String UPLOAD_URL = "http://141.223.83.139:8080/itce600_server/UploadServlet";	
 	//119.202.84.55
 	//172.168.148.228
-	private static final String UPLOAD_URL = "http://119.202.84.125:8080/itce600-team8/doctor/executeUpload.do";
-	private static final String ENROLL_URL = "http://119.202.84.125:8080/itce600-team8/doctor/enrollVoice.do";
 	
 	//UI controls
 	private Button btnRecord;
@@ -205,7 +206,7 @@ public class RegisterVoiceActivity extends Activity {
 			//new UploadFileTask().execute("/sdcard/AudioRecorder", UPLOAD_URL, userName);
 			
 			//another technique
-			showDialog(ID_DIALOG_LOADING);
+			showDialog(ID_DIALOG_UPLOADING);
 			startUploadFiles();
 			
 		}
@@ -240,7 +241,7 @@ public class RegisterVoiceActivity extends Activity {
 			map.put("userName", userName);
 			map.put("numberOfFiles", Long.toString(result));
 			
-			HttpPostRequester.postData(ENROLL_URL, map);
+			HttpPostRequester.postData(Constants.ENROLL_URL, map);
 			
 	    }
 		
@@ -248,7 +249,7 @@ public class RegisterVoiceActivity extends Activity {
 	
 	//TECHNIQUE 2
 	//
-	private final Runnable postResults = new Runnable() {
+	private final Runnable uploadFilesResult = new Runnable() {
 		@Override
 		public void run(){
 			Toast toast = Toast.makeText(getApplicationContext(), "Uploaded " + (currentSentence+1) + " file(s)", 
@@ -256,15 +257,43 @@ public class RegisterVoiceActivity extends Activity {
 			toast.show();
 			
 			//2. request voice enrollment
-			String userName = savedBasicInfo.get("userName").toString();
+			showDialog(ID_DIALOG_ENROLLING);
+			startRequestEnrollingAudio();
 			
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("userName", userName);
-			map.put("numberOfFiles", Long.toString(currentSentence+1));
 			
-			HttpPostRequester.postData(ENROLL_URL, map);
 		}
 	};
+	
+	private final Runnable enrollFilesResult = new Runnable() {
+		@Override
+		public void run(){
+			Toast toast = Toast.makeText(getApplicationContext(), "Enrolled " + (currentSentence+1) + " file(s)", 
+					Toast.LENGTH_SHORT);
+			toast.show();
+		}
+	};
+	
+	private void startRequestEnrollingAudio(){
+		Thread t = new Thread() {
+			@Override
+			public void run() {
+				String userName = savedBasicInfo.get("userName").toString();
+				
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("userName", userName);
+				map.put("numberOfFiles", Long.toString(currentSentence+1));
+				
+				HttpPostRequester.postData(Constants.ENROLL_URL, map);
+				
+				//
+				dismissDialog(ID_DIALOG_ENROLLING);
+				mHandler.post(enrollFilesResult);
+			}
+		};
+		t.start();
+		
+		
+	}
 	
 	private void startUploadFiles(){
     	Thread t = new Thread() {
@@ -275,13 +304,21 @@ public class RegisterVoiceActivity extends Activity {
 				for (int i = 0; i <= currentSentence; i++){
 					String fileName = Integer.toString(i) + ".wav";
 					
-					FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, UPLOAD_URL, userName);	//selectedPath, fileName, urlString
+					FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName);	//selectedPath, fileName, urlString
 					numberOfUploaded++;
 				}
 				
+				//delete all files: 0.wav,1.wav,....
+				/*
+				for (int i = 0; i <= currentSentence; i++){
+					String fileName = Integer.toString(i) + ".wav";
+					new File("/sdcard/AudioRecorder/"+fileName).delete();
+				}
+				*/
+				
 				//
-				dismissDialog(ID_DIALOG_LOADING);
-				mHandler.post(postResults);
+				dismissDialog(ID_DIALOG_UPLOADING);
+				mHandler.post(uploadFilesResult);
 			}
 		};
 		t.start();
@@ -289,9 +326,18 @@ public class RegisterVoiceActivity extends Activity {
 	
 	@Override
 	protected Dialog onCreateDialog(int id, Bundle bundle) {
-		if(id == ID_DIALOG_LOADING){
+		if(id == ID_DIALOG_UPLOADING){
 			ProgressDialog loadingDialog = new ProgressDialog(this);
 			loadingDialog.setMessage("Uploading audio files...");
+			loadingDialog.setIndeterminate(true);
+			loadingDialog.setCancelable(true);
+			return loadingDialog;
+			
+		}
+		
+		if(id == ID_DIALOG_ENROLLING){
+			ProgressDialog loadingDialog = new ProgressDialog(this);
+			loadingDialog.setMessage("Enrolling user voice...");
 			loadingDialog.setIndeterminate(true);
 			loadingDialog.setCancelable(true);
 			return loadingDialog;
