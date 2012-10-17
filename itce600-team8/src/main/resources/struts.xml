@@ -70,6 +70,11 @@
 			<result name="success">enrollVoiceDone.txt</result>
 		</action>
 		
+		<action name="identifyVoice" class="identifyVoiceAction">
+			<result name="success">identifyVoiceDone.txt</result>
+			<result name="error">identifyVoiceError.txt</result>
+		</action>
+		
 		
 		<!-- DOCTOR -->
 		<action name="prepare" class="registerDoctorBasicInfoAction" method="prepareDoctorBasicInfo">

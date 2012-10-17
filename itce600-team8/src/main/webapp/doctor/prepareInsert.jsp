@@ -9,7 +9,7 @@
 <body>
 	Doctor
 	<br>
-	<s:form action="insert.action">
+	<s:form action="insert.do">
 		Full Name: <s:textfield key="doctor.fullName" />
 		User Name: <s:textfield key="doctor.userName" />
 		Password: <s:password key="doctor.password" />
