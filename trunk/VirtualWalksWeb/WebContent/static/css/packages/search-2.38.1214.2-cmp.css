@@ -1,0 +1,148 @@
+.anonymous #register .content,.guest-access-bar-wrapper,.guest-access-bar,#new-header #header-wrapper{width:960px!important}
+#page-content{position:relative;width:960px}
+.white .select-proxy{font-size:13px}
+.white .select-proxy .selected{padding:0 30px 0 10px;background-position:right -289px;line-height:28px}
+.white .select-proxy .option{padding:5px 10px}
+#olta-widget{border:3px solid #b3b3b3;margin-bottom:30px;background-color:#fff;color:#333}
+#olta-widget fieldset{display:none}
+#olta-widget .exact #exact,#olta-widget .weekends #weekends{display:block}
+#olta-widget .field{padding:12px 10px}
+#olta-widget .text{vertical-align:middle;padding:6px 5px;font-size:14px}
+#olta-widget .select{vertical-align:middle}
+#olta-widget .upcoming-weekends{*position:relative;*z-index:1}
+#olta-widget .upcoming-weekends .select-proxy .selected{width:162px}
+#olta-widget .weekdays .select-proxy .selected{width:50px}
+#olta-widget .weekdays .prep{font-size:11px;line-height:31px;color:#aaa;margin-left:6px}
+#olta-widget .weekdays .from{float:left;_display:inline}
+#olta-widget .weekdays .to{float:right;_display:inline;*margin-top:-31px}
+#olta-widget .query .text{width:192px;font-size:18px;font-weight:200}
+#olta-widget .query .autocomplete-dropdown{width:204px;left:10px;top:46px;*width:202px}
+#olta-widget .tabs{overflow:hidden}
+#olta-widget .tabs li{float:left;_display:inline;border-top:1px solid #b3b3b3;background-color:#b3b3b3;color:#fff}
+#olta-widget .tabs li.selected{border-top:1px solid #ddd;background-color:#fff;color:#333}
+#olta-widget .tabs label{display:block;width:112px;padding:7px 0 8px;font-size:14px;font-weight:bold;text-align:center;cursor:pointer;box-shadow:-2px -2px 3px rgba(100,100,100,.3) inset}
+#olta-widget .tabs .weekends label{box-shadow:2px -2px 3px rgba(100,100,100,.3) inset}
+#olta-widget .tabs label:hover,#olta-widget .tabs li.selected label{box-shadow:none}
+#olta-widget .tabs .radio{position:absolute;left:-999em}
+#olta-widget .fieldsets{position:relative;*z-index:2;height:100px}
+#olta-widget fieldset{position:absolute;*z-index:3;left:0;top:0;width:100%;height:100px;background-color:#fff;border-bottom:1px solid #ddd}
+#olta-widget fieldset .field{position:relative;padding-bottom:0}
+#olta-widget fieldset .checkin-field{*z-index:2}
+#olta-widget #exact label{float:left;*display:inline;width:30px;line-height:30px;text-align:right}
+#olta-widget .date{float:right;_display:inline;background-position:134px -94px;width:150px}
+#olta-widget .checkout{background-position:134px -144px}
+#olta-widget .popup-calendar{top:40px;right:10px;padding:0 8px 8px}
+#olta-widget .cta-button{display:block;margin:0 auto;width:203px;height:32px;padding:0 12px;font-size:13px;text-align:left}
+#olta-widget .cta-button .icon{float:right;*display:none;background:url(/static/images/layout/search-sprites.png?4e9c0282) no-repeat 0 0;width:16px;height:16px}
+#options{position:absolute;right:20px;top:16px;z-index:1}
+#options .section{float:left;_display:inline}
+#sort label{margin-right:5px;font-size:13px;color:#777}
+#sort .select-proxy .selected{width:60px}
+#widgets{float:left;_display:inline;width:230px}
+#widgets .header{border-top:1px solid #ccc;margin:30px 0 25px;*zoom:1}
+#widgets h2{width:13em;margin:-.7em auto 0;background-color:#ededed;font-size:11px;text-transform:uppercase;text-align:center;font-weight:bold;letter-spacing:2px;color:#888}
+.module{margin-bottom:20px}
+.module .hd h3,.module .bd{padding:12px}
+#filters{font-size:13px}
+#filters h3{font-size:14px;font-weight:bold}
+#filters .bd h3{font-weight:normal;margin-bottom:.8em}
+#filters li:hover{background-color:#f5f5f5}
+#filters li.disabled{color:#999}
+#filters li.disabled:hover{background-color:transparent}
+#filters .checkboxes ul{margin:0 -12px}
+#filters .checkboxes li{*zoom:1;padding:0 12px}
+#filters .checkboxes .checkbox{float:left;_display:inline;margin-top:6px}
+#filters .checkboxes label{display:block;overflow:hidden;line-height:18px;padding:4px 0 4px 12px;*cursor:default}
+#filters .checkboxes .name{float:left;_display:inline;width:150px}
+#filters .count{float:right;_display:inline;font-size:11px;font-weight:bold;text-align:right;color:#aaa}
+#filters li.disabled .count{opacity:.5;*filter:alpha(opacity=50);-ms-filter:"alpha(opacity=50)"}
+#filters li.checked .count{color:#333}
+#mini-map{padding:0}
+#mini-map img{display:block}
+#destinations-filter .bd{padding-bottom:10px}
+#destinations-filter .action{padding:0 12px 15px;font-size:12px;font-weight:bold}
+.range-slider{position:relative;padding-top:10px;background:url(/static/images/layout/search-sprites.png?4e9c0282) repeat-x 0 -50px}
+.range-slider .knob{position:absolute;top:0;background:url(/static/images/layout/search-sprites.png?4e9c0282) no-repeat 0 -100px;height:25px;width:16px;margin:3px 0 0 -8px;cursor:pointer}
+.range-slider .range-indicator{position:relative;height:8px;width:100%;border-top:1px solid #a6590c;background-color:#f78c0d}
+#price-filter{position:relative;border-bottom:1px solid #e1e1e1;margin-bottom:0}
+#price-filter h3{margin-bottom:1em}
+#price-filter fieldset{display:none}
+#price-filter .range{position:absolute;right:12px;top:14px;text-align:right}
+#price-filter .range-slider{width:190px;height:20px;margin:0 auto}
+#occupancy-filter .bd{padding-bottom:0}
+#occupancy-filter #rooms,#occupancy-filter #bedrooms{*position:relative;*z-index:2;border-bottom:1px solid #e1e1e1}
+#occupancy-filter .section{padding:10px 12px}
+#occupancy-filter label{float:left;_display:inline;font-size:14px;line-height:30px}
+#occupancy-filter .select-proxy{float:right;_display:inline}
+#occupancy-filter .select-proxy .selected{width:20px}
+.icon-checkboxes{padding:0}
+.icon-checkboxes li{*zoom:1;border-bottom:1px solid #f0f0f0}
+.icon-checkboxes li.checked{background:#d7d7d7 url(/static/images/layout/search-sprites.png?4e9c0282) repeat-x 0 -400px;border-bottom:1px solid #d7d7d7}
+.icon-checkboxes label{padding:4px 12px 4px 5px;display:block;overflow:hidden;line-height:30px;*zoom:1}
+.icon-checkboxes .checkbox,.icon-checkboxes .radio{position:absolute;left:-999em}
+.icon-checkboxes .icon{float:left;_display:inline}
+.icon-checkboxes .count{*margin-top:-2.3em}
+#property-types .icon{width:30px;height:30px;margin-right:10px;background:url(/static/images/layout/amenities-sprites.png?v2) no-repeat 0 0}
+#property-types .hotel .icon{background-position:-30px 0}
+#property-types .villa .icon{background-position:-60px 0}
+#amenities-filter .icon{width:30px;height:30px;margin-right:10px;background:url(/static/images/layout/amenities-sprites.png?v2) no-repeat -120px 0}
+#results{position:relative;float:right;_display:inline;width:700px}
+#results .ff3-wrap{display:block}
+#results .matches{margin-bottom:15px;padding:20px;background-color:#fff;color:#333;font-size:18px;font-weight:200}
+#results .flash-banner{position:absolute;right:350px;top:0;z-index:1;-webkit-box-shadow:1px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:1px 1px 2px rgba(0,0,0,0.3);-ms-box-shadow:1px 1px 2px rgba(0,0,0,0.3);-o-box-shadow:1px 1px 2px rgba(0,0,0,0.3);box-shadow:1px 1px 2px rgba(0,0,0,0.3)}
+#results li{margin-bottom:20px;*zoom:1}
+#results li a.result{position:relative;display:block;overflow:hidden;background-color:#fff;color:#777}
+#results li a.result:hover{text-decoration:none;background-color:#f9f9f9;-moz-box-shadow:0 0 5px #ccc;-webkit-box-shadow:0 0 5px #ccc;-o-box-shadow:0 0 5px #ccc;box-shadow:0 0 5px #ccc}
+#results li a.result:focus{border-color:#bbb}
+#results .gallery{float:left;_display:inline;position:relative}
+#results .gallery .slides{position:relative;width:350px;height:200px;overflow:hidden}
+#results .gallery .slide{position:absolute}
+#results .gallery img{position:absolute;top:0}
+#results .gallery .first{z-index:1}
+#results .gallery .first img{background-color:#ccc}
+#results .gallery .rating{width:100%;height:100%;background-color:#000;color:#fff}
+#results .gallery .text{width:260px;margin:0 auto;position:relative;top:75px}
+#results .gallery .rating .icon{float:left;_display:inline;margin-right:15px;background:url(/static/images/layout/search-sprites.png?4e9c0282) no-repeat 0 -550px;width:60px;height:60px;line-height:60px;font-size:22px;font-weight:200;text-align:center}
+#results .gallery .icon .percent{font-size:13px;line-height:54px;vertical-align:top}
+#results .gallery .text p{overflow:hidden;padding-top:12px}
+#results .gallery .gallery-dots{position:absolute;bottom:0;z-index:1;width:100%;background:url(/static/images/layout/gallery-sprites.png?v4) repeat-x 0 -150px;text-align:center;*display:none}
+#results .gallery .gallery-dots a{display:inline-block;background-color:transparent;padding:9px 5px;background-position:5px 9px}
+#results .gallery .gallery-dots a:hover{background-position:-45px 9px}
+#results .gallery .gallery-dots a.selected{background-position:-95px 9px}
+#results .info{float:right;_display:inline;position:relative;width:320px;height:200px;padding:0 15px}
+#results .info .wrapper{margin-top:15px;border:solid #ddd;border-width:1px 0;padding:10px 0;font-size:13px;line-height:1.3;color:#515151}
+#results .info .icon{float:left;_display:inline;width:31px;height:22px;background:url(/static/images/layout/site-sprites.png?454d8420) no-repeat}
+#results .hotel .name .icon{background-position:5px -495px}
+#results .location .icon{background-position:7px -597px}
+#results .villa .name .icon{background-position:4px -544px}
+#results .name{margin:15px 0 5px;font-size:20px;line-height:25px;color:#333;white-space:nowrap}
+#results .name span{vertical-align:middle;*overflow:hidden;*zoom:1}
+#results .location,#results .room-info{color:#999;font-size:13px;line-height:22px}
+#results .location{font-family:georgia,serif;font-style:italic;white-space:nowrap}
+#results .location span,#results .room-info span{*display:inline-block}
+#results .review .icon{float:left;_display:inline;width:22px;height:22px;margin:6px 10px 0 0;background:url(/static/images/layout/search-sprites.png?4e9c0282) no-repeat 1px -650px}
+#results .prices{position:absolute;bottom:15px;width:320px;font-size:12px;color:#999;line-height:30px}
+#results .price-type{float:left;_display:inline;font-weight:bold}
+#results .price{font:italic 22px georgia,serif}
+#results .more:hover{text-decoration:underline}
+#results .more{float:right;_display:inline;font-size:13px;font-weight:bold;color:#f78c0d}
+#results .villa .name{margin:10px 0 4px}
+#results .villa .wrapper{margin-top:10px}
+#results .villa .room-info{margin-top:3px}
+#results .villa .room-info .icon{background:url(/static/images/layout/search-sprites.png?4e9c0282) no-repeat 2px -698px}
+#results .villa .prices{bottom:9px}
+#results .overlay{position:absolute;top:0;left:0;z-index:2;height:100%;width:100%;margin-left:-10px;padding:10px 0 0 10px;opacity:.7;*filter:alpha(opacity=70);-ms-filter:"alpha(opacity=70)";background-color:#ededed}
+#results .overlay p{margin:100px auto 0;width:80px;padding:15px 20px 15px 60px;background:#000 url(/static/images/layout/spinner-black.gif) no-repeat 25px 16px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;font-size:16px;line-height:1.1;color:#fff}
+#no-results{float:right;_display:inline;width:620px;background-color:#fff;padding:40px;color:#777}
+#no-results h2{font-size:28px;margin-bottom:40px;color:#333}
+#no-results h3{font-size:12px;font-weight:normal}
+#no-results ul{list-style:disc;padding-left:1.5em}
+#no-results li,#no-results p{margin-bottom:1em}
+.pagination{clear:both;*padding-top:17px;text-align:center}
+.pagination a,.pagination span{display:inline-block;border:1px solid #ddd;background-color:#fff;margin:0 3px 5px 0;padding:0 8px;font-size:12px;font-weight:bold;outline:0;height:22px;line-height:22px}
+.pagination .page:hover{text-decoration:none;background-color:#f78c0d;color:#fff}
+.pagination .selected{background-color:transparent;border:0;font-size:18px;font-weight:normal;color:#515151;padding:0 4px;position:relative;bottom:-2px;*bottom:0}
+.pagination .selected:hover{background-color:transparent;color:#515151}
+.pagination a.previous,.pagination a.next{border:1px solid #ededed;background:#f78c0d url(/static/images/layout/search-sprites.png?4e9c0282) no-repeat 0 -500px;text-indent:-9999px;width:7px;*text-indent:0;*font-size:0;*line-height:0;*overflow:hidden;*margin-bottom:0}
+.pagination a.next{background-position:-50px -500px}
+.pagination a.previous:hover,.pagination a.next:hover{border:1px solid #ddd;_background-color:transparent}

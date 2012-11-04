@@ -1,0 +1,53 @@
+#inspiration{background:#FFF}
+#inspiration #header-wrapper,#inspiration #footer-inner{width:960px}
+#inspiration #page-content{width:960px;background:#ebebeb}
+#inspiration .hero{height:595px;background:#e6e6e6;padding-top:42px;position:relative}
+#inspiration .hero h1,#inspiration .hero h2{color:#000;font-size:25px;text-align:center}
+#inspiration .hero h2{font-size:54px;margin-top:-8px}
+#inspiration .hero ul{width:100%;height:416px;margin-top:14px;overflow:hidden;position:relative}
+#inspiration .hero li{width:100%;height:100%;position:absolute;top:0;left:0}
+#inspiration .hero li img{width:764px;margin:0 auto;display:block}
+#inspiration .hero .hero-actions{position:absolute;height:41px;bottom:39px;text-align:center;width:100%}
+#inspiration .hero .hero-actions .arrow{display:inline-block;height:41px;vertical-align:middle}
+#inspiration .hero .hero-actions .arrow-prev{width:105px;background:url(../../images/promo/inspiration/hero-prev.png) 0 0 no-repeat}
+#inspiration .hero .hero-actions .arrow-next{width:104px;background:url(../../images/promo/inspiration/hero-next.png) 0 0 no-repeat}
+#inspiration .hero .hero-actions #hero-dots{background:url(../../images/promo/inspiration/hero-dots-bg.png) 0 0 repeat-x;height:41px;display:inline-block;text-align:center;padding:0 14px;vertical-align:middle}
+#inspiration .hero #hero-dots .dot{height:12px;width:12px;font-size:0;text-indent:-9999px;background:url(../../images/promo/inspiration/hero-dots.png) 0 0 no-repeat;display:inline-block;margin:0 4px;padding:0;opacity:1;line-height:0;*zoom:1;*display:inline;*text-indent:0;*font-size:0;*line-height:41px}
+#inspiration .hero #hero-dots .selected{background-position:-20px 0}
+#inspiration .hero #look-inside{background:url(../../images/promo/inspiration/look-inside.png) 0 0 no-repeat;height:41px;width:162px;display:inline-block}
+#inspiration .hero .look-wrap{width:100%;height:41px;position:absolute;bottom:39px;text-align:center}
+#inspiration .purchase{background:#ececec}
+#inspiration .purchase .wrap{width:755px;margin:0 auto;padding:42px 0 52px 0}
+#inspiration .purchase .info{float:left;width:375px;font-size:17px;line-height:21px;color:#424141}
+#inspiration .purchase .action{float:right;width:325px}
+#inspiration .purchase .cta-button{line-height:41px;height:41px;width:304px;text-align:left;text-decoration:none;display:inline-block;vertical-align:top;padding-left:21px}
+#inspiration .purchase .cta-button span{color:#333;text-shadow:0 1px 0 rgba(255,255,255,0.4)}
+#inspiration .purchase .action p{font-size:15px;color:#1f1f1f;line-height:21px;margin:14px 0 20px 0}
+#inspiration .purchase .action p a{font-weight:bold}
+#inspiration .places{width:100%;border-top:1px solid #CCC;height:99px;background:url(../../images/promo/inspiration/places-bg.png) 0 0 repeat-x}
+#inspiration .places .seen{text-align:center;float:left;width:350px;border-right:1px solid #CCC;height:99px}
+#inspiration .places .buy{text-align:center;height:99px;width:566px;float:left}
+#inspiration .places span{color:#7f7f7f;font-size:16px;display:inline-block;line-height:99px;margin-right:19px}
+#inspiration .seen span img{margin-top:-7px}
+#inspiration .places span img{vertical-align:middle}
+#inspiration .places .buy span.brand{margin-right:39px}
+#inspiration .section{border-top:1px solid #CCC}
+#inspiration .section .info h3{color:#000;font-size:24px;font-weight:normal}
+#inspiration .section .info p{color:#424141;font-size:15px;line-height:21px;margin-top:14px}
+#inspiration .includes{padding-bottom:69px}
+#inspiration .includes .info{float:left;width:325px;margin:77px 0 0 64px}
+#inspiration .includes img{float:right;margin:63px 0 0 0}
+#inspiration .ptp{padding-bottom:56px}
+#inspiration .ptp .info{float:right;width:365px;margin:55px 62px 0 0}
+#inspiration .ptp img{float:left;margin:77px 0 0 0}
+#inspiration .journal img{margin:63px auto 32px;width:814px;display:block}
+#inspiration .journal p{width:100%;text-align:center;font-size:16px;color:#424141;margin-bottom:50px}
+#inspiration .bottom-cta{padding:42px 0 38px 0;c}
+#inspiration .bottom-cta .cta-bg{width:824px;height:246px;background:url(../../images/promo/inspiration/bottom-cta.png) 0 0 no-repeat;margin-left:39px;overflow:hidden}
+#inspiration .bottom-cta .info{width:572px;margin:54px 0 0 249px}
+#inspiration .bottom-cta h3{text-align:center}
+#inspiration .bottom-cta .action{margin-top:28px}
+#inspiration .bottom-cta .cta-button{line-height:41px;height:41px;width:203px;text-align:left;text-decoration:none;display:block;vertical-align:top;padding-left:19px;margin:11px 57px 0 33px;float:left}
+#inspiration .bottom-cta .cta-button span{color:#333;text-shadow:0 -1px 0 #666}
+#inspiration .bottom-cta .action p{font-size:15px;color:#1f1f1f;line-height:21px;float:left;width:225px;margin-top:0}
+#inspiration .bottom-cta .action p a{font-weight:bold}

@@ -1,0 +1,37 @@
+#page-content{background-color:#fff;padding:7px 0}
+.calendar{border:0;color:#aaa;border-collapse:separate;border-spacing:2px}
+.calendar td,.calendar th{border:0;font-size:13px;text-align:center;-moz-user-select:none;-khtml-user-select:none;margin:0;font-weight:bold}
+.calendar th{height:22px;padding:5px 0;color:#777;font-size:11px}
+.calendar td{background-color:#f0f0f0;width:34px;height:28px}
+.calendar .available{background:#f78c0c;color:#fff}
+.calendar .invalid{background-color:#fff}
+.presale-top{position:relative;*zoom:1}
+.presale-top .presale-image{display:block;margin:0 auto;width:906px}
+.presale-top .presale-image-overlay{position:absolute;bottom:0;left:7px;width:906px;height:315px;background:url(../../images/layout/presale-overlay.png) no-repeat left bottom;_background:transparent}
+.presale-top .presale-title{position:absolute;bottom:15px;left:20px;color:#eee;text-shadow:1px 1px 0 #000;_filter:Shadow(Color=#333333,Direction=135,Strength=3)}
+.presale-title h1{font-size:30px;line-height:normal}
+.presale-title h2{margin-top:10px;font:italic 16px georgia,serif}
+.presale-bottom{background-color:#000;color:#FFF;padding:20px;margin:0 6px;*zoom:1}
+.presale-bottom .left{float:left;_display:inline;width:290px;margin-right:30px}
+.presale-bottom .right{float:left;_display:inline}
+.presale-bottom .no-calendar{float:left;width:700px}
+.presale-bottom .start-time{font:italic 16px georgia,serif;margin-bottom:1em}
+.presale-bottom p,.presale-bottom blockquote{margin-bottom:1em;line-height:1.4}
+.presale-bottom .nav{overflow:hidden;border-bottom:1px solid #535353;margin-bottom:4px;line-height:16px;padding-bottom:3px;_zoom:1;*width:100%}
+.presale-bottom .no-calendar .nav{border-bottom:0;margin-bottom:16px;_zoom:1}
+.presale-bottom strong{font-size:14px}
+#presale-nav h4{display:inline;font-size:16px}
+#presale-nav-controls a{font-size:12px;font-weight:bold;color:#999}
+#presale-nav-controls .prev-month{float:left;_display:inline}
+#presale-nav-controls .next-month{float:right;_display:inline}
+#presale-nav-controls{margin-bottom:5px}
+#presaleCalendar1 .controls,#presaleCalendar2 .controls{padding-bottom:5px;color:#333;text-align:center}
+#presaleCalendar1,#presaleCalendar2{float:left;padding:5px;background:#fff}
+#presaleCalendar1{margin-right:10px}
+p.reminder{display:inline-block;*display:block;*width:180px;*float:left}
+a.upcoming{display:block;width:100%}
+.notifications{display:inline-block}
+.presale-notifications .darkCalendarIcon{margin-left:4px}
+.presale-notifications .darkActiveEmailIcon,.presale-notifications .darkInActiveEmailIcon{margin-left:4px}
+.icon-email-clicked{background-image:url(../../images/layout/icon_email_bg_blk_inactive.png)!important;background-color:#000!important}
+.presale td.invalid{cursor:default!important}

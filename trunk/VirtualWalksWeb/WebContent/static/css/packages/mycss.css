@@ -1,0 +1,73 @@
+.form .formLabel
+{
+    display: block;
+    font-size: 14px;
+    padding: 3px 0px;
+    float: none;
+    width: auto;
+    color: #ffffff;
+}
+
+.form input[type=text]
+{
+    width: 200px;
+    background: #fff;
+} /* ege - asagiya ekleme yaptim */
+
+.termsOfUse a
+{
+    color: #1b75bc;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.btnSaveRegistration
+{
+    background: url(../images/registration/saveRegistration.jpg) top left no-repeat;
+    width: 153px;
+    height: 26px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.btnLogin
+{
+    background: url(../images/login/btnLogin.jpg) top left no-repeat;
+    width: 99px;
+    height: 33px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.btnApply
+{
+    background: url(../images/login/btnApply.png) top left no-repeat;
+    width: 102px;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+}
+
+/*ege*/
+.form input[type=password]
+{
+    width: 200px;
+    background: #fff;
+}
+.avenir
+{
+    font-weight: normal !important;
+    font-family: Avenir;
+    color: #fff;
+}
+input[type="text"], input[type="password"], textarea {
+    border: 1px solid #D9D9D9;
+    color: #555555;
+    font-family: Tahoma;
+    font-size: 13px;
+    padding: 5px;
+    width: 250px;
+}
