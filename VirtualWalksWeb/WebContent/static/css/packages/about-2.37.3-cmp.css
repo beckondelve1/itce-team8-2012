@@ -1,0 +1,175 @@
+#about #page-content{background:#FFF;padding:50px 0 0 0;width:960px}
+#about #new-header #header-wrapper{width:960px}
+#about h1{text-align:center;color:#000;font-size:36px}
+#about h2{text-align:center;font-family:Georgia;font-style:italic;font-size:16px;color:#666}
+#about .header-list{width:100%;text-align:center;margin-top:40px}
+#about .header-list a{display:inline-block;height:53px;margin:0;text-align:center;position:relative;padding:0 32px;border-right:1px solid #dcdcdc;line-height:53px;font-size:14px;color:#000;text-decoration:none}
+#about .header-list a.last{border-right:0}
+#about .header-list a .arrow{background:url('../../images/travel-expert/categories-arrow.png') 0 0 no-repeat;_background:url('../../images/travel-expert/categories-arrow-ie6.png') 0 0 no-repeat;width:27px;height:17px;bottom:-17px;display:none;_bottom:-18px;position:absolute;left:50%;margin-left:-13px}
+#about .header-list a:hover{color:#f78c0d}
+#about .content{background:#FFF url('../../images/travel-expert/postcards-bg.png') 0 0 repeat-x;overflow:hidden}
+#about .search-wrap .autocomplete-dropdown{width:275px;*left:-1px;*top:36px}
+#about #summary{padding-bottom:80px}
+#about #summary .header-summary{color:#f78c0d}
+#about #summary .header-summary .arrow{display:block}
+#about #summary h3{font-size:16px;color:#000;font-weight:500;font-weight:bold \9}
+#about #summary .icon-top{display:block;width:312px;height:107px;background:url(../../images/newabout/summary-popout.png) 0 0 no-repeat;margin:34px auto 0}
+#about #summary .icon-sub{text-align:center;margin-top:15px}
+#about #summary .video{background:url(../../images/newabout/group_photo.jpg) 0 0 no-repeat;height:365px;width:776px;margin:30px auto 0}
+#about #summary .video-subtitle{font-family:Helvetica,Arial,sans-serif;font-size:13px;width:500px;color:#848484;margin:25px auto 0;line-height:19px;text-align:center}
+#about #summary .wrap{width:776px;margin:59px auto 0}
+#about #summary .descriptions{float:left;width:540px}
+#about #summary .descriptions p{font-family:Helvetica,Arial,sans-serif;font-size:13px;line-height:19px;color:#848484;margin:7px 0 35px 0}
+#about #summary .cta-button{line-height:39px;height:39px;width:163px;text-align:center;text-decoration:none;display:inline-block;vertical-align:top}
+#about #summary .twitter-posts{width:199px;float:right}
+#about #summary .twitter-posts .posts-wrap{width:100%;height:650px;position:relative;margin-top:10px}
+#about #summary .twitter-posts .shadow{background:#e8e8e8;width:100%;height:100%;position:absolute;top:6px;left:7px;z-index:0}
+#about #summary .twitter-posts .shadow div{width:47px;height:24px;position:absolute;bottom:-24px;left:50%;margin-left:-27px;background:url(../../../../cdn.jetsetter.com/static/images/product/tumblrimg/twit-arrow-grey.png) 0 0 no-repeat}
+#about #summary .twitter-posts .posts{background:#FFF;width:166px;height:100%;border:1px solid #CCC;position:absolute;top:0;left:0;z-index:1;padding:0 15px;text-align:left}
+#about #summary .twitter-posts .posts .arrow{position:absolute;bottom:-25px;left:50%;height:25px;width:47px;margin-left:-24px;background:url(../../../../cdn.jetsetter.com/static/images/product/tumblrimg/twit-arrow-white.png) 0 0 no-repeat}
+#about #summary .twitter-posts .posts li{border-bottom:1px dashed #CCC;width:100%;padding:15px 0 22px 0}
+#about #summary .twitter-posts .posts li.last{border-bottom:0}
+#about #summary .twitter-posts .posts li p{font-family:Georgia;font-size:16px;color:#6e6e6e;line-height:20px;margin-bottom:10px}
+#about #summary .twitter-posts .posts li span{color:#f90;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:12px;font-weight:normal}
+#about #summary .twitter-posts .icon{width:27px;height:27px;background:url(../../../../cdn.jetsetter.com/static/images/product/tumblrimg/icon-twitter.png) 0 0 no-repeat;position:absolute;bottom:-3px;left:50%;margin-left:-14px}
+#about #summary .twitter-posts .cta-button{margin-top:37px;width:199px}
+#about #faq .header-faq{color:#f78c0d}
+#about #faq .header-faq .arrow{display:block}
+#about #faq .actions{text-align:center;margin-top:67px}
+#about #faq h3{font-weight:200;font-size:30px;color:#000;display:inline-block;vertical-align:middle;margin-right:25px;*display:inline}
+#about #faq .cta-button{line-height:39px;height:39px;width:183px;text-align:center;text-decoration:none;display:inline-block;vertical-align:middle}
+#about #faq #accordian{width:771px;border:1px solid #CCC;margin:50px auto;border-bottom:0}
+#about #faq #accordian .icon{height:21px;width:21px;position:absolute;right:17px;display:block}
+#about #faq #accordian .ac-header{background:#f5f5f5;height:65px;border-bottom:1px solid #CCC;position:relative;cursor:pointer}
+#about #faq #accordian .ac-header-active{cursor:default}
+#about #faq #accordian .ac-header p{line-height:65px;font-size:16px;color:#666;text-indent:30px}
+#about #faq #accordian .ac-header-active p{font-weight:bold}
+#about #faq #accordian .ac-header .icon{background:url(../../images/newabout/accordian-open.png) 0 0 no-repeat;top:23px}
+#about #faq #accordian .ac-content{background:#FFF;padding:0 0 0 30px;border-bottom:1px solid #CCC!important;position:relative}
+#about #faq #accordian .ac-content-last{border-bottom:0}
+#about #faq #accordian .ac-content .push{height:30px}
+#about #faq #accordian .ac-content h3{font-size:16px;color:#000;font-weight:500}
+#about #faq #accordian .ac-content p{font-family:Helvetica,Arial,sans-serif;font-size:13px;line-height:19px;color:#848484;margin:7px 0 35px 0;width:690px}
+#about #faq #accordian .ac-content .icon{background:url(../../images/newabout/accordian-close.png) 0 0 no-repeat;top:17px;display:none}
+#about #contact .header-contact{color:#f78c0d}
+#about #contact .header-contact .arrow{display:block}
+#about #contact .content{padding:80px 0 30px 0}
+#about #contact #form{float:left;width:580px;margin:25px 0 0 70px}
+#about #contact #form h3{font-size:20px;color:#333}
+#about #contact #form h4{font-family:Georgia;font-style:italic;font-size:13px;color:#333;line-height:19px;margin-top:12px}
+#about #contact #form form{margin-top:30px;width:100%}
+#about #contact #form .input-wrap{width:100%;margin-bottom:13px}
+#about #contact #form .input-wrap label{color:#666;font-size:13px;font-family:Helvetica,Arial,sans-serif;width:53px;display:block;float:left;line-height:31px}
+#about #contact #form .input-wrap input[type=text]{height:29px;border:1px solid #CCC;background:#FFF;margin-left:45px;width:458px;padding-left:10px;font-size:13px;display:block;float:left}
+#about #contact #form .input-wrap textarea{height:113px;border:1px solid #CCC;background:#FFF;margin-left:45px;width:448px;padding:10px;font-size:13px;display:block;float:left;resize:none}
+#about #contact #form .cta-button{line-height:39px;height:39px;width:181px;text-align:center;text-decoration:none;display:block;vertical-align:top;color:#FFF;float:right;margin:21px 12px 0 0}
+#about #contact .info{float:right;margin-right:65px}
+#about #contact .info .section{padding:15px;border:1px solid #efefef;background:#f5f5f5;width:154px;margin-bottom:20px}
+#about #contact .info h3{font-size:20px;color:#333;margin-bottom:10px;font-weight:normal}
+#about #contact .info .section-content{font-size:12px;font-family:Helvetica,Arial,sans-serif;color:#333;line-height:17px}
+#about #contact .info .phone{font-size:16px}
+#about #contact .info a{text-decoration:underline;color:#333}
+#about #contact .messaging{border:1px solid #ada;margin:0 0 10px 0;padding:10px 10px 8px 10px;background:#cfc;color:#333}
+#about #contact .messaging-error{background:#fcc;border:1px solid #daa;color:#333;margin:0 0 10px 0;padding:10px 10px 8px 10px}
+#about #management .header-management{color:#f78c0d}
+#about #management .header-management .arrow{display:block}
+#about #management ul{width:820px;margin:30px auto}
+#about #management li{width:100%;margin-bottom:75px}
+#about #management li .image{float:left;width:345px}
+#about #management li .mask{width:326px;height:340px;margin:0 auto;background:url(../../images/newabout/member-mask1b26.png?v2) 0 0 no-repeat}
+#about #management li .mask img{width:306px;height:306px;margin:10px 0 0 10px}
+#about #management li .cta-button{line-height:39px;height:39px;width:181px;text-align:center;text-decoration:none;display:block;vertical-align:top;margin:27px auto 0}
+#about #management li .info{float:right;width:450px}
+#about #management li h3{font-size:32px;color:#333}
+#about #management li h4{font-family:Georgia;font-style:italic;font-size:16px;color:#666;margin-top:3px}
+#about #management li p{color:#848484;font-size:13px;line-height:20px;font-family:Helvetica,Arial,sans-serif;margin-top:14px}
+#about #team .header-team{color:#f78c0d}
+#about #team .header-team .arrow{display:block}
+#about #team .search-wrap{width:275px;margin:45px auto;position:relative}
+#about #team .search-wrap #member-search{border:1px solid #d4d4d4;font-size:13px;font-family:Helvetica,Arial,sans-serif;color:#848484;height:33px;width:230px;padding:0 30px 0 13px;background:url(../../images/newabout/search-bg.png) 0 0 repeat-x;outline:0;*line-height:33px}
+#about #team .search-wrap .submit{background:url(../../images/layout/search-glass.png) center center no-repeat;position:absolute;top:1px;right:1px;width:30px;height:33px;font-size:0;border:0;cursor:pointer}
+#about #team ul.team-list{width:893px;margin:40px auto}
+#about #team ul.team-list li{width:158px;height:49px;padding:18px 0;border-top:1px solid #CCC;float:left;margin-right:25px}
+#about #team ul.team-list li.last{margin-right:0}
+#about #team ul.team-list li a{text-decoration:none}
+#about #team ul.team-list li img{float:left;border:1px solid #CCC;height:43px;width:43px;padding:2px;margin-right:10px}
+#about #team ul.team-list li .info{float:left;width:93px;vertical-align:middle}
+#about #team ul.team-list li h3,#about #team ul.team-list li h4{font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#333;font-weight:normal}
+#about #team ul.team-list li h4{color:#999}
+#about #correspondents .header-correspondents{color:#f78c0d}
+#about #correspondents .header-correspondents .arrow{display:block}
+#about #correspondents ul{width:880px;margin:115px auto 0}
+#about #correspondents ul li{width:170px;float:left;margin-right:6px;margin-bottom:8px;font-size:12px}
+#about #member .header-team{color:#f78c0d}
+#about #member .header-team .arrow{display:block}
+#about #member .content{padding-top:55px}
+#about #member .sidebar{width:336px;float:left;margin-left:57px}
+#about #member .mask{width:326px;height:340px;background:url(../../images/newabout/member-mask1b26.png?v2) 0 0 no-repeat;position:relative;z-index:1}
+#about #member .mask img{width:306px;height:306px;margin:10px 0 0 10px;background:grey}
+#about #member .sidebar ul{width:314px;border:1px solid #ededed;border-top:0;margin:-20px 0 0 7px;background:#f5f5f5;padding-top:30px;position:relative;z-index:0}
+#about #member .sidebar ul li{padding:20px 18px;border-top:1px solid #d5d5d5}
+#about #member .sidebar ul li.first{border-top:0}
+#about #member .sidebar ul li .question{font-family:Georgia;font-size:13px;font-style:italic;color:#333}
+#about #member .sidebar ul li .answer{font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#000;line-height:17px}
+#about #member .sidebar ul li .cta-button{line-height:39px;height:39px;width:181px;text-align:center;text-decoration:none;display:block;vertical-align:top;margin:0 auto}
+#about #member .profile{width:471px;float:right;margin-right:62px;padding-bottom:50px;border-bottom:1px solid #dcdcdc}
+#about #member .profile h3{color:#333;font-size:24px;margin-bottom:1px}
+#about #member .profile h4{font-family:Georgia;font-style:italic;font-size:13px;color:#666;margin-bottom:10px}
+#about #member .profile h5{font-weight:bold;font-size:16px;color:#333;margin-top:20px}
+#about #member .profile p{font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#848484;line-height:19px;margin-top:3px}
+#about #member .bottom{width:100%;overflow:hidden}
+#about #member .carousel-wrap{width:832px;margin:45px auto 53px;padding:24px 0;border:1px solid #dcdcdc;border-left:0;border-right:0;position:relative}
+#about #member #carousel{width:727px;height:220px;margin:0 auto;position:relative;overflow:hidden}
+#about #member #carousel .row-wrap{position:absolute;top:0;left:0;width:100%;height:100%;margin:15px 0 0 15px}
+#about #member #carousel .list-item{float:left;width:142px;margin-right:45px;position:relative}
+#about #member #carousel .list-item a{text-decoration:none}
+#about #member #carousel .list-item-last{margin-right:0}
+#about #member #carousel .list-item img{width:100%;height:142px;background:grey;margin-bottom:15px;display:block;position:relative;z-index:0}
+#about #member #carousel .list-item h5{text-align:center;font-size:15px;color:#000;font-weight:400}
+#about #member #carousel .list-item p{font-family:Georgia;font-size:13px;text-align:center;color:#999;font-style:italic;margin-top:5px}
+#about #member #carousel .list-item .mask{width:170px;height:172px;position:absolute;z-index:1;top:-11px;left:-12px;background:url('../../images/travel-expert/medium-mask.png') 0 0 no-repeat;_background:url('../../images/travel-expert/medium-mask-ie6.png') 0 0 no-repeat}
+#about #member #carousel .list-item .mask-alternate{width:174px;height:171px;position:absolute;z-index:1;top:-11px;left:-20px;background:url('../../images/travel-expert/medium-mask2.png') 0 0 no-repeat;_background:url('../../images/travel-expert/medium-mask2-ie6.png') 0 0 no-repeat}
+#about #member .carousel-wrap .arrow{position:absolute;top:110px;width:18px;height:31px;background:url(../../images/layout/gallery-sprites5ed3.png?v4) no-repeat -100px -50px;cursor:pointer;opacity:.7}
+#about #member .carousel-wrap .arrow:hover{opacity:1}
+#about #member .carousel-wrap .arrow-left{left:0}
+#about #member .carousel-wrap .arrow-right{right:0;background-position:-150px -50px}
+#about #member .search-wrap{width:275px;margin:45px auto;position:relative}
+#about #member .search-wrap #member-search{border:1px solid #d4d4d4;font-size:13px;font-family:Helvetica,Arial,sans-serif;color:#848484;height:33px;width:230px;padding:0 30px 0 13px;background:url(../../images/newabout/search-bg.png) 0 0 repeat-x;outline:0}
+#about #member .search-wrap .submit{background:url(../../images/layout/search-glass.png) center center no-repeat;position:absolute;top:1px;right:1px;width:30px;height:33px;font-size:0;border:0;cursor:pointer}
+#about #member .member-search{width:816px;margin:0 auto}
+#about #member .member-search ul.grid{width:100%}
+#about #member .member-search ul.grid li{width:48px;height:48px;margin:0 16px 11px 0;float:left}
+#about #member .member-search ul.grid li.last{margin-right:0}
+#about #member .member-search ul.grid li img{height:44px;width:44px;padding:1px;border:1px solid #e1e1e1}
+#about #press .header-press{color:#f78c0d}
+#about #press .header-press .arrow{display:block}
+#about #press .content{padding-top:80px}
+#about #press .main{float:left;width:580px;margin:0 0 0 80px}
+#about #press .main h3{font-weight:normal;font-size:20px;color:#333}
+#about #press #quotes{margin:27px 0 55px 0}
+#about #press #quotes li{margin-bottom:39px}
+#about #press #quotes li .logo{float:left;width:176px;height:141px;border:1px solid #CCC;background-position:center center;background-color:#FFF}
+#about #press #quotes li .quote{float:left;margin-left:21px;width:381px}
+#about #press #quotes li .byte{margin-top:-2px;font-weight:normal;font-size:23px;color:#000;line-height:27px}
+#about #press #quotes li .byte span{display:block;width:24px;height:24px;background:url(../../images/newabout/quote.png) 0 0 no-repeat;margin:2px 6px 0 0;float:left}
+#about #press #quotes li .article{color:#666;font-size:12px;font-weight:normal;font-family:Helvetica,Arial,sans-serif;margin:14px 0 11px 0}
+#about #press #quotes li a{font-weight:bold;text-decoration:none}
+#about #press #releases{padding-left:49px;margin-top:50px}
+#about #press #releases li{margin-bottom:10px}
+#about #press #releases h4{font-size:26px;font-weight:normal;color:#000;display:block;float:left;width:150px}
+#about #press #releases h4 span{color:#bfbfbf}
+#about #press #releases li ol{float:left;width:375px}
+#about #press #releases li ol li{margin-bottom:21px}
+#about #press #releases li ol a{font-weight:normal;color:#000;text-decoration:none;font-size:15px}
+#about #press #releases li ol p{font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:12px;color:#666;margin-top:7px}
+#about #press .info{float:right;margin-right:65px}
+#about #press .info .section{padding:15px;border:1px solid #efefef;background:#f5f5f5;width:154px;margin-bottom:20px}
+#about #press .info h3{font-size:20px;color:#333;margin-bottom:10px;font-weight:normal}
+#about #press .info h4{font-family:Helvetica,Arial,sans-serif;font-weight:bold;font-size:13px;color:#333}
+#about #press .info .section-content{font-size:12px;font-family:Helvetica,Arial,sans-serif;color:#333;line-height:17px}
+#about #press .info a{text-decoration:underline;color:#333;font-size:12px}
+#about #press .info .section .contact{margin:15px 0}
+#about #press .info .downloads a{font-size:12px}
+#about #press .info .downloads h4{margin-bottom:1px}
+#about #press .info .downloads ul{margin-bottom:9px}
+#about #press .info .downloads ul.last{margin-bottom:0}

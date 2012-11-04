@@ -1,0 +1,185 @@
+#page-content{width:698px;background-color:#fff;padding:30px 110px;font-size:13px;line-height:1.3;color:#666}
+#page-content p{margin-bottom:1em}
+#form-wrapper{border:1px solid #ededed}
+#trip-summary{border-left:1px solid #ededed;float:left;_display:inline;width:193px;padding:0 30px;margin-left:-1px;*position:relative;*z-index:1}
+#trip-summary .action{position:absolute;top:15px;right:0;width:9em;text-align:right}
+.module{position:relative;top:-1px;border-top:1px solid #ededed;padding:15px 0;*zoom:1}
+.module h2{margin-bottom:12px;font-size:20px;color:#333}
+.module a{font-weight:normal;text-decoration:underline;color:#999}
+.module a:link,.module a:visited{_font-weight:normal;_text-decoration:underline;_color:#999}
+#trip-summary .module dt,#trip-summary .module h3{margin-bottom:2px;font-size:13px;font-weight:bold;color:#515151}
+.module .action a{font-size:12px}
+.modal h2{float:none;_display:block;text-align:center}
+.modal .close{float:none;_display:inline;position:absolute;top:15px;right:15px}
+.modal .content{padding:30px 45px;font-size:13px}
+.modal .action{float:right;_display:inline}
+.modal .action .cancel{font-weight:bold;vertical-align:middle}
+.modal .action button{height:30px;margin-left:15px;font-size:12px;font-weight:bold;text-shadow:none;padding:0 10px}
+.modal .product h3.name{font-size:18px;font-weight:normal}
+.modal .product .thumb{float:left;_display:inline}
+.modal .product .info{overflow:hidden;padding-left:15px;_zoom:1}
+.radios li{margin-left:-5px;padding-left:5px;_margin-left:0;_padding-left:0;cursor:pointer}
+.radios li:hover{background-color:#f5f5f5}
+.radios label{display:inline-block;padding:5px;cursor:pointer}
+#property{position:relative;margin-bottom:25px;text-align:center;_zoom:1}
+#property img{display:block;margin-bottom:15px}
+#property .name{font-size:32px;color:#000}
+#property p{width:600px;margin:5px auto 0;font:italic 16px georgia,serif;color:#666}
+#property .flash-ribbon{background-image:url(../../images/layout/flash-ribbon-right-sprites43a0.png?v3);position:absolute;right:-5px;top:-5px}
+#banner{border:1px solid #ededed;background-color:#f5f5f5;margin-bottom:30px;padding:15px 30px}
+#banner .flag{background:url(../../images/layout/checkout-flag.png) no-repeat 0 0;color:#fff;float:left;_display:inline;width:115px;height:109px;margin:-22px 30px 0 0;text-align:center}
+#banner .flag span{display:inline-block;margin-top:2.7em;*margin-top:4.2em;font-size:20px;text-shadow:0 -1px 0 #555;line-height:1.1}
+#banner h2{color:#333;margin-bottom:.3em}
+#banner p{margin-bottom:0}
+#room-upgrades .product,#room-upgrades .hd,#room-upgrades .thumb,#room-upgrades .product-description{display:none}
+#room-upgrades .selected{display:block}
+.upgrades li{font-size:12px;color:#333;*zoom:1}
+.upgrades input{float:left;_display:inline;vertical-align:top;margin:6px 5px 0 0}
+.upgrades .name,.upgrades .per-night{font-weight:bold}
+.upgrades .per-night{float:right;_display:inline;text-align:right;padding-left:10px}
+.upgrades label,.upgrades .upgrade-description{display:block;overflow:hidden}
+#select-product-modal .content{width:580px}
+#select-product-modal .hd{position:relative;padding:15px 20px}
+#select-product-modal .hd .from-price{position:absolute;right:40px;top:15px;font-size:12px;font-weight:bold;line-height:24px;*background-color:#fff}
+#select-product-modal .accordion-closed{cursor:pointer}
+#select-product-modal .accordion-closed:hover{background-color:#f5f5f5}
+#select-product-modal .accordion-closed:hover .from-price{background-color:transparent}
+#select-product-modal .arrow-icon{position:absolute;right:15px;top:22px;height:11px;width:11px;background:url(../../images/layout/checkout-sprites.png) no-repeat -50px -100px}
+#select-product-modal .accordion-closed .arrow-icon{background-position:0 -100px}
+#select-product-modal .bd{padding:0 20px 15px;*background-color:#fff}
+#select-product-modal .product{border:1px solid #ccc;background-color:#fff;margin:15px 0}
+#select-product-modal .upgrades{margin-top:10px}
+#room dd{*background-color:#fff}
+#charges table{width:100%;line-height:1.6;border-collapse:collapse;margin-top:5px}
+#charges th{font-weight:normal;text-align:left;color:#515151}
+#charges td{text-align:right}
+#charges .last th,#charges .last td{padding-bottom:30px}
+#charges .grand-total th,#charges .grand-total td{padding-top:8px}
+#charges .grand-total th{font-weight:bold}
+#charges .grand-total td{font-size:20px;font-weight:200;color:#333}
+#charge-details-modal .content{width:500px}
+#charge-details-modal #breakdown{margin-top:20px;border:1px solid #ccc;padding:20px}
+#charge-details-modal table{width:100%;font-size:12px}
+#charge-details-modal thead th{padding-bottom:5px;text-align:left}
+#charge-details-modal td{padding:3px 0}
+#charge-details-modal .date{width:150px}
+#charge-details-modal .per-night{width:110px}
+#charge-details-modal .rooms{width:98px}
+#charge-details-modal .total-per-night{width:100px;text-align:right}
+#charge-details-modal tfoot{text-align:right}
+#charge-details-modal tfoot th{padding-right:15px}
+#charge-details-modal .subtotal th,#charge-details-modal .subtotal td{padding-top:20px}
+#charge-details-modal .grand-total td{font-size:20px;font-weight:200}
+#order-form .field label{display:inline-block;width:160px;vertical-align:middle}
+#order-form .checkbox label{width:auto}
+#order-form .address-fields .country select{width:213px}
+#order-form .address-fields .state{float:left;_display:inline;line-height:28px}
+#order-form .address-fields .state select{width:50px}
+#order-form .address-fields .postal-code .text{width:75px}
+#order-form .address-fields .zip{float:right;_display:inline;margin-right:3px}
+#order-form .address-fields .zip label{width:auto;margin-right:2px}
+#order-form{border-right:1px solid #ededed;float:left;_display:inline;width:380px;padding:0 30px;*position:relative;*z-index:2}
+#order-form .step{border:1px solid #ededed;border-right:0;position:absolute;left:-80px;top:-1px;width:48px;line-height:48px;background-color:#f5f5f5;text-align:center;font-size:26px;font-weight:200;color:#333}
+#order-form .field{*zoom:1;position:relative;margin-bottom:10px}
+#order-form .text{width:202px;padding:5px;font-size:13px;vertical-align:middle}
+#order-form div.checkbox label{display:block;overflow:hidden}
+#order-form input.checkbox{float:left;_display:inline;margin:2px 8px 0 0}
+#order-form .tooltip .tooltip-content{font-size:13px}
+#order-form .top-tooltip .tooltip-content{width:200px;border:1px solid #f78c0d;background-color:#fff;color:#f78c0d;font-weight:bold}
+#order-form .top-tooltip .arrow{background-position:center -306px}
+#required-info label{display:-moz-inline-box;display:inline-block;width:140px}
+#required-info input{width:220px;border:1px solid #ccc;padding:5px;font-size:12px}
+button.mini-submit{*position:relative;height:28px;padding:0 10px;margin-left:5px;font-size:12px;text-shadow:none}
+#insurance .message{display:none}
+#insurance div.add-insurance label{width:353px}
+#insurance label.disabled,#insurance label.disabled a{color:#aaa}
+#insurance div.phone{margin-bottom:0;padding:15px 0 10px}
+#coverage-details-modal .content{width:600px}
+#coverage-details-modal p{margin:1em 0}
+#accept-tos .field label{display:block;overflow:hidden;font-size:12px}
+#accept-tos label a{font-size:12px;font-weight:bold;color:#666;text-decoration:underline}
+#payment{position:relative}
+#added-cards label{display:inline-block;width:353px}
+#added-cards label span{vertical-align:middle}
+#added-cards .expiration{float:right;_display:inline;line-height:23px}
+#added-cards .radio{*vertical-align:text-top;*margin-top:-2px}
+#new-card .accepted-cards{position:absolute;right:0;top:15px}
+#submit{padding:15px 0 30px}
+#submit button{width:180px;height:50px;font-size:18px;font-weight:normal}
+#submit .grand-total{float:right;_display:inline;width:170px;padding-top:5px;color:#333}
+#submit .grand-total dt{font-weight:bold}
+#submit .grand-total dd{font-size:18px;font-weight:200}
+#cancellation-policy{margin-bottom:30px}
+#cancellation-policy li{font-size:12px}
+#property-policies-modal .content{width:600px}
+#property-policies-modal .clone{margin-top:20px}
+#property-policies-modal li{margin-bottom:1em}
+#dates .checkin{margin-bottom:10px}
+#footer .logo,#footer .follow,#footer .stacked-nav,#footer .gilt-links{display:none}
+#footer ul.minimal-footer{display:block}
+#footer ul.minimal li{float:left;margin-left:10px}
+#footer .copyright{clear:none;float:right;padding-top:0}
+#order-form .personal-message label{vertical-align:top;padding-top:5px}
+#order-form .personal-message textarea{display:inline-block;max-width:202px}
+#order-form .giftable{clear:both;padding-top:10px}
+#order-form .giftable label{font-weight:bold}
+#order-form .sender-info{*position:relative;*zoom:1}
+#questions .tel{font-weight:bold}
+#describe-trip .field label{display:block;width:auto;margin-bottom:10px}
+#describe-trip .date{margin-top:20px}
+#describe-trip .text{width:368px;max-width:368px}
+#added-cards .card .icon{display:inline-block;width:36px;height:24px;margin-right:5px;background:url(../../images/layout/checkout-sprites.png) no-repeat}
+#added-cards .visa .icon{background-position:0 -50px}
+#added-cards .mastercard .icon{background-position:-42px -50px}
+#added-cards .discover .icon{background-position:-84px -50px}
+#added-cards .american-express .icon{background-position:-126px -50px}
+#new-card{*position:relative;*zoom:1}
+#new-card h2 .icon{display:inline-block;width:17px;height:22px;background:url(../../images/layout/checkout-sprites.png) no-repeat 0 0;margin:-7px 5px 0 0;*margin:0 8px 0 0;vertical-align:middle}
+#new-card fieldset{position:relative;border-top:1px solid #ededed;padding-top:15px}
+#new-card .accepted-cards{background:url(../../images/layout/checkout-sprites.png) no-repeat 0 -50px;width:162px;height:24px;text-indent:-999em}
+#new-card .card-number .text{width:140px}
+#new-card .cvn .text{width:35px}
+#new-card .cvn label a{white-space:nowrap;font-size:11px;text-decoration:none;color:#999;border-bottom:1px dotted #999;cursor:default}
+#new-card #what-is-cvn{width:162px;height:70px;text-indent:-999em;background:url(../../images/layout/checkout-sprites.png) no-repeat 0 -150px}
+.module h2{margin-bottom:20px}
+#content-header{border-top:1px solid #e5e5e5;margin-top:50px;text-align:center;*zoom:1}
+#content-header h1{margin:-.7em auto 0;width:11em;background-color:#fff;color:#333;font-size:32px}
+#content-header .graphic{height:248px;background:url(../../images/gift-card/header.jpg) no-repeat center top}
+#content-header h2{text-indent:-999em}
+#steps{border:1px solid #ddd;margin-top:40px}
+#steps li{position:relative;float:left;_display:inline;margin-left:-22px;width:235px;height:47px;line-height:47px;color:#aaa;font-size:14px}
+#steps .arrow{float:left;_display:inline;margin-right:20px;width:22px;height:100%;background:url(../../images/gift-card/gift-card-sprites.png) no-repeat 0 -100px}
+#steps .selected{background:url(../../images/gift-card/gift-card-sprites.png) repeat-x 0 -200px;color:#333}
+#steps .selected .arrow{background-position:0 -150px}
+#steps .step-1{padding-left:22px;margin-left:0}
+#steps .step-1 .arrow{display:none}
+#steps .num{display:inline-block;width:23px;height:22px;line-height:22px;margin-right:5px;background:url(../../images/gift-card/gift-card-sprites.png) no-repeat 0 1px;color:#999;text-align:center}
+#steps .selected .num{background-position:0 -49px;color:#eee}
+#form-wrapper{margin-top:40px;background-color:#f5f5f5}
+#denominations ul{width:216px;float:right;_display:inline}
+#denominations .denomination{float:left;_display:inline}
+#denominations li.even{margin:0 10px 10px 0}
+#denominations .radio{position:absolute;left:-999em}
+#denominations .denomination label{border:1px solid #ccc;border-radius:5px;width:80px;padding:7px 10px;background:url(../../images/gift-card/gift-card-sprites.png) repeat-x 0 -210px;color:#777;font-size:16px;text-align:center;text-shadow:0 1px 0 #fff;cursor:pointer}
+#denominations label:hover{background:#eee}
+#denominations .selected label{background:url(../../images/gift-card/gift-card-sprites.png) repeat-x 0 -300px;color:#eee;text-shadow:0 -1px 0 #000;cursor:default}
+#denominations .other .text{margin-top:2px;width:88px;padding:6px 5px;font-size:16px;text-align:center}
+.personal-message label{vertical-align:top}
+.personal-message textarea{display:inline-block;width:202px}
+#order-form .send-date .text{width:120px;background-position:105px -96px}
+#order-form .send-date .popup-calendar{left:163px;top:27px}
+#order-form .send-date .popup-calendar-above{top:-213px}
+.monthly-calendar .controls a{font-weight:bold;text-decoration:none;color:#f78c0d}
+#trip-summary .module{background-color:transparent}
+#order-form{position:relative;background-color:#fff}
+#gift-cards #page-content{padding-bottom:100px}
+#gift-cards #submit{position:absolute;bottom:-100px;right:35px;*z-index:-1}
+#gift-cards #submit .arrow{*margin-top:-17px}
+#gift-cards #submit .cta-button{width:212px;height:40px;padding:0 20px;font-size:13px;text-align:left}
+#gift-cards #submit .cta-button .arrow{float:right;_display:inline}
+#gift-card-info dt{margin-top:1em}
+#gift-card-info form{position:absolute;right:0;top:20px}
+#gift-card-info form button{background-color:transparent;color:#999;font-size:12px;font-weight:normal;text-decoration:underline}
+#gift-card-info form button:active{background-color:transparent!important;color:#999!important}
+#gift-card-info .value{margin-bottom:20px;width:100%;line-height:120px;font-size:36px;font-weight:200;background:#000 url(../../images/layout/black-wave.png);color:#fff;text-align:center;border-radius:10px}
+#checkout #submit button{font-size:16px}

@@ -1,0 +1,61 @@
+body{*padding-bottom:30px}
+#page-content{position:relative;width:670px;-moz-box-shadow:0 5px 10px rgba(0,0,0,0.5);-webkit-box-shadow:0 5px 10px rgba(0,0,0,0.5);box-shadow:0 5px 10px rgba(0,0,0,0.5)}
+#register{width:570px;background:#dfdfdf url(../../images/registration/bg.png) repeat-x;padding:40px 50px;color:#777}
+#register h1,#register h2{font:200 24px/1.2 "helvetica neue",helvetica,arial,sans-serif;padding-bottom:10px;color:#333}
+p.description{font-size:13px;line-height:1.3;padding-bottom:15px}
+#form-container{float:left;_display:inline;width:270px}
+.right-rail{float:right;_display:inline;width:270px;margin-bottom:20px}
+.right-rail h4{font-weight:bold;margin-bottom:10px;color:#777}
+.partners{_overflow:hidden}
+.partners .partner-logo{margin:0 10px 10px 0}
+.prizes ul{list-style-type:disc;padding-left:15px}
+.prizes ul li{margin-bottom:5px;font-size:13px;line-height:1.3}
+#form-selector{margin-bottom:30px}
+#form-selector label{display:block;margin-bottom:8px;font-size:12px}
+#form-selector label input{margin-right:5px}
+#register .banner{background:0;margin:0 0 30px;padding:0;text-align:center}
+#register input.text{padding:5px;width:258px;font-size:12px}
+#register #registration{padding:0}
+#register #registration form{margin-top:0}
+#register #registration fieldset h4{font-size:14px;font-weight:bold;line-height:1.3;color:#777}
+#register fieldset.alerts{float:none;width:auto;margin-top:5px}
+#register fieldset.alerts p{margin:0 0 15px}
+#register #login fieldset.alerts p{text-align:left}
+#register #registration button.submit,#register #login{width:270px}
+#register #registration div.form-wrapper{float:none;_display:block;width:auto;padding-right:0;border-right:0}
+#register #registration p.instructions{font-size:14px;font-weight:bold;color:#777}
+#register #registration fieldset.user-info{float:none;_display:block}
+#register #registration div.tos{margin:5px 0 20px}
+#register #registration .back{margin:30px 0 20px}
+#register #login{width:auto;margin:0;padding:0}
+#register #login form{width:auto;margin:0}
+#register #login div.text{float:none;_display:block;padding-right:0}
+#register #login div.text label{display:block;width:auto;margin:0 0 5px;text-align:left;_top:0}
+#register #login div.remember-me,#register #login #login-button,#register #login a.forgot-password{margin-left:0;text-align:left;width:270px}
+#register #login #login-button{margin-top:20px;text-align:center}
+#register #login div.working,#register #login div.checked{background-position:right top}
+#register #invitation{padding-bottom:22px}
+#register #invitation .banner{margin:0 0 30px}
+#register #invitation .banner p{width:375px;font-size:14px;line-height:1.3;margin-left:auto;margin-right:auto}
+#register #invitation form{width:auto;margin:0}
+#register #invitation input.text{width:250px;margin-bottom:10px}
+#register #invitation textarea{width:275px;height:95px;border:1px solid;border-color:#d8d8d8 #fff #fff #d8d8d8;padding:5px;color:#777}
+#register #invitation label{display:block;margin-bottom:8px;color:#777}
+#register #invitation .button-wrapper{position:absolute;right:0;bottom:-22px}
+#register #invitation .share-wrapper{clear:both;margin-top:25px;*width:280px}
+#register #invitation .share-wrapper h4{margin-bottom:8px;font-weight:bold;color:#777}
+#register #invitation .share-wrapper a{float:left;_display:inline;width:90px;line-height:35px;margin-right:15px;padding-left:34px;background:url(../../images/sweepstakes/sweepstakes-sprites.png) no-repeat 0 0;font-weight:bold;color:#fff;text-align:center}
+#register #invitation .share-wrapper a.twitter{background-position:0 -50px}
+#register #confirmation .actions{width:440px;margin:0 auto}
+#register #confirmation .actions button{width:200px}
+#register #confirmation .actions button.invite-more{margin-right:40px}
+#sweepstakes-terms{min-width:0}
+#sweepstakes-terms .content{padding:25px}
+#sweepstakes-terms #header{height:auto;padding:10px 25px}
+#sweepstakes-terms #header .logo{background:url(../../images/layout/header-logo.png) no-repeat;width:201px;height:24px;text-indent:-9999px;overflow:hidden}
+#sweepstakes-terms .terms{line-height:1.3}
+#sweepstakes-terms .terms p,#sweepstakes-terms .terms li{margin-bottom:1em}
+#sweepstakes-terms .terms ul,#sweepstakes-terms .terms ol{list-style-type:disc;padding-left:15px}
+#fb-user{margin-bottom:20px}
+#fb-user .thumb{vertical-align:middle;margin-right:10px}
+#fb-user .name{font-size:16px;color:#515151}
