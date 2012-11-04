@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Virtual Walks</string>
+    <string name="login_app_name">Virtual Walks</string>
+    <string name="login_btn_text">Log in</string>
+    <string name="login_uname_hint">Enter username</string>
+    <string name="login_pass_hint">Enter password</string>
+    <string name="welcome_welcome_text">Welcome</string>
+    <string name="welcome_createwalk_text">Create New Walk</string>
+    <string name="welcome_logout_text">Log out</string>
+    <string name="createwalk_name_text">Walk Name</string>
+    <string name="createwalk_loc_text">Where will you walk?</string>
+    <string name="createwalk_city_text">Which city?</string>
+    <string name="createwalk_county_text">Which county?</string>
+    <string name="createwalk_broadcast_text">Broadcast!</string>
+
+</resources>
