@@ -24,8 +24,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+
+
 public class KSOAPTestActivity extends Activity {
-	
+	private static final String LOG_TAG = "KSOAPTestActivity";
 	
 	//
 	String envelopeGetSystemDateAndTime = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"+
@@ -34,7 +36,8 @@ public class KSOAPTestActivity extends Activity {
 		        "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + 
 		        "<GetSystemDateAndTime xmlns=\"http://www.onvif.org/ver10/device/wsdl\"/>"+
 		    "</s:Body></s:Envelope>";
-	String deviceURL = "http://119.202.84.99/onvif/device_service";
+	//
+	String deviceURL = "http://119.202.84.112/onvif/device_service";
 	String actionGetSystemDateAndTime = "http://www.onvif.org/ver10/device/wsdl/GetSystemDateAndTime";
 	
 	//
@@ -73,14 +76,19 @@ public class KSOAPTestActivity extends Activity {
         //String result = callWebService(imagingURL, actionGetImagingSettings, envelopeGetImagingSettings);
         //String result = callWebService(deviceURL, actionGetCapabilities, envelopeGetCapabilities);
         
-        //String result = callWebService(deviceURL, actionGetCapabilities, prepareEnvelopeGetCapabilities());
-        String result = callWebService(deviceURL, actionGetScopes, prepareEnvelopeGetScopes());
+        //
+        String result = callWebService(deviceURL, actionGetCapabilities, prepareEnvelopeGetCapabilities());
+        //String result = callWebService(deviceURL, actionGetScopes, prepareEnvelopeGetScopes());
         
         if(result != null){
 			TextView t = (TextView)this.findViewById(R.id.resultbox);
 			t.setText("SOAP response:\n\n" + result);
+			
+			Log.i(LOG_TAG, "SOAP response:" + result);
 		}
     }
+    
+    
     
     //[GetCapabilities]
     private String prepareEnvelopeGetCapabilities(){
@@ -109,7 +117,7 @@ public class KSOAPTestActivity extends Activity {
 		
     }
     
-  //[GetScopes]
+    //[GetScopes]
     private String prepareEnvelopeGetScopes(){
     	// recover nonce from hexString
     	String hexString = "68C7090569FFAF65C5976B163AC0602ED30431DB32B5D4ED7CF862D5944C0AB0";
@@ -136,7 +144,7 @@ public class KSOAPTestActivity extends Activity {
 		
     }
     
-    //
+    //testKSoap
     private void testKSoap(){
     	String SOAP_ACTION = "http://endpoint.helloservice/sayHello";
     	String NAMESPACE = "http://endpoint.helloservice/";
@@ -174,9 +182,9 @@ public class KSOAPTestActivity extends Activity {
 		}
     }
     
+    
+    //callWebService
 	private String callWebService(String url, String soapAction, String envelope) {
-		
-		
 		
 		final DefaultHttpClient httpClient = new DefaultHttpClient();
 		// request parameters
