@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://tempuri.org/wsa.xsd"
+    xmlns:xmime="http://tempuri.org/xmime.xsd"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2"
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:ter="http://www.onvif.org/ver10/error" >
+
+    <SOAP-ENV:Header>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <tds:GetCapabilitiesResponse>
+            <tds:Capabilities>
+                <tt:Device>
+                    <tt:XAddr>
+						http://119.202.84.112/onvif/device_service
+                    </tt:XAddr>
+                    <tt:Network>
+                        <tt:IPFilter>
+							true
+                        </tt:IPFilter>
+                        <tt:ZeroConfiguration>
+							true
+                        </tt:ZeroConfiguration>
+                        <tt:IPVersion6>
+							true
+                        </tt:IPVersion6>
+                        <tt:DynDNS>
+							true
+                        </tt:DynDNS>
+                    </tt:Network>
+
+                    <tt:System>
+                        <tt:DiscoveryResolve>
+							true
+                        </tt:DiscoveryResolve>
+                        <tt:DiscoveryBye>
+							true
+                        </tt:DiscoveryBye>
+                        <tt:RemoteDiscovery>
+							false
+                        </tt:RemoteDiscovery>
+                        <tt:SystemBackup>
+							false
+                        </tt:SystemBackup>
+                        <tt:SystemLogging>
+							false
+                        </tt:SystemLogging>
+                        <tt:FirmwareUpgrade>
+							false
+                        </tt:FirmwareUpgrade>
+                        <tt:SupportedVersions>
+                            <tt:Major>
+								1
+                            </tt:Major>
+                            <tt:Minor>
+								2
+                            </tt:Minor>
+                        </tt:SupportedVersions>
+                    </tt:System>
+
+                    <tt:IO>
+
+                        <tt:InputConnectors>
+1
+                        </tt:InputConnectors>
+
+                        <tt:RelayOutputs>
+1
+                        </tt:RelayOutputs>
+                    </tt:IO>
+
+                    <tt:Security>
+
+                        <tt:TLS1.1>
+true
+                        </tt:TLS1.1>
+
+                        <tt:TLS1.2>
+false
+                        </tt:TLS1.2>
+
+                        <tt:OnboardKeyGeneration>
+false
+                        </tt:OnboardKeyGeneration>
+
+                        <tt:AccessPolicyConfig>
+false
+                        </tt:AccessPolicyConfig>
+
+                        <tt:X.509Token>
+false
+                        </tt:X.509Token>
+
+                        <tt:SAMLToken>
+false
+                        </tt:SAMLToken>
+
+                        <tt:KerberosToken>
+false
+                        </tt:KerberosToken>
+
+                        <tt:RELToken>
+false
+                        </tt:RELToken>
+                    </tt:Security>
+                </tt:Device>
+
+                <tt:Events>
+
+                    <tt:XAddr>
+http://119.202.84.112/onvif/event_service
+                    </tt:XAddr>
+
+                    <tt:WSSubscriptionPolicySupport>
+false
+                    </tt:WSSubscriptionPolicySupport>
+
+                    <tt:WSPullPointSupport>
+false
+                    </tt:WSPullPointSupport>
+
+                    <tt:WSPausableSubscriptionManagerInterfaceSupport>
+false
+                    </tt:WSPausableSubscriptionManagerInterfaceSupport>
+                </tt:Events>
+
+                <tt:Imaging>
+
+                    <tt:XAddr>
+http://119.202.84.112/onvif/imaging_service
+                    </tt:XAddr>
+                </tt:Imaging>
+
+                <tt:Media>
+
+                    <tt:XAddr>
+http://119.202.84.112/onvif/media_service
+                    </tt:XAddr>
+
+                    <tt:StreamingCapabilities>
+
+                        <tt:RTPMulticast>
+true
+                        </tt:RTPMulticast>
+
+                        <tt:RTP_TCP>
+true
+                        </tt:RTP_TCP>
+
+                        <tt:RTP_RTSP_TCP>
+true
+                        </tt:RTP_RTSP_TCP>
+                    </tt:StreamingCapabilities>
+
+                    <tt:Extension>
+
+                        <tt:ProfileCapabilities>
+
+                            <tt:MaximumNumberOfProfiles>
+10
+                            </tt:MaximumNumberOfProfiles>
+                        </tt:ProfileCapabilities>
+                    </tt:Extension>
+                </tt:Media>
+            </tds:Capabilities>
+        </tds:GetCapabilitiesResponse>
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>
