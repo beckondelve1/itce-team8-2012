@@ -1,0 +1,103 @@
+POST /onvif/device_service HTTP/1.1
+
+Content-Type: application/soap+xml; charset=utf-8; action="http://www.onvif.org/ver10/device/wsdl/GetDeviceInformation"
+
+Host: 119.202.84.112
+
+Content-Length: 916
+
+Accept-Encoding: gzip, deflate
+
+Connection: Close
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" >
+
+    <s:Header>
+        <Security
+            xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+            s:mustUnderstand="1" >
+            <UsernameToken>
+                <Username>
+admin
+                </Username>
+
+                <Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest" >
+dfKg9cDbQouDKIElfvGa66xp8bc=
+                </Password>
+
+                <Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" >
+KYINf1gXrUSo4Ia2lD2HWAEAAAAAAA==
+                </Nonce>
+
+                <Created xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" >
+2012-11-09T09:29:30.010Z
+                </Created>
+            </UsernameToken>
+        </Security>
+    </s:Header>
+
+    <s:Body
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+        <GetDeviceInformation xmlns="http://www.onvif.org/ver10/device/wsdl" />
+    </s:Body>
+
+</s:Envelope>HTTP/1.1 200 OK
+
+Status: 200 OK
+
+Server: gSOAP/2.7
+
+Content-Type: application/soap+xml; charset=utf-8
+
+Content-Length: 1370
+
+Connection: close
+
+Date: Fri, 09 Nov 2012 09:29:35 GMT
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://tempuri.org/wsa.xsd"
+    xmlns:xmime="http://tempuri.org/xmime.xsd"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2"
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:ter="http://www.onvif.org/ver10/error" >
+
+    <SOAP-ENV:Header>
+    </SOAP-ENV:Header>
+
+    <SOAP-ENV:Body>
+        <tds:GetDeviceInformationResponse>
+            <tds:Manufacturer>
+Samsung Techwin
+            </tds:Manufacturer>
+
+            <tds:Model>
+SNB-5000A
+            </tds:Model>
+
+            <tds:FirmwareVersion>
+2.00_110727
+            </tds:FirmwareVersion>
+
+            <tds:SerialNumber>
+C7CY6V3BB01180Y
+            </tds:SerialNumber>
+
+            <tds:HardwareId>
+SNB-5000A
+            </tds:HardwareId>
+        </tds:GetDeviceInformationResponse>
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>
