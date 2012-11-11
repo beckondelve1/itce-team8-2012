@@ -10,5 +10,8 @@
 			<attribute name="javadoc_location" value="jar:file:/E:/caidat/Android/Lib/jsoup/jsoup-1.7.1-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="E:/caidat/Apache/apache-commons/httpcomponents-client-4.2.1/lib/httpclient-4.2.1.jar"/>
+	<classpathentry kind="lib" path="E:/caidat/Apache/apache-commons/httpcomponents-client-4.2.1/lib/httpcore-4.2.1.jar"/>
+	<classpathentry kind="lib" path="E:/caidat/Apache/apache-commons/httpcomponents-client-4.2.1/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
