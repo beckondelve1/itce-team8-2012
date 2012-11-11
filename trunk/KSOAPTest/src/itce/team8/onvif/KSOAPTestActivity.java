@@ -29,18 +29,19 @@ import android.widget.TextView;
 public class KSOAPTestActivity extends Activity {
 	private static final String LOG_TAG = "KSOAPTestActivity";
 	
-	//
+	String deviceURL = "http://119.202.84.112/onvif/device_service";
+	String imagingURL = "http://119.202.84.112/onvif/imaging_service";
+	
+	//1.
 	String envelopeGetSystemDateAndTime = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"+
 			"<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\">" +
 		    "<s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"" + 
 		        "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + 
 		        "<GetSystemDateAndTime xmlns=\"http://www.onvif.org/ver10/device/wsdl\"/>"+
 		    "</s:Body></s:Envelope>";
-	//
-	String deviceURL = "http://119.202.84.112/onvif/device_service";
 	String actionGetSystemDateAndTime = "http://www.onvif.org/ver10/device/wsdl/GetSystemDateAndTime";
 	
-	//
+	//2.
 	String envelopeGetImagingSettings = "<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\">" +
 			"<s:Header><Security s:mustUnderstand=\"1\" xmlns=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">" +
 			"<UsernameToken><Username>admin</Username><Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest\">" +
@@ -49,10 +50,9 @@ public class KSOAPTestActivity extends Activity {
 			"2012-05-21T08:31:12.192Z</Created></UsernameToken></Security></s:Header><s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
 			"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><GetImagingSettings xmlns=\"http://www.onvif.org/ver20/imaging/wsdl\"><VideoSourceToken>" +
 			"bd449516-4c96-44a6-a163-3ad5981c09fd</VideoSourceToken></GetImagingSettings></s:Body></s:Envelope>";
-	String imagingURL = "http://119.202.84.99/onvif/imaging_service";
 	String actionGetImagingSettings = "http://www.onvif.org/ver10/device/wsdl/GetSystemDateAndTime";
 	
-	//
+	//3.
 	String envelopeGetCapabilities = "<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\">" +
 			"<s:Header><Security s:mustUnderstand=\"1\" xmlns=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">" +
 			"<UsernameToken><Username>admin</Username><Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest\">" +
