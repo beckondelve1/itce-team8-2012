@@ -2,6 +2,7 @@ package test;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,12 +15,15 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.util.EntityUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 
 public class WsByHttpPostTest {
 
-	//
-	Calendar serverTimeOffset;
+	//in milisecond
+	int serverTimeOffset = 0;
 	//
 	String deviceURL = "http://119.202.84.112/onvif/device_service";
 	String imagingURL = "http://119.202.84.112/onvif/imaging_service";
@@ -50,11 +54,42 @@ public class WsByHttpPostTest {
 		//
 		//always compute TIME-OFFSET and save it to 'serverTimeOffset'
 		obj.testGetSystemDateAndTime();
+		
+		//
 		obj.testGetNetworkInterfaces();
 		obj.testGetCapabilities();
 
 	}
 	
+	private long computeTimeOffset(String response){
+		String TIME_ITEM = "tt:Time";
+		String DATE_ITEM = "tt:Date"; 
+		
+		
+		XMLParser parser = new XMLParser();
+		Document doc = parser.getDomElement(response);
+		//Time
+		NodeList nl = doc.getElementsByTagName(TIME_ITEM);
+		//
+		Element e = (Element)nl.item(0);
+		int hour = Integer.parseInt(parser.getValue(e, "tt:Hour"));
+		int minute = Integer.parseInt(parser.getValue(e, "tt:Minute"));
+		int second = Integer.parseInt(parser.getValue(e, "tt:Second"));
+		
+		//Date
+		nl = doc.getElementsByTagName(DATE_ITEM);
+		//
+		e = (Element)nl.item(0);
+		int year = Integer.parseInt(parser.getValue(e, "tt:Year"));
+		int month = Integer.parseInt(parser.getValue(e, "tt:Month"));
+		int day = Integer.parseInt(parser.getValue(e, "tt:Day"));
+		
+		//
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+		cal.set(year, month-1, day, hour, minute, second);
+		
+		return cal.getTimeInMillis() - System.currentTimeMillis();
+	}
 	
 
 	//
@@ -66,6 +101,10 @@ public class WsByHttpPostTest {
         if(result != null){
 			System.out.println(result);
 		}
+        
+        //
+        serverTimeOffset = (int)computeTimeOffset(result);
+        System.out.println("serverTimeOffset=" + serverTimeOffset);
 	}
 	
 	//
@@ -175,7 +214,7 @@ public class WsByHttpPostTest {
 			nonce[i] += (byte)Integer.parseInt(hexString.substring(2*i, 2*i+2), 16);
     	
 		//
-		TokenGenerator gen = new TokenGenerator(nonce, "4321", null);
+		TokenGenerator gen = new TokenGenerator(nonce, "4321", serverTimeOffset);
 		
 		//
 		String envelopeString = "<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\">" +
@@ -203,7 +242,7 @@ public class WsByHttpPostTest {
 			nonce[i] += (byte)Integer.parseInt(hexString.substring(2*i, 2*i+2), 16);
     	
 		//
-		TokenGenerator gen = new TokenGenerator(nonce, "4321", null);
+		TokenGenerator gen = new TokenGenerator(nonce, "4321", serverTimeOffset);
 		
 		//
 		String envelopeString = "<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\">" +
