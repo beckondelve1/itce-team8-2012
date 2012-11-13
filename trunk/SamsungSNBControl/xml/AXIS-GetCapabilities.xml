@@ -1,0 +1,257 @@
+POST /onvif/device_service HTTP/1.1
+
+Content-Type: application/soap+xml; charset=utf-8; action="http://www.onvif.org/ver10/device/wsdl/GetCapabilities"
+
+Host: 192.168.1.128
+
+Content-Length: 956
+
+Accept-Encoding: gzip, deflate
+
+Connection: Close
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" >
+
+    <s:Header>
+        <Security
+            xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+            s:mustUnderstand="1" >
+            <UsernameToken>
+                <Username>
+onvifuser
+                </Username>
+
+                <Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest" >
+4R09NUdp9SZUdAAEBUP1Pve6w7g=
+                </Password>
+
+                <Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" >
+WsRdwgokhkSN0x4VnRTBpwIAAAAAAA==
+                </Nonce>
+
+                <Created xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" >
+2012-11-13T13:08:53.011Z
+                </Created>
+            </UsernameToken>
+        </Security>
+    </s:Header>
+
+    <s:Body
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+        <GetCapabilities xmlns="http://www.onvif.org/ver10/device/wsdl" >
+            <Category>
+All
+            </Category>
+        </GetCapabilities>
+    </s:Body>
+
+</s:Envelope>HTTP/1.1 200 OK
+
+Server: gSOAP/2.7
+
+Content-Type: application/soap+xml; charset=utf-8
+
+Content-Length: 3921
+
+Connection: close
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa5="http://www.w3.org/2005/08/addressing"
+    xmlns:xmime="http://tempuri.org/xmime.xsd"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:wsrfbf="http://docs.oasis-open.org/wsrf/bf-2"
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:wsrfr="http://docs.oasis-open.org/wsrf/r-2"
+    xmlns:aa="http://www.axis.com/vapix/ws/action1"
+    xmlns:aev="http://www.axis.com/vapix/ws/event1"
+    xmlns:tan1="http://www.onvif.org/ver20/analytics/wsdl/RuleEngineBinding"
+    xmlns:tan2="http://www.onvif.org/ver20/analytics/wsdl/AnalyticsEngineBinding"
+    xmlns:tan="http://www.onvif.org/ver20/analytics/wsdl"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:tev1="http://www.onvif.org/ver10/events/wsdl/NotificationProducerBinding"
+    xmlns:tev2="http://www.onvif.org/ver10/events/wsdl/EventBinding"
+    xmlns:tev3="http://www.onvif.org/ver10/events/wsdl/SubscriptionManagerBinding"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tev4="http://www.onvif.org/ver10/events/wsdl/PullPointSubscriptionBinding"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:ter="http://www.onvif.org/ver10/error"
+    xmlns:tns1="http://www.onvif.org/ver10/topics"
+    xmlns:tnsaxis="http://www.axis.com/2009/event/topics" >
+
+    <SOAP-ENV:Header>
+    </SOAP-ENV:Header>
+
+    <SOAP-ENV:Body>
+        <tds:GetCapabilitiesResponse>
+            <tds:Capabilities>
+                <tt:Device>
+                    <tt:XAddr>
+http://192.168.1.128/onvif/device_service
+                    </tt:XAddr>
+
+                    <tt:Network>
+                        <tt:IPFilter>
+true
+                        </tt:IPFilter>
+
+                        <tt:ZeroConfiguration>
+true
+                        </tt:ZeroConfiguration>
+
+                        <tt:IPVersion6>
+true
+                        </tt:IPVersion6>
+
+                        <tt:DynDNS>
+true
+                        </tt:DynDNS>
+                    </tt:Network>
+
+                    <tt:System>
+                        <tt:DiscoveryResolve>
+true
+                        </tt:DiscoveryResolve>
+
+                        <tt:DiscoveryBye>
+true
+                        </tt:DiscoveryBye>
+
+                        <tt:RemoteDiscovery>
+false
+                        </tt:RemoteDiscovery>
+
+                        <tt:SystemBackup>
+false
+                        </tt:SystemBackup>
+
+                        <tt:SystemLogging>
+true
+                        </tt:SystemLogging>
+
+                        <tt:FirmwareUpgrade>
+false
+                        </tt:FirmwareUpgrade>
+
+                        <tt:SupportedVersions>
+                            <tt:Major>
+1
+                            </tt:Major>
+
+                            <tt:Minor>
+2
+                            </tt:Minor>
+                        </tt:SupportedVersions>
+                    </tt:System>
+
+                    <tt:IO>
+                        <tt:InputConnectors>
+2
+                        </tt:InputConnectors>
+
+                        <tt:RelayOutputs>
+1
+                        </tt:RelayOutputs>
+                    </tt:IO>
+
+                    <tt:Security>
+                        <tt:TLS1.1>
+false
+                        </tt:TLS1.1>
+
+                        <tt:TLS1.2>
+false
+                        </tt:TLS1.2>
+
+                        <tt:OnboardKeyGeneration>
+true
+                        </tt:OnboardKeyGeneration>
+
+                        <tt:AccessPolicyConfig>
+true
+                        </tt:AccessPolicyConfig>
+
+                        <tt:X.509Token>
+false
+                        </tt:X.509Token>
+
+                        <tt:SAMLToken>
+false
+                        </tt:SAMLToken>
+
+                        <tt:KerberosToken>
+false
+                        </tt:KerberosToken>
+
+                        <tt:RELToken>
+false
+                        </tt:RELToken>
+
+                        <tt:Extension>
+                            <tt:TLS1.0>
+true
+                            </tt:TLS1.0>
+                        </tt:Extension>
+                    </tt:Security>
+                </tt:Device>
+
+                <tt:Events>
+                    <tt:XAddr>
+http://192.168.1.128/onvif/services
+                    </tt:XAddr>
+
+                    <tt:WSSubscriptionPolicySupport>
+false
+                    </tt:WSSubscriptionPolicySupport>
+
+                    <tt:WSPullPointSupport>
+false
+                    </tt:WSPullPointSupport>
+
+                    <tt:WSPausableSubscriptionManagerInterfaceSupport>
+false
+                    </tt:WSPausableSubscriptionManagerInterfaceSupport>
+                </tt:Events>
+
+                <tt:Media>
+                    <tt:XAddr>
+http://192.168.1.128/onvif/services
+                    </tt:XAddr>
+
+                    <tt:StreamingCapabilities>
+                        <tt:RTPMulticast>
+true
+                        </tt:RTPMulticast>
+
+                        <tt:RTP_TCP>
+true
+                        </tt:RTP_TCP>
+
+                        <tt:RTP_RTSP_TCP>
+true
+                        </tt:RTP_RTSP_TCP>
+                    </tt:StreamingCapabilities>
+
+                    <tt:Extension>
+                        <tt:ProfileCapabilities>
+                            <tt:MaximumNumberOfProfiles>
+32
+                            </tt:MaximumNumberOfProfiles>
+                        </tt:ProfileCapabilities>
+                    </tt:Extension>
+                </tt:Media>
+            </tds:Capabilities>
+        </tds:GetCapabilitiesResponse>
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>
