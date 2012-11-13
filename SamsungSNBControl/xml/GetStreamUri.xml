@@ -1,0 +1,117 @@
+POST /onvif/media_service HTTP/1.1
+
+Content-Type: application/soap+xml; charset=utf-8; action="http://www.onvif.org/ver10/media/wsdl/GetStreamUri"
+
+Host: 119.202.84.112
+
+Content-Length: 1172
+
+Accept-Encoding: gzip, deflate
+
+Connection: Close
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" >
+
+    <s:Header>
+        <Security
+            xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+            s:mustUnderstand="1" >
+            <UsernameToken>
+                <Username>
+admin
+                </Username>
+
+                <Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest" >
+UzV9vPu1GYg1PDTP1nGSwtpz8F4=
+                </Password>
+
+                <Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" >
+WS5AhJiVUUGnnzmo5tm5PBEAAAAAAA==
+                </Nonce>
+
+                <Created xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" >
+2012-11-13T05:57:51.741Z
+                </Created>
+            </UsernameToken>
+        </Security>
+    </s:Header>
+
+    <s:Body
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+        <GetStreamUri xmlns="http://www.onvif.org/ver10/media/wsdl" >
+            <StreamSetup>
+                <Stream xmlns="http://www.onvif.org/ver10/schema" >
+RTP-Unicast
+                </Stream>
+
+                <Transport xmlns="http://www.onvif.org/ver10/schema" >
+                    <Protocol>
+UDP
+                    </Protocol>
+                </Transport>
+            </StreamSetup>
+
+            <ProfileToken>
+38c83ce2-bb67-447c-9834-0b629aff0d23
+            </ProfileToken>
+        </GetStreamUri>
+    </s:Body>
+
+</s:Envelope>HTTP/1.1 200 OK
+
+Status: 200 OK
+
+Server: gSOAP/2.7
+
+Content-Type: application/soap+xml; charset=utf-8
+
+Content-Length: 1355
+
+Connection: close
+
+Date: Tue, 13 Nov 2012 05:57:52 GMT
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://tempuri.org/wsa.xsd"
+    xmlns:xmime="http://tempuri.org/xmime.xsd"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2"
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:ter="http://www.onvif.org/ver10/error" >
+
+    <SOAP-ENV:Header>
+    </SOAP-ENV:Header>
+
+    <SOAP-ENV:Body>
+        <trt:GetStreamUriResponse>
+            <trt:MediaUri>
+                <tt:Uri>
+rtsp://119.202.84.112:554/onvif/profile1/media.smp
+                </tt:Uri>
+
+                <tt:InvalidAfterConnect>
+false
+                </tt:InvalidAfterConnect>
+
+                <tt:InvalidAfterReboot>
+true
+                </tt:InvalidAfterReboot>
+
+                <tt:Timeout>
+PT0H0M0S
+                </tt:Timeout>
+            </trt:MediaUri>
+        </trt:GetStreamUriResponse>
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>

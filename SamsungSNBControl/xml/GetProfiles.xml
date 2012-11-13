@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://tempuri.org/wsa.xsd"
+    xmlns:xmime="http://tempuri.org/xmime.xsd"
+    xmlns:xop="http://www.w3.org/2004/08/xop/include"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:wsrf-bf="http://docs.oasis-open.org/wsrf/bf-2"
+    xmlns:wstop="http://docs.oasis-open.org/wsn/t-1"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:ter="http://www.onvif.org/ver10/error" >
+
+    <SOAP-ENV:Header>
+    </SOAP-ENV:Header>
+
+    <SOAP-ENV:Body>
+        <trt:GetProfilesResponse>
+            <trt:Profiles
+                fixed="true"
+                token="38c83ce2-bb67-447c-9834-0b629aff0d23" >
+                <tt:Name>
+MJPEG
+                </tt:Name>
+
+                <tt:VideoSourceConfiguration token="af42286e-338f-42a0-8e08-dcaa7ee8001c" >
+                    <tt:Name>
+video source configuration 0
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+7d39309d-5644-4744-a407-239fefadbdbb
+                    </tt:SourceToken>
+
+                    <tt:Bounds
+                        height="1024"
+                        width="1280"
+                        x="0"
+                        y="0" >
+                    </tt:Bounds>
+                </tt:VideoSourceConfiguration>
+
+                <tt:AudioSourceConfiguration token="8c1953fb-9f32-4943-8898-ef9fab8065e8" >
+                    <tt:Name>
+audio source configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+cc74d33c-1506-44de-9dba-bf9ca3c0b9bc
+                    </tt:SourceToken>
+                </tt:AudioSourceConfiguration>
+
+                <tt:VideoEncoderConfiguration token="f7de33e7-c944-406e-9bbd-1d6f2a69630d" >
+                    <tt:Name>
+encoder0
+                    </tt:Name>
+
+                    <tt:UseCount>
+1
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+JPEG
+                    </tt:Encoding>
+
+                    <tt:Resolution>
+                        <tt:Width>
+1280
+                        </tt:Width>
+
+                        <tt:Height>
+1024
+                        </tt:Height>
+                    </tt:Resolution>
+
+                    <tt:Quality>
+11
+                    </tt:Quality>
+
+                    <tt:RateControl>
+                        <tt:FrameRateLimit>
+5
+                        </tt:FrameRateLimit>
+
+                        <tt:EncodingInterval>
+0
+                        </tt:EncodingInterval>
+
+                        <tt:BitrateLimit>
+8192
+                        </tt:BitrateLimit>
+                    </tt:RateControl>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+1
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+                </tt:VideoEncoderConfiguration>
+
+                <tt:AudioEncoderConfiguration token="876ac0cb-6641-41f0-82db-67ca9c760b56" >
+                    <tt:Name>
+audio encoder
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+G711
+                    </tt:Encoding>
+
+                    <tt:Bitrate>
+64
+                    </tt:Bitrate>
+
+                    <tt:SampleRate>
+8
+                    </tt:SampleRate>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+0
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+
+                    <tt:SessionTimeout>
+PT0H0M30S
+                    </tt:SessionTimeout>
+                </tt:AudioEncoderConfiguration>
+
+                <tt:PTZConfiguration token="7e219b8e-902e-4c8b-bf36-6dae991a9850" >
+                    <tt:Name>
+ptz configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+0
+                    </tt:UseCount>
+
+                    <tt:NodeToken>
+ptz node 1
+                    </tt:NodeToken>
+
+                    <tt:DefaultAbsoluteZoomPositionSpace>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/PositionGenericSpace
+                    </tt:DefaultAbsoluteZoomPositionSpace>
+
+                    <tt:DefaultPTZSpeed>
+                        <tt:Zoom
+                            space="http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpeedSpace"
+                            x="0" >
+                        </tt:Zoom>
+                    </tt:DefaultPTZSpeed>
+
+                    <tt:ZoomLimits>
+                        <tt:Range>
+                            <tt:URI>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpace
+                            </tt:URI>
+
+                            <tt:XRange>
+                                <tt:Min>
+0
+                                </tt:Min>
+
+                                <tt:Max>
+1
+                                </tt:Max>
+                            </tt:XRange>
+                        </tt:Range>
+                    </tt:ZoomLimits>
+                </tt:PTZConfiguration>
+            </trt:Profiles>
+            <trt:Profiles
+                fixed="true"
+                token="0d452ca5-c2e7-4ff1-b6fd-a291fdb0b5e5" >
+                <tt:Name>
+H.264
+                </tt:Name>
+
+                <tt:VideoSourceConfiguration token="af42286e-338f-42a0-8e08-dcaa7ee8001c" >
+                    <tt:Name>
+video source configuration 0
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+7d39309d-5644-4744-a407-239fefadbdbb
+                    </tt:SourceToken>
+
+                    <tt:Bounds
+                        height="1024"
+                        width="1280"
+                        x="0"
+                        y="0" >
+                    </tt:Bounds>
+                </tt:VideoSourceConfiguration>
+
+                <tt:AudioSourceConfiguration token="8c1953fb-9f32-4943-8898-ef9fab8065e8" >
+                    <tt:Name>
+audio source configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+cc74d33c-1506-44de-9dba-bf9ca3c0b9bc
+                    </tt:SourceToken>
+                </tt:AudioSourceConfiguration>
+
+                <tt:VideoEncoderConfiguration token="28dd93e4-4b5d-4849-8966-a834d00c4175" >
+                    <tt:Name>
+encoder1
+                    </tt:Name>
+
+                    <tt:UseCount>
+1
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+H264
+                    </tt:Encoding>
+
+                    <tt:Resolution>
+                        <tt:Width>
+1280
+                        </tt:Width>
+
+                        <tt:Height>
+1024
+                        </tt:Height>
+                    </tt:Resolution>
+
+                    <tt:Quality>
+11
+                    </tt:Quality>
+
+                    <tt:RateControl>
+                        <tt:FrameRateLimit>
+30
+                        </tt:FrameRateLimit>
+
+                        <tt:EncodingInterval>
+0
+                        </tt:EncodingInterval>
+
+                        <tt:BitrateLimit>
+5120
+                        </tt:BitrateLimit>
+                    </tt:RateControl>
+
+                    <tt:H264>
+                        <tt:GovLength>
+15
+                        </tt:GovLength>
+
+                        <tt:H264Profile>
+High
+                        </tt:H264Profile>
+                    </tt:H264>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+1
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+                </tt:VideoEncoderConfiguration>
+
+                <tt:AudioEncoderConfiguration token="876ac0cb-6641-41f0-82db-67ca9c760b56" >
+                    <tt:Name>
+audio encoder
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+G711
+                    </tt:Encoding>
+
+                    <tt:Bitrate>
+64
+                    </tt:Bitrate>
+
+                    <tt:SampleRate>
+8
+                    </tt:SampleRate>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+0
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+
+                    <tt:SessionTimeout>
+PT0H0M30S
+                    </tt:SessionTimeout>
+                </tt:AudioEncoderConfiguration>
+
+                <tt:PTZConfiguration token="7e219b8e-902e-4c8b-bf36-6dae991a9850" >
+                    <tt:Name>
+ptz configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+0
+                    </tt:UseCount>
+
+                    <tt:NodeToken>
+ptz node 1
+                    </tt:NodeToken>
+
+                    <tt:DefaultAbsoluteZoomPositionSpace>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/PositionGenericSpace
+                    </tt:DefaultAbsoluteZoomPositionSpace>
+
+                    <tt:DefaultPTZSpeed>
+                        <tt:Zoom
+                            space="http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpeedSpace"
+                            x="0" >
+                        </tt:Zoom>
+                    </tt:DefaultPTZSpeed>
+
+                    <tt:ZoomLimits>
+                        <tt:Range>
+                            <tt:URI>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpace
+                            </tt:URI>
+
+                            <tt:XRange>
+                                <tt:Min>
+0
+                                </tt:Min>
+
+                                <tt:Max>
+1
+                                </tt:Max>
+                            </tt:XRange>
+                        </tt:Range>
+                    </tt:ZoomLimits>
+                </tt:PTZConfiguration>
+            </trt:Profiles>
+            <trt:Profiles
+                fixed="true"
+                token="1f838638-7449-405f-b202-d26fb2885496" >
+                <tt:Name>
+MPEG4
+                </tt:Name>
+
+                <tt:VideoSourceConfiguration token="af42286e-338f-42a0-8e08-dcaa7ee8001c" >
+                    <tt:Name>
+video source configuration 0
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+7d39309d-5644-4744-a407-239fefadbdbb
+                    </tt:SourceToken>
+
+                    <tt:Bounds
+                        height="1024"
+                        width="1280"
+                        x="0"
+                        y="0" >
+                    </tt:Bounds>
+                </tt:VideoSourceConfiguration>
+
+                <tt:AudioSourceConfiguration token="8c1953fb-9f32-4943-8898-ef9fab8065e8" >
+                    <tt:Name>
+audio source configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+cc74d33c-1506-44de-9dba-bf9ca3c0b9bc
+                    </tt:SourceToken>
+                </tt:AudioSourceConfiguration>
+
+                <tt:VideoEncoderConfiguration token="79bf311b-087d-47b1-af5a-bb3f66fcb59e" >
+                    <tt:Name>
+encoder2
+                    </tt:Name>
+
+                    <tt:UseCount>
+1
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+MPEG4
+                    </tt:Encoding>
+
+                    <tt:Resolution>
+                        <tt:Width>
+1280
+                        </tt:Width>
+
+                        <tt:Height>
+1024
+                        </tt:Height>
+                    </tt:Resolution>
+
+                    <tt:Quality>
+11
+                    </tt:Quality>
+
+                    <tt:RateControl>
+                        <tt:FrameRateLimit>
+25
+                        </tt:FrameRateLimit>
+
+                        <tt:EncodingInterval>
+0
+                        </tt:EncodingInterval>
+
+                        <tt:BitrateLimit>
+5120
+                        </tt:BitrateLimit>
+                    </tt:RateControl>
+
+                    <tt:MPEG4>
+                        <tt:GovLength>
+15
+                        </tt:GovLength>
+
+                        <tt:Mpeg4Profile>
+SP
+                        </tt:Mpeg4Profile>
+                    </tt:MPEG4>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+1
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+                </tt:VideoEncoderConfiguration>
+
+                <tt:AudioEncoderConfiguration token="876ac0cb-6641-41f0-82db-67ca9c760b56" >
+                    <tt:Name>
+audio encoder
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+G711
+                    </tt:Encoding>
+
+                    <tt:Bitrate>
+64
+                    </tt:Bitrate>
+
+                    <tt:SampleRate>
+8
+                    </tt:SampleRate>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+0
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+
+                    <tt:SessionTimeout>
+PT0H0M30S
+                    </tt:SessionTimeout>
+                </tt:AudioEncoderConfiguration>
+
+                <tt:PTZConfiguration token="7e219b8e-902e-4c8b-bf36-6dae991a9850" >
+                    <tt:Name>
+ptz configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+0
+                    </tt:UseCount>
+
+                    <tt:NodeToken>
+ptz node 1
+                    </tt:NodeToken>
+
+                    <tt:DefaultAbsoluteZoomPositionSpace>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/PositionGenericSpace
+                    </tt:DefaultAbsoluteZoomPositionSpace>
+
+                    <tt:DefaultPTZSpeed>
+                        <tt:Zoom
+                            space="http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpeedSpace"
+                            x="0" >
+                        </tt:Zoom>
+                    </tt:DefaultPTZSpeed>
+
+                    <tt:ZoomLimits>
+                        <tt:Range>
+                            <tt:URI>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpace
+                            </tt:URI>
+
+                            <tt:XRange>
+                                <tt:Min>
+0
+                                </tt:Min>
+
+                                <tt:Max>
+1
+                                </tt:Max>
+                            </tt:XRange>
+                        </tt:Range>
+                    </tt:ZoomLimits>
+                </tt:PTZConfiguration>
+            </trt:Profiles>
+            <trt:Profiles
+                fixed="false"
+                token="786bd0f6-bcb5-4492-8e12-e096a979c250" >
+                <tt:Name>
+hiep
+                </tt:Name>
+
+                <tt:VideoSourceConfiguration token="af42286e-338f-42a0-8e08-dcaa7ee8001c" >
+                    <tt:Name>
+video source configuration 0
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+7d39309d-5644-4744-a407-239fefadbdbb
+                    </tt:SourceToken>
+
+                    <tt:Bounds
+                        height="1024"
+                        width="1280"
+                        x="0"
+                        y="0" >
+                    </tt:Bounds>
+                </tt:VideoSourceConfiguration>
+
+                <tt:AudioSourceConfiguration token="8c1953fb-9f32-4943-8898-ef9fab8065e8" >
+                    <tt:Name>
+audio source configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:SourceToken>
+cc74d33c-1506-44de-9dba-bf9ca3c0b9bc
+                    </tt:SourceToken>
+                </tt:AudioSourceConfiguration>
+
+                <tt:VideoEncoderConfiguration token="ccbe3983-1ead-400d-a0df-8fd367e46a83" >
+                    <tt:Name>
+encoder3
+                    </tt:Name>
+
+                    <tt:UseCount>
+1
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+H264
+                    </tt:Encoding>
+
+                    <tt:Resolution>
+                        <tt:Width>
+640
+                        </tt:Width>
+
+                        <tt:Height>
+480
+                        </tt:Height>
+                    </tt:Resolution>
+
+                    <tt:Quality>
+11
+                    </tt:Quality>
+
+                    <tt:RateControl>
+                        <tt:FrameRateLimit>
+30
+                        </tt:FrameRateLimit>
+
+                        <tt:EncodingInterval>
+0
+                        </tt:EncodingInterval>
+
+                        <tt:BitrateLimit>
+2048
+                        </tt:BitrateLimit>
+                    </tt:RateControl>
+
+                    <tt:H264>
+                        <tt:GovLength>
+15
+                        </tt:GovLength>
+
+                        <tt:H264Profile>
+High
+                        </tt:H264Profile>
+                    </tt:H264>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+1
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+                </tt:VideoEncoderConfiguration>
+
+                <tt:AudioEncoderConfiguration token="876ac0cb-6641-41f0-82db-67ca9c760b56" >
+                    <tt:Name>
+audio encoder
+                    </tt:Name>
+
+                    <tt:UseCount>
+4
+                    </tt:UseCount>
+
+                    <tt:Encoding>
+G711
+                    </tt:Encoding>
+
+                    <tt:Bitrate>
+64
+                    </tt:Bitrate>
+
+                    <tt:SampleRate>
+8
+                    </tt:SampleRate>
+
+                    <tt:Multicast>
+                        <tt:Address>
+                            <tt:Type>
+IPv4
+                            </tt:Type>
+
+                            <tt:IPv4Address>
+0.0.0.0
+                            </tt:IPv4Address>
+                        </tt:Address>
+
+                        <tt:Port>
+0
+                        </tt:Port>
+
+                        <tt:TTL>
+0
+                        </tt:TTL>
+
+                        <tt:AutoStart>
+false
+                        </tt:AutoStart>
+                    </tt:Multicast>
+
+                    <tt:SessionTimeout>
+PT0H0M30S
+                    </tt:SessionTimeout>
+                </tt:AudioEncoderConfiguration>
+
+                <tt:PTZConfiguration token="7e219b8e-902e-4c8b-bf36-6dae991a9850" >
+                    <tt:Name>
+ptz configuration
+                    </tt:Name>
+
+                    <tt:UseCount>
+0
+                    </tt:UseCount>
+
+                    <tt:NodeToken>
+ptz node 1
+                    </tt:NodeToken>
+
+                    <tt:DefaultAbsoluteZoomPositionSpace>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/PositionGenericSpace
+                    </tt:DefaultAbsoluteZoomPositionSpace>
+
+                    <tt:DefaultPTZSpeed>
+                        <tt:Zoom
+                            space="http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpeedSpace"
+                            x="0" >
+                        </tt:Zoom>
+                    </tt:DefaultPTZSpeed>
+
+                    <tt:ZoomLimits>
+                        <tt:Range>
+                            <tt:URI>
+http://www.onvif.org/ver10/tptz/ZoomSpaces/ZoomGenericSpace
+                            </tt:URI>
+
+                            <tt:XRange>
+                                <tt:Min>
+0
+                                </tt:Min>
+
+                                <tt:Max>
+1
+                                </tt:Max>
+                            </tt:XRange>
+                        </tt:Range>
+                    </tt:ZoomLimits>
+                </tt:PTZConfiguration>
+            </trt:Profiles>
+        </trt:GetProfilesResponse>
+    </SOAP-ENV:Body>
+
+</SOAP-ENV:Envelope>
