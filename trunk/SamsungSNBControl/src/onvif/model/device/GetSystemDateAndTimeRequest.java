@@ -18,11 +18,6 @@ public class GetSystemDateAndTimeRequest extends OnvifRequest{
 		
 	}
 
-	@Override
-	public void prepareSOAPRequest(int serverTimeOffset) {
-		//Do nothing
-	}
-	
 	
 	
 }

@@ -1,13 +1,15 @@
-package onvif.model.device;
+package onvif.model.media;
 
-public class GetCapabilitiesRequest extends OnvifRequest{
-	
+import onvif.model.device.OnvifRequest;
+
+public class GetProfileRequest extends OnvifRequest {
+
 	//Ctor
-	public GetCapabilitiesRequest(){
+	public GetProfileRequest(){
 		
 	}
 	
-	public GetCapabilitiesRequest(String url, String username, String password){
+	public GetProfileRequest(String url, String username, String password){
 		super(url, username, password);
 		//
 		this.header = "<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\">" +
@@ -19,15 +21,13 @@ public class GetCapabilitiesRequest extends OnvifRequest{
 				"%s</Created></UsernameToken></Security></s:Header>";
 		
 		this.body = "<s:Body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" " +
-				"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><GetCapabilities " +
-				"xmlns=\"http://www.onvif.org/ver10/device/wsdl\"><Category>" +
-				"%s</Category>" +
-				"</GetCapabilities></s:Body></s:Envelope>";
+				"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" +
+				"<GetProfile xmlns=\"http://www.onvif.org/ver10/media/wsdl\"><ProfileToken>" +
+				"%s</ProfileToken></GetProfile>" +
+				"</s:Body></s:Envelope>";
 		
-		this.action = "http://www.onvif.org/ver10/device/wsdl/GetCapabilities";
+		this.action = "http://www.onvif.org/ver10/media/wsdl/GetProfile";
 		
 		//
-		
 	}
-
 }
