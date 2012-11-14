@@ -22,8 +22,12 @@ import org.w3c.dom.NodeList;
 import test.XMLParser;
 
 public class Test {
-	private static final String DEVICE_URL = "http://119.202.84.112/onvif/device_service";
-	private static final String MEDIA_URL = "http://119.202.84.112/onvif/media_service";
+	//private static final String DEVICE_URL = "http://119.202.84.112/onvif/device_service";
+	//private static final String MEDIA_URL = "http://119.202.84.112/onvif/media_service";
+	
+	private static final String DEVICE_URL = "https://119.202.84.112/onvif/device_service";		//SSL
+	private static final String MEDIA_URL = "https://119.202.84.112/onvif/media_service";		//SSL
+
 	//
 	private static final String USERNAME = "admin";
 	private static final String PASSWORD = "4321";
