@@ -277,7 +277,10 @@ public class LoginActivity extends Activity {
 				map.put("userName", userName);
 				map.put("loginId", lastLoginId);
 				
-				String responseStr = HttpPostRequester.postData(Constants.IDENTIFY_URL, map);
+				//String responseStr = HttpPostRequester.postData(Constants.IDENTIFY_URL, map);
+				String responseStr = HttpPostRequester.postSecureData(Constants.IDENTIFY_URL, map,
+						(App)getApplicationContext());
+				
 				Log.i(LOG_TAG, "responseStr="+responseStr);
 				
 				//
@@ -298,7 +301,13 @@ public class LoginActivity extends Activity {
 				String userName = spRecentUsers.getSelectedItem().toString();
 				String fileName = "temp.wav";
 					
-				lastLoginId = FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName);	//selectedPath, fileName, urlString
+				//lastLoginId = FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName);	//selectedPath, fileName, urlString
+				
+				//
+				lastLoginId = FileUpload.doSecureFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, 
+						Constants.UPLOAD_URL, userName, (App)getApplicationContext());	//selectedPath, fileName, urlString
+				
+				Log.d(LOG_TAG, "lastLoginId = " + lastLoginId);
 				
 				//
 				dismissDialog(ID_DIALOG_UPLOADING);
