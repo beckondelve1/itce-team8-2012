@@ -222,7 +222,10 @@ public class RegisterVoiceActivity extends Activity {
 			for (int i = 0; i <= currentSentence; i++){
 				String fileName = Integer.toString(i) + ".wav";
 				
-				FileUpload.doFileUpload(params[0]+"/"+fileName,fileName, params[1], params[2]);	//selectedPath, fileName, urlString
+				//FileUpload.doFileUpload(params[0]+"/"+fileName,fileName, params[1], params[2]);	//selectedPath, fileName, urlString
+				FileUpload.doSecureFileUpload(params[0]+"/"+fileName,fileName, params[1], params[2],
+						(App)getApplicationContext());	//selectedPath, fileName, urlString
+				
 				numberOfUploaded++;
 			}
 			
@@ -241,7 +244,8 @@ public class RegisterVoiceActivity extends Activity {
 			map.put("userName", userName);
 			map.put("numberOfFiles", Long.toString(result));
 			
-			HttpPostRequester.postData(Constants.ENROLL_URL, map);
+			//HttpPostRequester.postData(Constants.ENROLL_URL, map);
+			HttpPostRequester.postSecureData(Constants.ENROLL_URL, map, (App)getApplicationContext());	
 			
 	    }
 		
@@ -283,7 +287,8 @@ public class RegisterVoiceActivity extends Activity {
 				map.put("userName", userName);
 				map.put("numberOfFiles", Long.toString(currentSentence+1));
 				
-				HttpPostRequester.postData(Constants.ENROLL_URL, map);
+				//HttpPostRequester.postData(Constants.ENROLL_URL, map);
+				HttpPostRequester.postSecureData(Constants.ENROLL_URL, map, (App)getApplicationContext());	
 				
 				//
 				dismissDialog(ID_DIALOG_ENROLLING);
@@ -304,7 +309,9 @@ public class RegisterVoiceActivity extends Activity {
 				for (int i = 0; i <= currentSentence; i++){
 					String fileName = Integer.toString(i) + ".wav";
 					
-					FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName);	//selectedPath, fileName, urlString
+					//FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName);	//selectedPath, fileName, urlString
+					FileUpload.doSecureFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName,
+							(App)getApplicationContext());		//selectedPath, fileName, urlString
 					numberOfUploaded++;
 				}
 				

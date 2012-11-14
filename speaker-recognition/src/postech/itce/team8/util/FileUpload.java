@@ -5,12 +5,33 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.security.KeyStore;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+
+import postech.itce.team8.App;
 
 import android.util.Log;
 
@@ -114,6 +135,76 @@ public class FileUpload {
 			
 			return "ERROR";
 		}
+	}
+	
+	
+	
+	
+	//doSecureFileUpload (12-11-14)
+	public static String doSecureFileUpload(String selectedPath, String fileName, String urlString, 
+			String userName, App app) {
+		
+		final SchemeRegistry schemeRegistry = new SchemeRegistry();
+		schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 8080));
+		schemeRegistry.register(new Scheme("https", app.createAdditionalCertsSSLSocketFactory(), 8443));
+
+		// and then however you create your connection manager, I use ThreadSafeClientConnManager
+		final HttpParams params = new BasicHttpParams();
+		HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
+        HttpProtocolParams.setContentCharset(params, HTTP.UTF_8);
+
+        //
+		final ThreadSafeClientConnManager cm = new ThreadSafeClientConnManager(params,schemeRegistry);
+		
+		DefaultHttpClient httpClient = new DefaultHttpClient(cm, params);
+        
+		
+		//
+		HttpPost httpPost = new HttpPost(urlString);
+	    File file = new File(selectedPath);
+
+	    MultipartEntity mpEntity = new MultipartEntity();
+	    ContentBody cbFile = new FileBody(file, "audio/wav");
+	    mpEntity.addPart("fileUpload", cbFile);
+	    
+
+	    try{
+	    	mpEntity.addPart("filename", new StringBody(fileName));
+	    	mpEntity.addPart("userName", new StringBody(userName));
+	    	
+		    httpPost.setEntity(mpEntity);
+		    
+		    //System.out.println("executing request " + httpPost.getRequestLine());
+		    
+		    //
+		    HttpResponse response = httpClient.execute(httpPost);
+		    HttpEntity resEntity = response.getEntity();
+	
+		    //System.out.println(response.getStatusLine());
+		    
+		    if (resEntity != null) {
+		    	//System.out.println(EntityUtils.toString(resEntity));
+		    	
+		    }
+		    /*
+		    if (resEntity != null) {
+		    	resEntity.consumeContent();
+		    }
+		    */
+		    String responseStr = EntityUtils.toString(resEntity);
+		    
+		    httpClient.getConnectionManager().shutdown();
+		    return responseStr;
+		    
+	    }catch(Exception e){
+	    	Log.e("Debug", "error: " + e.getMessage(), e);
+	    	
+	    	httpClient.getConnectionManager().shutdown();
+	    	return null;
+	    }
+
+	    
+	    
 	}
 	
 }
