@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions SYSTEM "D:/setup/Apache/apache-tomcat-6.0.35/webapps/ONM/WEB-INF/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    
+    <definition name="rootLayout" template="/WEB-INF/jsp/template/standardTemplate.jsp">
+        <put-attribute name="title"   value="title"/>
+        <put-attribute name="header"      value="/WEB-INF/jsp/template/header.jsp"/>
+        <put-attribute name="navigation"  value="/WEB-INF/jsp/template/navigation.jsp"/>
+        <put-attribute name="menu"        value="/WEB-INF/jsp/template/menu.jsp"/>
+        <put-attribute name="body"        value="CHANGE-ME"/>
+        <put-attribute name="footer"      value="/WEB-INF/jsp/template/footer.jsp"/>
+    </definition>
+    
+    
+    <!-- DEFAULT -->
+    <definition name="notFound" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/error/notFound.jsp"/>
+    </definition>
+    
+    <!-- INDEX -->
+    <definition name="homepage" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/index.jsp"/>
+    </definition>
+    
+    <!-- LOGIN -->
+    <definition name="login" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/login.jsp"/>
+    </definition>
+    
+    <!-- CHANGE PASSWORD -->
+    <definition name="change-password-form" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/change-password.jsp"/>
+    </definition>
+    
+    <!-- REGISTER DOCTOR -->
+    <definition name="public-welcome" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/public/welcome.jsp"/>
+    </definition>
+    <definition name="register-input" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/public/consumer-form.jsp"/>
+    </definition>
+    <definition name="register-save" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/public/consumer-saved.jsp"/>
+    </definition>
+    
+    
+    
+    
+    
+    
+
+</tiles-definitions>

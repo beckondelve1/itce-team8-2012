@@ -1,0 +1,87 @@
+.icon-16-delete 		{ background-image: url(../images/icon-16-delete.png); }
+.icon-16-edit			{ background-image: url(../images/icon-16-edit.png); }
+h1 {color:#0000ff;}
+body
+{
+   background-image: url(../images/gradient2.png);
+   background-repeat: repeat-x
+}
+
+#customers
+{
+    font-family:"Trebuchet MS", Tahoma, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+}
+#customers td, #customers th 
+{
+    font-size:0.8em;
+    border:1px solid #98bf21;
+    padding:3px 7px 2px 7px;
+}
+#customers th 
+{
+    font-size:0.8em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#A7C942;
+    color:#ffffff;
+}
+#customers tr.alt td 
+{
+    color:#000000;
+    background-color:#EAF2D3;
+}
+
+#tableform
+{
+    font-family:"Trebuchet MS", Tahoma, Helvetica, sans-serif;
+    width:80%;
+    border-collapse:collapse;
+}
+#tableform td, #tableform th 
+{
+    font-size:0.8em;
+    padding:3px 7px 2px 7px;
+}
+#tableform th 
+{
+    font-size:0.8em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#A7C942;
+    color:#ffffff;
+}
+#tableform tr.alt td 
+{
+    color:#000000;
+    background-color:#EAF2D3;
+}
+
+#tableloginform
+{
+    font-family:"Trebuchet MS", Tahoma, Helvetica, sans-serif;
+    width:40%;
+    border-collapse:collapse;
+}
+#tableloginform td, #tableloginform th 
+{
+    font-size:0.8em;
+    padding:3px 7px 2px 7px;
+}
+#tableloginform th 
+{
+    font-size:0.8em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#A7C942;
+    color:#ffffff;
+}
+#tableloginform tr.alt td 
+{
+    color:#000000;
+    background-color:#EAF2D3;
+}

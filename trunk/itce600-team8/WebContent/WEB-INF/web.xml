@@ -3,12 +3,25 @@
 	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-	<display-name>struts2</display-name>
+	<display-name>itce600-team8</display-name>
 
+	<!-- Spring Context -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<!-- Tiles -->
+	<context-param>
+		<param-name>
+			org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+		<param-value>/WEB-INF/tiles.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
+	</listener>
+
+	<!-- Struts2 -->
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
@@ -19,4 +32,14 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+
+	<!-- WEB.INF -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/not-found.jsp</location>
+	</error-page>
 </web-app>
