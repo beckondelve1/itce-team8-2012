@@ -8,8 +8,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="<c:url value="/css/default.css"/> " type="text/css" />
-    <link rel="stylesheet" href="<c:url value="/css/style.css"/> " type="text/css" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/default.css"/> " type="text/css" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/> " type="text/css" />
 </head>
 
 <body>
