@@ -3,10 +3,10 @@
 
 <html>
 <head>
-    <title><s:text name="application.title" /></title>
+    <title>ITCE600-Admin</title>
 </head>
 <body>
-<h1><s:text name="home-page" /></h1>
+<h1>Home page</h1>
 
 </body>
 </html>

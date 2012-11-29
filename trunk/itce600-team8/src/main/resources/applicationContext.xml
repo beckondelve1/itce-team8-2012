@@ -51,7 +51,7 @@
 	<tx:annotation-driven />
 	
 	<!-- Imports configuration -->
-	<import resource="classes/struts-action.xml" />
+	<import resource="struts-action.xml" />
 
 	<!-- define the SqlSessionFactory, notice that configLocation is not needed when you use MapperFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

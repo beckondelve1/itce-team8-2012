@@ -44,7 +44,7 @@ public class DoctorTest {
 //	public void testFindDoctorList(){
 //		System.out.println("testFindDoctorList");
 //		
-//		System.out.println(doctorService == null);
+//		//System.out.println(doctorService == null);
 //		
 //		List<Doctor> list = doctorService.findDoctorList();
 //		Iterator<Doctor> iter = list.iterator();

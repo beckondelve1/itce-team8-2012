@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE tiles-definitions SYSTEM "D:/setup/Apache/apache-tomcat-6.0.35/webapps/ONM/WEB-INF/tiles-config_2_0.dtd">
+<!DOCTYPE tiles-definitions SYSTEM "tiles-config_2_0.dtd">
 
 <tiles-definitions>
     
@@ -28,26 +28,6 @@
     <definition name="login" extends="rootLayout">
         <put-attribute name="body"      value="/WEB-INF/jsp/login.jsp"/>
     </definition>
-    
-    <!-- CHANGE PASSWORD -->
-    <definition name="change-password-form" extends="rootLayout">
-        <put-attribute name="body"      value="/WEB-INF/jsp/change-password.jsp"/>
-    </definition>
-    
-    <!-- REGISTER DOCTOR -->
-    <definition name="public-welcome" extends="rootLayout">
-        <put-attribute name="body"      value="/WEB-INF/jsp/public/welcome.jsp"/>
-    </definition>
-    <definition name="register-input" extends="rootLayout">
-        <put-attribute name="body"      value="/WEB-INF/jsp/public/consumer-form.jsp"/>
-    </definition>
-    <definition name="register-save" extends="rootLayout">
-        <put-attribute name="body"      value="/WEB-INF/jsp/public/consumer-saved.jsp"/>
-    </definition>
-    
-    
-    
-    
     
     
 

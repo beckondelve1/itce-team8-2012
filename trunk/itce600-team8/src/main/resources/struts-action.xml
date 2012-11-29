@@ -17,4 +17,5 @@
 	<bean id="enrollVoiceAction" class="postech.itce.team8.action.EnrollVoiceAction" scope="prototype"/>
 	<bean id="identifyVoiceAction" class="postech.itce.team8.action.IdentifyVoiceAction" scope="prototype"/>
 	
+	<bean id="userAction" class="postech.itce.team8.action.UserAction" scope="prototype"/>
 </beans>
