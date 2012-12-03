@@ -37,7 +37,7 @@ public class LoginActivity extends Activity {
 
 	//
 	private static final int ID_DIALOG_UPLOADING = 0;
-	private static final int ID_DIALOG_VERIFYING = 0;
+	private static final int ID_DIALOG_VERIFYING = 1;
 	
 	
 	//
