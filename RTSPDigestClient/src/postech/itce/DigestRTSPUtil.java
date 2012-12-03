@@ -73,5 +73,8 @@ public class DigestRTSPUtil {
 		//reset
 		firstCallFinished = false;
 		secondCallFinished = false;
+		
+		//
+		client.getTransport().disconnect();
 	}
 }
