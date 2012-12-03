@@ -44,24 +44,26 @@ import br.com.voicetechnology.rtspclient.messages.RTSPOptionsRequest;
 
 public class RTSPClient implements Client, TransportListener
 {
-	private Transport transport;
+	//HiepNH - change all 'private' to 'protected'
+	
+	protected Transport transport;
 
-	private MessageFactory messageFactory;
+	protected MessageFactory messageFactory;
 
-	private MessageBuffer messageBuffer;
+	protected MessageBuffer messageBuffer;
 
-	private volatile int cseq;
+	protected volatile int cseq;
 
-	private SessionHeader session;
+	protected SessionHeader session;
 
 	/**
 	 * URI kept from last setup.
 	 */
-	private URI uri;
+	protected URI uri;
 
-	private Map<Integer, Request> outstanding;
+	protected Map<Integer, Request> outstanding;
 
-	private ClientListener clientListener;
+	protected ClientListener clientListener;
 
 	public RTSPClient()
 	{
@@ -300,7 +302,8 @@ public class RTSPClient implements Client, TransportListener
 		send(message, uri);
 	}
 
-	private void send(Message message, URI endpoint) throws IOException,
+	//HiepNH - change 'private' to 'protected'
+	protected void send(Message message, URI endpoint) throws IOException,
 			MissingHeaderException
 	{
 		if(!transport.isConnected())
