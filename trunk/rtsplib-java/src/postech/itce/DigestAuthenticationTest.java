@@ -29,6 +29,12 @@ public class DigestAuthenticationTest {
 			
 			System.out.println(res.equals(response));	//True ^^
 			
+			//
+			String digestHeader = "Digest username=\"" + userName + "\", " +
+					"realm=\"" + realm + "\", nonce=\"" + nonce + "\", uri=\"" + uri + "\", " +
+					"response=\"" + res + "\"";
+			System.out.println("digestHeader=" + digestHeader);
+			
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
