@@ -1,0 +1,10 @@
+bin/
+gen/
+<<<<<<< HEAD
+obj/
+=======
+libs/
+obj/
+jni/libvlcjni.h
+>>>>>>> branch 'master' of https://dwkwon@bitbucket.org/dwkwon/itce600_android.git
+.settings
