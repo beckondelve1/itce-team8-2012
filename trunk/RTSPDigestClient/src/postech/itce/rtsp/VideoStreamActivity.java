@@ -20,6 +20,8 @@ import postech.itce.DigestRTSPUtil;
 import postech.itce.R;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
@@ -29,6 +31,7 @@ import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.media.MediaPlayer.OnVideoSizeChangedListener;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -67,6 +70,9 @@ public class VideoStreamActivity extends Activity implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.mediaplayer_2);
+        //
+        mHandler = new Handler();
+        //
         mPreview = (SurfaceView) findViewById(R.id.surface);
         holder = mPreview.getHolder();
         holder.addCallback(this);
@@ -131,7 +137,9 @@ public class VideoStreamActivity extends Activity implements
 
             }
             //HiepNH
-            DigestRTSPUtil.sendAuthenticationMessages(path, "rtsp://119.202.84.41/");
+            showDialog(ID_DIALOG_AUTHENTICATING);
+			startSendingAuthenticationMessages();
+            
             
 
             // Create a new media player and set the listeners
@@ -233,6 +241,40 @@ public class VideoStreamActivity extends Activity implements
         mMediaPlayer.start();
     }
     
+    //
+    private static final int ID_DIALOG_AUTHENTICATING = 0;
     
+    private Handler mHandler;
     
+    @Override
+	protected Dialog onCreateDialog(int id, Bundle bundle) {
+		if(id == ID_DIALOG_AUTHENTICATING){
+			ProgressDialog uploadingDialog = new ProgressDialog(this);
+			uploadingDialog.setMessage("Authenticating ...");
+			uploadingDialog.setIndeterminate(true);
+			uploadingDialog.setCancelable(true);
+			return uploadingDialog;
+			
+		}
+		
+		//
+		return super.onCreateDialog(id);
+	}
+    
+    private void startSendingAuthenticationMessages(){
+    	Thread t = new Thread() {
+			@Override
+			public void run() {
+				
+				try {
+					DigestRTSPUtil.sendAuthenticationMessages(path, "rtsp://119.202.84.41/");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				dismissDialog(ID_DIALOG_AUTHENTICATING);
+				
+			}
+    	};
+    }
 }
