@@ -5,6 +5,7 @@ import android.util.*;
 public class NetworkCameraService {
 	private OnvifService Onvif = null;
 	private String CameraIp;
+	private String profileName;
 	
 	public NetworkCameraService() {}
 	
@@ -73,8 +74,18 @@ public class NetworkCameraService {
 		return "rtsp://onvifuser:itce500@" + this.CameraIp + "/onvif-media/media.amp?profile=" + profile + "&amp;sessiontimeout=" + String.valueOf(timeout) + "&amp;streamtype=unicast";
 		*/
 		
-		Log.d("getStreamUrlAxis","rtsp://admin:4321@" + this.CameraIp + ":554/onvif/profile4/media.smp" + "&amp;sessiontimeout=" + String.valueOf(timeout) + "&amp;streamtype=unicast");
-		return "rtsp://admin:4321@" + this.CameraIp + ":554/onvif/profile4/media.smp";
+		Log.d("getStreamUrlAxis","rtsp://admin:4321@" + this.CameraIp + ":554/onvif/" + getProfileName() + "/media.smp" + "&amp;sessiontimeout=" + String.valueOf(timeout) + "&amp;streamtype=unicast");
+		return "rtsp://admin:4321@" + this.CameraIp + ":554/onvif/" + getProfileName() + "/media.smp";
 		
 	}
+
+	public String getProfileName() {
+		return profileName;
+	}
+
+	public void setProfileName(String profileName) {
+		this.profileName = profileName;
+	}
+	
+	
 }
