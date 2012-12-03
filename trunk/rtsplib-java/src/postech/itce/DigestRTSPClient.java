@@ -55,8 +55,7 @@ public class DigestRTSPClient extends RTSPClient {
 			}
 
 			String digestHeader = "Digest username=\"" + userName + "\", realm=\"" + realm + "\", nonce=\"" + nonce + "\", uri=\"" + uri + "\", response=\"" + res + "\"";
-			
-			System.out.println("digestHeader=" + digestHeader);
+			//System.out.println("digestHeader=" + digestHeader);
 			
 			message.addHeader(new Header("Authorization", digestHeader)); 
 			
