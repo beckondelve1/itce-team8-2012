@@ -17,7 +17,7 @@
 package postech.itce.rtsp;
 
 import postech.itce.DigestRTSPUtil;
-import postech.itce.R;
+import postech.itce.rtsp.R;
 
 import android.app.Activity;
 import android.app.Dialog;

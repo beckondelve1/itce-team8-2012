@@ -1,6 +1,6 @@
 package postech.itce.rtsp;
 
-import postech.itce.R;
+import postech.itce.rtsp.R;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
