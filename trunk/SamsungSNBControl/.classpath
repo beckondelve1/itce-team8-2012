@@ -4,14 +4,9 @@
 	<classpathentry kind="src" path="xml"/>
 	<classpathentry kind="src" path="src-kiss"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="E:/caidat/Android/Lib/ksoap2-android/ksoap2-android-assembly-2.6.5-jar-with-dependencies.jar" sourcepath="E:/caidat/Android/Lib/ksoap2-android/ksoap2-android-assembly-src"/>
-	<classpathentry kind="lib" path="E:/caidat/Android/Lib/jsoup/jsoup-1.7.1.jar" sourcepath="E:/caidat/Android/Lib/jsoup/jsoup-1.7.1-sources.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/E:/caidat/Android/Lib/jsoup/jsoup-1.7.1-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="E:/caidat/Apache/httpcomponents-client-4.2.1/lib/httpclient-4.2.1.jar"/>
-	<classpathentry kind="lib" path="E:/caidat/Apache/httpcomponents-client-4.2.1/lib/httpcore-4.2.1.jar"/>
-	<classpathentry kind="lib" path="E:/caidat/Apache/httpcomponents-client-4.2.1/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/httpclient-4.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/httpcore-4.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/ksoap2-android-assembly-2.6.5-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
