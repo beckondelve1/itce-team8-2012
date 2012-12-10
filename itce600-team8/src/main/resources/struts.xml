@@ -53,7 +53,7 @@
 		<!-- File Upload -->
 		<action name="prepareUpload" class="fileUploadAction"
 			method="display">
-			<result name="none">fileupload.jsp</result>
+			<result name="none" type="tiles">fileupload</result>
 		</action>
 		
 		<action name="executeUpload" class="fileUploadAction">
@@ -80,7 +80,7 @@
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
-			<result name="input">fileupload.jsp</result>
+			<result name="input">fileupload</result>
 
 		</action>
 		
@@ -97,13 +97,24 @@
 		
 		<!-- DOCTOR DAO -->
 		<action name="prepare" class="registerDoctorBasicInfoAction" method="prepareDoctorBasicInfo">
-			<result name="success">prepareInsert.jsp</result>
+			<result name="success" type="tiles">prepareInsert</result>
 		</action>
 		
 		<action name="insert" class="registerDoctorBasicInfoAction" method="insertDoctorBasicInfo">
 			<result name="success">insertDone.txt</result>
 		</action>
 		
+		
 	</package>
+	
+	
+	<!-- PATIENT -->
+	<package name="patient" extends="json-default" namespace="/patient">		
+		<!-- PATIENT DAO -->
+		<action name="findPatientsByDoctorName" class="patientAction" method="findPatientsByDoctorName">
+			<result name="success" type="json"/>
+		</action>
+	</package>
+	
 
 </struts>

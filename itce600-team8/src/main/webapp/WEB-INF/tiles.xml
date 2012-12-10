@@ -29,6 +29,15 @@
         <put-attribute name="body"      value="/WEB-INF/jsp/login.jsp"/>
     </definition>
     
+    <!-- DOCTOR -->
+    <definition name="fileupload" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/doctor/fileupload.jsp"/>
+    </definition>
+    
+    <definition name="prepareInsert" extends="rootLayout">
+        <put-attribute name="body"      value="/WEB-INF/jsp/doctor/prepareInsert.jsp"/>
+    </definition>
+    
     
 
 </tiles-definitions>

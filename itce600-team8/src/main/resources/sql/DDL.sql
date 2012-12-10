@@ -13,6 +13,9 @@ CREATE TABLE `patient` (
   `password` varchar(50) NOT NULL,
   `address` varchar(100) DEFAULT NULL,
   `ip_address` varchar(45) NOT NULL,
+  `default_profile_url` varchar(200) NOT NULL,
+  `camera_user` varchar(45) NOT NULL,
+  `camera_pass` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
