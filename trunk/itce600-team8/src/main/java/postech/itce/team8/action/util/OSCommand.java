@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,11 +16,16 @@ import postech.itce.team8.model.service.DoctorService;
 public class OSCommand {
 	
 	
-	public static final String ROOT_PATH = "E:\\caidat\\";
-	public static final String SPRO_PATH = ROOT_PATH + "Audio-Processing\\SPro\\spro-4.0\\";
-	public static final String WAVE_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
-	public static final String OUTPUT_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
+	public static String ROOT_PATH = "";
+	public static String SPRO_PATH = "";
+	public static String WAVE_PATH = "";
+	public static String OUTPUT_PATH = "";
 	/*
+	public static String ROOT_PATH = "E:\\caidat\\";
+	public static String SPRO_PATH = ROOT_PATH + "Audio-Processing\\SPro\\spro-4.0\\";
+	public static String WAVE_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
+	public static String OUTPUT_PATH = ROOT_PATH + "Apache\\apache-tomcat-6-spring\\webapps\\data\\";
+	
 	public static final String ROOT_PATH = "D:\\setup\\";
 	public static final String SPRO_PATH = ROOT_PATH + "Audio-Processing\\spro-4.0\\";
 	public static final String WAVE_PATH = ROOT_PATH + "Apache\\apache-tomcat-6.0.35\\webapps\\data\\";
@@ -27,20 +33,55 @@ public class OSCommand {
 	*/
 	
 	//
-	public static final String LIA_RAL_PATH = ROOT_PATH + "Audio-Processing\\ALIZE\\LIA_RAL\\bin\\";
-	public static final String NORMFEAT_ENERGY_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\NormFeat_energy.cfg";
+	public static String LIA_RAL_PATH = "";
+	public static String NORMFEAT_ENERGY_CFG = "";
 	//
-	public static final String ENERGY_DETECTOR_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\EnergyDetector.cfg";
+	public static String ENERGY_DETECTOR_CFG = "";
 	//
-	public static final String NORMFEAT_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\NormFeat.cfg";
+	public static String NORMFEAT_CFG = "";
 	//
-	public static final String TARGET_FEMALE_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\target_female.cfg";
-	public static final String MIXTURE_FILES_PATH = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\gmm\\";
-	public static final String WORLD_MODEL_NAME = "world_all";
+	public static String TARGET_FEMALE_CFG = "";
+	public static String MIXTURE_FILES_PATH = "";
+	public static String WORLD_MODEL_NAME = "world_all";
 	//
-	public static final String TARGET_SEG_FEMALE_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\target_seg_female.cfg";
-	public static final String TARGET_LIST = "FAML FDHH FEAB FHRO FJAZ FMEL FMEV FSLJ FTEJ FUAN " +
+	public static String TARGET_SEG_FEMALE_CFG = "";
+	public static String TARGET_LIST = "FAML FDHH FEAB FHRO FJAZ FMEL FMEV FSLJ FTEJ FUAN " +
 			"MASM MCBR MFKC MKBP MLKH MMLP MMNA MNHP MOEW MPRA MREM MRKO MTLS ";
+	
+	static{
+		Properties prop = new Properties();
+		
+		try {
+			prop.load(OSCommand.class.getClassLoader().getResourceAsStream("path.properties"));
+			
+			ROOT_PATH = prop.getProperty("ROOT_PATH");
+			SPRO_PATH = prop.getProperty("SPRO_PATH");
+			WAVE_PATH = prop.getProperty("WAVE_PATH");
+			OUTPUT_PATH = prop.getProperty("OUTPUT_PATH");
+			
+			System.out.println("FINISHED READING path.properties");
+			System.out.println("ROOT_PATH=" + ROOT_PATH);
+			System.out.println("SPRO_PATH=" + SPRO_PATH);
+			System.out.println("WAVE_PATH=" + WAVE_PATH);
+			System.out.println("OUTPUT_PATH=" + OUTPUT_PATH);
+			
+			
+			LIA_RAL_PATH = ROOT_PATH + "Audio-Processing\\ALIZE\\LIA_RAL\\bin\\";
+			NORMFEAT_ENERGY_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\NormFeat_energy.cfg";
+			ENERGY_DETECTOR_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\EnergyDetector.cfg";
+			NORMFEAT_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\NormFeat.cfg";
+			TARGET_FEMALE_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\target_female.cfg";
+			MIXTURE_FILES_PATH = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\gmm\\";
+			
+			TARGET_SEG_FEMALE_CFG = ROOT_PATH + "Audio-Processing\\ucungsr-TP-Biometrie\\cfg\\target_seg_female.cfg";
+			
+		} catch (IOException e) {
+			System.out.println("FAILED TO READ path.properties");
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
 	
 	//
@@ -232,7 +273,7 @@ public class OSCommand {
 			if (new File(featureLoginFilesPath).exists() == false)
 				new File(featureLoginFilesPath).mkdir();
 			
-			String command = "cmd /c " + SPRO_PATH + "sfbcep -F PCM16 -p 19 -e -D -A " +
+			String command = "cmd /c " + SPRO_PATH + "sfbcep -F PCM16 -p 19 -e -D -A -v " +
 					waveLoginFilesPath + Integer.toString(loginId) + ".wav " + 
 					featureLoginFilesPath + Integer.toString(loginId) + ".prm";
 			

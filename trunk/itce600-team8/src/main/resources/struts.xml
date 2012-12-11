@@ -9,6 +9,7 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
+	
 
 	<package name="default" extends="struts-default">
 		<result-types>
@@ -25,6 +26,7 @@
 		</interceptors>
 
 		<default-interceptor-ref name="appDefaultStack" />
+		
 		<global-results>
 			<result name="Exception" type="redirect">/common/error.action</result>
 		</global-results>
@@ -75,7 +77,7 @@
 				<param name="excludeMethods">input,back,cancel,browse</param>
 			</interceptor-ref>
 
-			<result name="success">uploadDone.txt</result>
+			<result name="success" type="dispatcher">uploadDone.txt</result>
 			<result name="login" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
@@ -86,12 +88,12 @@
 		
 		<!-- Voice Model (shell) -->
 		<action name="enrollVoice" class="enrollVoiceAction">
-			<result name="success">enrollVoiceDone.txt</result>
+			<result name="success" type="dispatcher">/WEB-INF/jsp/doctor/enrollVoiceDone.txt</result>
 		</action>
 		
 		<action name="identifyVoice" class="identifyVoiceAction">
-			<result name="success">identifyVoiceDone.txt</result>
-			<result name="error">identifyVoiceError.txt</result>
+			<result name="success" type="dispatcher">/WEB-INF/jsp/doctor/identifyVoiceDone.txt</result>
+			<result name="error" type="dispatcher">/WEB-INF/jsp/doctor/identifyVoiceError.txt</result>
 		</action>
 		
 		
@@ -100,8 +102,15 @@
 			<result name="success" type="tiles">prepareInsert</result>
 		</action>
 		
+		<!--  NOT WORK ! even with <constant name="struts.convention.result.path" value="/WEB-INF/jsp/" />
 		<action name="insert" class="registerDoctorBasicInfoAction" method="insertDoctorBasicInfo">
-			<result name="success">insertDone.txt</result>
+			<result name="success" type="dispatcher">insertDone.txt</result>
+		</action>
+		-->
+		
+		<!--  this WORKS ! -->
+		<action name="insert" class="registerDoctorBasicInfoAction" method="insertDoctorBasicInfo">
+			<result name="success" type="dispatcher">/WEB-INF/jsp/doctor/insertDone.txt</result>
 		</action>
 		
 		
