@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Voice Captcha</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    
+    <string name="voice_recognition_prompt">This activity demonstrates the voice recognition APIs.</string>
+    <string name="speak_button">Speak!</string>
+    <string name="voice_recognition_results">Results:</string>
+    <string name="supported_languages">Supported languages</string>
+    <string name="language_preference">Voice Search in Settings</string>
+
+</resources>
