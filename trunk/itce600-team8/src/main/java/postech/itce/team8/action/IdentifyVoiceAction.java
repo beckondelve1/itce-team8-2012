@@ -41,10 +41,13 @@ public class IdentifyVoiceAction extends ActionSupport {
 
 		String maxModel = OSCommand.runComputeTest(doctorService, userName, loginId);
 		
-		if (maxModel.equals(userName))
+		if (maxModel.equals(userName)){
+			System.out.println("Voice Identification reasult for " + userName + " : SUCCESS !");
 			return SUCCESS;
-		else
+		}else{
+			System.out.println("Voice Identification reasult for " + userName + " : ERROR !");
 			return ERROR;
+		}
 	}
 
 }
