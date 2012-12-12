@@ -161,13 +161,14 @@ public class RecognizerTask implements Runnable {
 
 	public RecognizerTask() {
 		pocketsphinx
-				.setLogfile("/sdcard/Android/data/edu.cmu.pocketsphinx/pocketsphinx.log");
+				.setLogfile("/mnt/sdcard/Android/data/edu.cmu.pocketsphinx/pocketsphinx.log");
 		Config c = new Config();
 		/*
 		 * In 2.2 and above we can use getExternalFilesDir() or whatever it's
 		 * called
 		 */
-		c.setString("-hmm", "/mnt/sdcard/edu.cmu.pocketsphinx/hmm/en_US/hub4wsj_sc_8k");
+		//c.setString("-hmm", "/mnt/sdcard/edu.cmu.pocketsphinx/hmm/en_US/hub4wsj_sc_8k");
+		c.setString("-hmm", "/mnt/sdcard/edu.cmu.pocketsphinx/hmm/en_US/hub4_wsj_sc_3s_8k.cd_semi_5000");
 		c.setString("-dict", "/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_US/hub4.5000.dic");
 		c.setString("-lm", "/mnt/sdcard/edu.cmu.pocketsphinx/lm/en_US/hub4.5000.DMP");
 		c.setString("-rawlogdir", "/mnt/sdcard/edu.cmu.pocketsphinx"); // Only use it to store the audio

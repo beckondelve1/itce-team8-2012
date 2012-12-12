@@ -4,7 +4,7 @@
 <booleanAttribute key="org.eclipse.debug.core.capture_output" value="false"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_CONSOLE_OUTPUT_ON" value="false"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:/setup/Cpp/swigwin-2.0.4/swig.exe"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="D:/setup/Cpp/swigwin-2.0.4/swig.exe"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,auto,clean"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-java -package edu.cmu.pocketsphinx -outdir edu/cmu/pocketsphinx pocketsphinx.i"/>
 <booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/>
