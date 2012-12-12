@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">PCM to Wave</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">PCM to Wave</string>
+    <string name="btn_convert">Convert</string>
+
+</resources>
