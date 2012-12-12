@@ -57,8 +57,9 @@ public class RecognizerTask implements Runnable {
 			this.done = false;
 			this.q = q;
 			this.block_size = block_size;
+			//HiepNH - CHANNEL_IN_MONO -> CHANNEL_IN_STEREO
 			this.rec = new AudioRecord(MediaRecorder.AudioSource.DEFAULT, 8000,
-					AudioFormat.CHANNEL_IN_MONO,
+					AudioFormat.CHANNEL_IN_STEREO,	
 					AudioFormat.ENCODING_PCM_16BIT, 8192);
 		}
 
