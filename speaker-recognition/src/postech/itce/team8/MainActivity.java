@@ -1,8 +1,12 @@
 package postech.itce.team8;
 
+import postech.itce.team8.util.Constants;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +14,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+	private static final String LOG_TAG = "MainActivity";
 	//
 	private Button btnRegister;
 	private Button btnLogin;
@@ -41,6 +46,12 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+        
+        //
+//        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+//        String serverAddress = sharedPrefs.getString("server_addr", "NULL");
+//		Log.i(LOG_TAG, "first call, server_addr=" + serverAddress);
+//		Constants.updateURLs(serverAddress);
     }
 
     @Override

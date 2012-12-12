@@ -93,6 +93,10 @@ public class LoginActivity extends Activity {
 		btnRecord.setOnClickListener(btnRecordHandler);
         btnStop.setOnClickListener(btnStopHandler);
         
+        //
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+		Log.i(LOG_TAG, "server_addr=" + sharedPrefs.getString("server_addr", "NULL"));
+        
 	}
 
 	@Override
