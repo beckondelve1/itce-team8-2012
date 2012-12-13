@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="postech.itce.team8.model.mapper.ConsultationMapper">
+
+	<select id="findConsultationsByDoctorName" parameterType="string" 
+		resultType="postech.itce.team8.model.domain.Consultation">
+		SELECT d.id as doctorId, p.id as patientId, p.fullname as patientFullName, 
+			c.start_time as startTime, end_time as endTime, expected_time as expectedTime, status as status
+		FROM  patient as p, doctor as d, consultation as c
+		WHERE d.id = c.doctor_id and p.id = c.patient_id and d.username=#{doctorName}
+	</select>
+
+	
+
+</mapper>

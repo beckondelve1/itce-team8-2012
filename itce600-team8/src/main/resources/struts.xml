@@ -120,10 +120,20 @@
 	<!-- PATIENT -->
 	<package name="patient" extends="json-default" namespace="/patient">		
 		<!-- PATIENT DAO -->
-		<action name="findPatientsByDoctorName" class="patientAction" method="findPatientsByDoctorName">
+		<action name="findPatientsByDoctorName" class="patientAction" 
+		method="findPatientsByDoctorName">
 			<result name="success" type="json"/>
 		</action>
 	</package>
 	
+	
+	<!-- CONSULTATION -->
+	<package name="consultation" extends="json-default" namespace="/consultation">		
+		<!-- CONSULTATION DAO -->
+		<action name="findConsultationsByDoctorName" class="consultationAction" 
+		method="findConsultationsByDoctorName">
+			<result name="success" type="json"/>
+		</action>
+	</package>
 
 </struts>
