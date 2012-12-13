@@ -34,5 +34,7 @@
     <string name="btnOK">OK</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_agenda">AgendaActivity</string>
+    <string name="txtAgendaHelp">Select a consultation session to start</string>
+    <string name="title_activity_consultation">ConsultationActivity</string>
 
 </resources>

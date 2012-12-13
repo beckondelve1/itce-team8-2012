@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 	//
 	private Button btnRegister;
 	private Button btnLogin;
+	private Button btnAgenda;
 	
 	
     @Override
@@ -27,6 +28,7 @@ public class MainActivity extends Activity {
         //
         btnRegister = (Button)findViewById(R.id.btnRegister);
         btnLogin = (Button)findViewById(R.id.btnLogin);
+        btnAgenda = (Button)findViewById(R.id.btnAgenda);
         //
         btnRegister.setOnClickListener(new View.OnClickListener() {
 			
@@ -48,10 +50,20 @@ public class MainActivity extends Activity {
 		});
         
         //
-//        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-//        String serverAddress = sharedPrefs.getString("server_addr", "NULL");
-//		Log.i(LOG_TAG, "first call, server_addr=" + serverAddress);
-//		Constants.updateURLs(serverAddress);
+        btnAgenda.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				startActivity(new Intent(MainActivity.this, AgendaActivity.class));
+				
+			}
+		});
+        
+        //always call before any subsequent activities
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String serverAddress = sharedPrefs.getString("server_addr", "NULL");
+		Log.i(LOG_TAG, "first call, server_addr=" + serverAddress);
+		Constants.updateURLs(serverAddress);
     }
 
     @Override
