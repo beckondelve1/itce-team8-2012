@@ -10,5 +10,7 @@
     <string name="voice_recognition_results">Results:</string>
     <string name="supported_languages">Supported languages</string>
     <string name="language_preference">Voice Search in Settings</string>
+    <string name="btnStart">Start</string>
+    <string name="btnStop">Stop</string>
 
 </resources>
