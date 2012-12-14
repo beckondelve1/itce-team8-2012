@@ -9,6 +9,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -18,6 +20,9 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -28,10 +33,17 @@ public class MainActivity extends Activity {
 	private static final int RECORDER_BPP = 16;
 	private static final int RECORDER_SAMPLERATE = 8000;	//44100;
 	//
+	private SpeechRecognizer recognizer;
+	private Intent intent;
 	private byte[] audioData;
 	
 	private TextView txtResult;
 	private TextView txtError;
+	private TextView txtMatch;
+	private Button btnStart;
+	private Button btnStop;
+	private EditText editSample;
+	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,104 +52,210 @@ public class MainActivity extends Activity {
         
         txtResult = (TextView) findViewById(R.id.txtResult);
         txtError = (TextView) findViewById(R.id.txtError);
+        txtMatch = (TextView) findViewById(R.id.txtMatch);
+        editSample = (EditText) findViewById(R.id.editSample);
+        btnStart = (Button) findViewById(R.id.btnStart);
+        btnStop = (Button) findViewById(R.id.btnStop);
+        btnStop.setEnabled(false);
         
         //Speech Recognition 
         //from: http://stackoverflow.com/questions/5913773/speech-to-text-on-android/5915010#5915010
         audioData = new byte[0];
         
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,
                 "postech.itce.voicecaptcha");
 
-        SpeechRecognizer recognizer = SpeechRecognizer
+        recognizer = SpeechRecognizer
                 .createSpeechRecognizer(this.getApplicationContext());
-        RecognitionListener listener = new RecognitionListener() {
-            @Override
-            public void onResults(Bundle results) {
-                ArrayList<String> voiceResults = results
-                        .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-                if (voiceResults == null) {
-                    Log.e(LOG_TAG, "No voice results");
-                } else {
-                    Log.d(LOG_TAG, "Printing matches: ");
-                    String result = "Result: \n";
-                    for (String match : voiceResults) {
-                        Log.d(LOG_TAG, match);
-                        result += match + "\n";
-                    }
-                    txtResult.setText(result);
-                    txtError.setText("Error : NO");
-                }
-            }
-
-            @Override
-            public void onReadyForSpeech(Bundle params) {
-                Log.d(LOG_TAG, "Ready for speech");
-            }
-
-            @Override
-            public void onError(int error) {
-                Log.d(LOG_TAG,
-                        "Error listening for speech: " + error);
-                //
-                txtError.setText("Error : " + error);
-                audioData = new byte[0];
-            }
-
-            @Override
-            public void onBeginningOfSpeech() {
-                Log.d(LOG_TAG, "Speech starting");
-            }
-
-            @Override
-            public void onBufferReceived(byte[] buffer) {
-            	Log.d(LOG_TAG, "onBufferReceived: len = " + buffer.length);
-            	//
-            	byte[] temp = new byte[buffer.length + audioData.length];
-            	System.arraycopy(audioData, 0, temp, 0, audioData.length);
-            	System.arraycopy(buffer, 0, temp, audioData.length, buffer.length);
-            	audioData = temp;
-            }
-
-            @Override
-            public void onEndOfSpeech() {
-            	Log.d(LOG_TAG, "Speech ending: audioData.len = " + audioData.length);
-            	//
-            	writeRawFile(audioData, "/mnt/sdcard/speech.raw");
-            	Log.d(LOG_TAG, "audio data written to RAW file");
-            	//
-            	writeWaveFile(audioData, "/mnt/sdcard/speech.wav");
-            	Log.d(LOG_TAG, "audio data written to Wave file");
-            	
-            	//
-            	audioData = new byte[0];
-            }
-
-            @Override
-            public void onEvent(int eventType, Bundle params) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onPartialResults(Bundle partialResults) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onRmsChanged(float rmsdB) {
-                // TODO Auto-generated method stub
-
-            }
-        };
-        recognizer.setRecognitionListener(listener);
-        recognizer.startListening(intent);
         
-        Log.d(LOG_TAG, "recognizer started");
+        recognizer.setRecognitionListener(listener);
+        
+        //
+        btnStart.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				recognizer.startListening(intent);
+		        Log.d(LOG_TAG, "recognizer started");
+
+		        btnStart.setEnabled(false);
+		        btnStop.setEnabled(true);
+			}
+		});
+        
+        btnStop.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				recognizer.stopListening();
+		        
+		        Log.d(LOG_TAG, "recognizer stopped");
+				
+		        btnStart.setEnabled(true);
+		        btnStop.setEnabled(false);
+			}
+		});
     }
+    
+    //
+    private String findLongestCommonString(String str1, String str2){
+    	str1 = str1.trim().toLowerCase();
+		str2 = str2.trim().toLowerCase();
+		
+		int m = str1.length();
+		int n = str2.length();
+		
+		//dynamic programming
+		//1. init
+		int[][] d = new int[m+1][n+1];
+		for (int i = 0; i < m+1; i++)
+			for (int j = 0; j < n+1; j++)
+				d[i][j] = 0;
+		
+		//2. find d
+		for (int i = 1; i < m+1; i++)
+			for (int j = 1; j < n+1; j++)
+				if (str1.charAt(i-1) == str2.charAt(j-1)) 
+					d[i][j] = d[i-1][j-1] + 1;
+				else
+					d[i][j] = Math.max(d[i-1][j-1], Math.max(d[i-1][j], d[i][j-1]));
+		//3. back track
+		int i = m;
+		int j = n;
+		String result = "";
+		while (i > 0 & j > 0){
+			if (d[i][j] == d[i-1][j-1] + 1 && str1.charAt(i-1) == str2.charAt(j-1)){
+				result = str1.charAt(i-1) + result;
+				i--;
+				j--;
+			}else if (d[i][j] == d[i-1][j-1]){
+				i--;
+				j--;
+			}else if (d[i][j] == d[i][j-1]){
+				j--;
+			}else if (d[i][j] == d[i-1][j]){
+				i--;
+			}
+				
+		}
+		
+		return result;
+    }
+    
+    //
+    private List<String> findBestMatching(String sample, ArrayList<String> voiceResults){
+    	String bestMatch = "";
+    	String commonString = "";
+    	
+    	for (String candidate:voiceResults){
+    		String result = findLongestCommonString(sample, candidate);
+    		if (commonString.length() < result.length()){
+    			commonString = result;
+    			bestMatch = candidate;
+    		}
+    			
+    	}
+    	
+    	return Arrays.asList(commonString, bestMatch) ;
+    }
+    
+    //
+    private RecognitionListener listener = new RecognitionListener() {
+        @Override
+        public void onResults(Bundle results) {
+            ArrayList<String> voiceResults = results
+                    .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+            if (voiceResults == null) {
+                Log.e(LOG_TAG, "No voice results");
+            } else {
+                Log.d(LOG_TAG, "Printing matches: ");
+                String result = "Result: \n";
+                for (String match : voiceResults) {
+                    Log.d(LOG_TAG, match);
+                    result += match + "\n";
+                }
+                
+                txtResult.setText(result);
+                txtError.setText("Error : NO");
+                //
+                String sample = editSample.getText().toString();
+                List<String> matchPair = findBestMatching(sample, voiceResults);
+                
+                
+                txtMatch.setText("Match : " + matchPair.get(1) + ": Common = " + matchPair.get(0));
+            }
+        }
+
+        @Override
+        public void onReadyForSpeech(Bundle params) {
+            Log.d(LOG_TAG, "Ready for speech");
+        }
+
+        @Override
+        public void onError(int error) {
+            Log.d(LOG_TAG,
+                    "Error listening for speech: " + error);
+            //
+            txtError.setText("Error : " + error);
+            audioData = new byte[0];
+            //
+            btnStart.setEnabled(true);
+	        btnStop.setEnabled(false);
+        }
+
+        @Override
+        public void onBeginningOfSpeech() {
+            Log.d(LOG_TAG, "Speech starting");
+        }
+
+        @Override
+        public void onBufferReceived(byte[] buffer) {
+        	Log.d(LOG_TAG, "onBufferReceived: len = " + buffer.length);
+        	//
+        	byte[] temp = new byte[buffer.length + audioData.length];
+        	System.arraycopy(audioData, 0, temp, 0, audioData.length);
+        	System.arraycopy(buffer, 0, temp, audioData.length, buffer.length);
+        	audioData = temp;
+        }
+
+        @Override
+        public void onEndOfSpeech() {
+        	Log.d(LOG_TAG, "Speech ending: audioData.len = " + audioData.length);
+        	//
+        	writeRawFile(audioData, "/mnt/sdcard/speech.raw");
+        	Log.d(LOG_TAG, "audio data written to RAW file");
+        	//
+        	writeWaveFile(audioData, "/mnt/sdcard/speech.wav");
+        	Log.d(LOG_TAG, "audio data written to Wave file");
+        	
+        	//
+        	audioData = new byte[0];
+        	//
+        	btnStart.setEnabled(true);
+	        btnStop.setEnabled(false);
+        }
+
+        @Override
+        public void onEvent(int eventType, Bundle params) {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void onPartialResults(Bundle partialResults) {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void onRmsChanged(float rmsdB) {
+            // TODO Auto-generated method stub
+
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

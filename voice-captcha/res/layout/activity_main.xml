@@ -3,24 +3,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/txtResult"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        tools:context=".MainActivity" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
 
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="@string/btnStart" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:text="@string/btnStop" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editSample"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topLayout"
+        android:height="30dp"
+        android:text="speak anything" >
+
+        <requestFocus />
+    </EditText>
+    
+    <TextView
+        android:id="@+id/txtMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editSample"
+        android:text="Match:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
     <TextView
         android:id="@+id/txtError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="34dp"
+        android:layout_below="@id/txtMatch"
         android:text="Error code:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/txtError"
+        android:text="Result(s):"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        tools:context=".MainActivity" />
+
+    
 
 </RelativeLayout>
