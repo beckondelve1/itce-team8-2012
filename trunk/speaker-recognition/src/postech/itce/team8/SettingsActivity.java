@@ -31,12 +31,13 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
-		if (key.equals("server_addr")){
+		Log.i(LOG_TAG, "updating settings...");
+		//if (key.equals("server_addr")){
 			Log.d(LOG_TAG, sharedPrefs.getString("server_addr", "NULL"));
 		
 			//
 			Constants.updateURLs(sharedPrefs.getString("server_addr", "NULL"));
-		}
+		//}
 		
 	}
 	
