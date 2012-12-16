@@ -41,4 +41,8 @@ public class DoctorService {
 	public boolean isDoctorExisted(String userName){
 		return doctorMapper.isDoctorExisted(userName) > 0;
 	}
+	
+	public boolean isDoctorLoginExisted(Doctor doctor){
+		return doctorMapper.isDoctorLoginExisted(doctor) > 0;
+	}
 }

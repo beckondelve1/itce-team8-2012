@@ -35,4 +35,7 @@
 		SELECT COUNT(*) FROM doctor WHERE username = #{userName}
 	</select>
 
+	<select id="isDoctorLoginExisted" resultType="int" parameterType="postech.itce.team8.model.domain.Doctor">
+		SELECT COUNT(*) FROM doctor WHERE username = #{userName} and password = #{password}
+	</select>
 </mapper>

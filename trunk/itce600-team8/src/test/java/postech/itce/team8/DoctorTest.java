@@ -1,7 +1,9 @@
 package postech.itce.team8;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
@@ -20,6 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import postech.itce.team8.model.domain.Doctor;
 import postech.itce.team8.model.service.DoctorService;
+import postech.itce.team8.util.AeSimpleMD5;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/applicationContext.xml" })
@@ -95,6 +98,25 @@ public class DoctorTest {
 //		System.out.println(doctorService.isDoctorExisted("hiep"));
 //	}
 //	
+	
+//	@Test
+//	//testIsDoctorLoginExisted
+//	public void testIsDoctorLoginExisted(){
+//		System.out.println("testIsDoctorLoginExisted");
+//		
+//		Doctor doctor = new Doctor();
+//		doctor.setUserName("hiepnh");
+//		try {
+//			doctor.setPassword(AeSimpleMD5.MD5("hiepnh"));
+//		} catch (NoSuchAlgorithmException e) {
+//			e.printStackTrace();
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println(doctorService.isDoctorLoginExisted(doctor));
+//	}
+	
 	
 	
 //	@Test
