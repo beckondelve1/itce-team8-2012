@@ -18,6 +18,7 @@
 	<bean id="identifyVoiceAction" class="postech.itce.team8.action.IdentifyVoiceAction" scope="prototype"/>
 	
 	<bean id="userAction" class="postech.itce.team8.action.UserAction" scope="prototype"/>
+	<bean id="doctorAction" class="postech.itce.team8.action.DoctorAction" scope="prototype"/>
 	<bean id="patientAction" class="postech.itce.team8.action.PatientAction" scope="prototype"/>
 	<bean id="consultationAction" class="postech.itce.team8.action.ConsultationAction" scope="prototype"/>
 </beans>

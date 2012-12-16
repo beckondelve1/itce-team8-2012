@@ -96,6 +96,10 @@
 			<result name="error" type="dispatcher">/WEB-INF/jsp/doctor/identifyVoiceError.txt</result>
 		</action>
 		
+		<action name="loginPassword" class="doctorAction">
+			<result name="success" type="dispatcher">/WEB-INF/jsp/doctor/loginPasswordSuccess.txt</result>
+			<result name="error" type="dispatcher">/WEB-INF/jsp/doctor/loginPasswordError.txt</result>
+		</action>
 		
 		<!-- DOCTOR DAO -->
 		<action name="prepare" class="registerDoctorBasicInfoAction" method="prepareDoctorBasicInfo">

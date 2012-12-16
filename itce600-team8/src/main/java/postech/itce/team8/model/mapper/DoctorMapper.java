@@ -17,5 +17,6 @@ public interface DoctorMapper {
   void updateDoctor(Doctor doctor);
   
   int isDoctorExisted(String userName);
-	  
+	
+  int isDoctorLoginExisted(Doctor doctor);
 }
