@@ -55,7 +55,7 @@ public class RegisterVoiceActivity extends Activity {
 	Bundle savedBasicInfo;
 	
 	//sample sentences
-	private int currentSentence;
+	private int currentSentence = 0;
 	private String[] sampleSentences;
 	private String audioRecorderFolder;
 	private int numberOfUploaded = 0;

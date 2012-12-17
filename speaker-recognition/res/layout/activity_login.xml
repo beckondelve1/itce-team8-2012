@@ -47,14 +47,14 @@
         android:layout_marginTop="20dp" >
 
         <Button
-            android:id="@+id/btnRecord"
+            android:id="@+id/btnStart"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
-            android:text="@string/btnRecord" />
+            android:text="@string/btnStart" />
 
         <Button
             android:id="@+id/btnStop"
