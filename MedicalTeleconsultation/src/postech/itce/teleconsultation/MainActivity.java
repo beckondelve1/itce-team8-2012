@@ -150,7 +150,7 @@ public class MainActivity extends Activity {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("Id", "0");
 		map.put("Name", "Brown Smith");
-		map.put("StreamUrl", "rtsp://141.223.83.139:8554/hlm.mp4");
+		map.put("StreamUrl", "rtsp://admin:4321@119.202.84.47:554/onvif/profile4/media.smp");
 		patientList.add(map);
 		// }
 

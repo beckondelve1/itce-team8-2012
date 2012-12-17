@@ -36,7 +36,7 @@ public class VideoQuality {
 	public int bitRate = 0;
 	public int resX = 0;
 	public int resY = 0;
-	public int orientation = 90;
+	public int orientation = 0;	//HiepNH - old: 90
 	
 	/** Default video stream quality */
 	public final static VideoQuality defaultVideoQualiy = new VideoQuality(640,480,15,300000);
