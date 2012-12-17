@@ -68,6 +68,7 @@
         <activity
             android:name="org.videolan.vlc.gui.video.VideoPlayerActivity"
             android:configChanges="orientation"
+            android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

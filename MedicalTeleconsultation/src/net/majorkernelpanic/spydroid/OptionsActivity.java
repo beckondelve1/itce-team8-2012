@@ -38,7 +38,7 @@ public class OptionsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         
-        addPreferencesFromResource(R.xml.preferences);
+        addPreferencesFromResource(R.xml.spydroid_preferences);
         
         final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         final Preference videoEnabled = findPreference("stream_video");
