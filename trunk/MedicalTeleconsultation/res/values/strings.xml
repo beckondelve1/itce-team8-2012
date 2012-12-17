@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="hello">Hello World!</string>
-    <string name="app_name" translatable="false">Secure Medical Teleconsultation Using Voice Authentication</string>
     
     <!-- Main VLC Interface -->
-    <string name="app_name" translatable="false">VLC</string>
+    <string name="app_name" translatable="false">Medical Teleconsultation</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="other">Other</string>

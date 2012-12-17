@@ -85,6 +85,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnSystemUiVisibilityChangeListener;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -205,6 +206,12 @@ public class VideoPlayerActivity extends Activity {
 
         //---------- SPYDROID BEGIN --------------//
         camera = (SurfaceView)findViewById(R.id.smallcameraview);
+        
+        //HiepNH
+//        ViewGroup.LayoutParams params = 
+//        		new ViewGroup.LayoutParams(160, 120);
+//        camera.setLayoutParams(params);
+        
         context = this.getApplicationContext();
         
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
@@ -212,6 +219,9 @@ public class VideoPlayerActivity extends Activity {
         
         camera.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         holder = camera.getHolder();
+        
+        //HiepNH
+        holder.setFixedSize(160, 120);
         
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "net.majorkernelpanic.spydroid.wakelock");
@@ -334,12 +344,16 @@ public class VideoPlayerActivity extends Activity {
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         // 100 is the value for screen_orientation_start_lock
-        //HiepNH - commented
+        //HiepNH - commented --> always LANDSCAPE
 //        setRequestedOrientation(mScreenOrientation != 100
 //                ? mScreenOrientation
 //                : getScreenOrientation());
     }
 
+    //HiepNH
+    
+    
+    
     @Override
     protected void onStart() {
     	
@@ -1435,7 +1449,6 @@ public class VideoPlayerActivity extends Activity {
     private final Handler handler = new Handler() {
     	
     	public void handleMessage(Message msg) { 
-    		/*
     		switch (msg.what) {
     		case RtspServer.MESSAGE_LOG:
     			log((String)msg.obj);
@@ -1445,17 +1458,16 @@ public class VideoPlayerActivity extends Activity {
     			break;
     		case Session.MESSAGE_START:
     			streaming = true;
-    			streamingState(1);
+    			//streamingState(1);
     			break;
     		case Session.MESSAGE_STOP:
     			streaming = false;
-    			displayIpAddress();
+    			//displayIpAddress();
     			break;
     		case Session.MESSAGE_ERROR:
     			log((String)msg.obj);
     			break;
     		}
-    		*/
     	}
     	
     };
