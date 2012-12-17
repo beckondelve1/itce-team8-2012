@@ -20,7 +20,7 @@ public class AudioRecorder {
 	private static final String AUDIO_RECORDER_FOLDER = "AudioRecorder";
 	private static final String AUDIO_RECORDER_TEMP_FILE = "record_temp.raw";
 	private static final int RECORDER_SAMPLERATE = 8000;	//44100;
-	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_IN_STEREO;	//CHANNEL_IN_STEREO;
+	private static final int RECORDER_CHANNELS = AudioFormat.CHANNEL_CONFIGURATION_MONO;	//CHANNEL_IN_STEREO;
 	private static final int RECORDER_AUDIO_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
 	
 	//
@@ -56,7 +56,7 @@ public class AudioRecorder {
 		return savedFilename;
 	}
 	
-	public String getAudioRecorderFolder(){
+	public static String getAudioRecorderFolder(){
 		return Environment.getExternalStorageDirectory().getPath() + "/" + AUDIO_RECORDER_FOLDER;
 	}
 
@@ -158,7 +158,7 @@ public class AudioRecorder {
 		long totalAudioLen = 0;
 		long totalDataLen = totalAudioLen + 36;
 		long longSampleRate = RECORDER_SAMPLERATE;
-		int channels = 2;
+		int channels = 1;
 		long byteRate = RECORDER_BPP * RECORDER_SAMPLERATE * channels/8;
 		
 		byte[] data = new byte[bufferSize];
