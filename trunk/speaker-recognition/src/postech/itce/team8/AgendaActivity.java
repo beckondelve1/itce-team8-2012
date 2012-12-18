@@ -12,10 +12,12 @@ import postech.itce.team8.util.Constants;
 import postech.itce.team8.util.HttpPostRequester;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -60,6 +62,14 @@ public class AgendaActivity extends Activity {
         lstAgenda = (ListView) findViewById(R.id.lstAgenda);
         
         lstAgenda.setOnItemClickListener(lstAgendaListener);
+        
+        //
+        //always call before any subsequent activities
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String serverAddress = sharedPrefs.getString("server_addr", "NULL");
+		Log.i(LOG_TAG, "first call, server_addr=" + serverAddress);
+		Constants.updateURLs(serverAddress);
+        
         //
         showDialog(ID_DIALOG_FETCHING);
         startFetchingAgenda();

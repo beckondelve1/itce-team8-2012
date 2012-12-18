@@ -79,6 +79,8 @@ public class HttpPostRequester {
 	        	nameValuePairs.add(new BasicNameValuePair(name, map.get(name)));
 	        
 	        httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+	        		
+	        System.out.println("request URI = " + httpPost.getURI());
 
 	        // Execute HTTP Post Request
 	        HttpResponse response = httpClient.execute(httpPost);
