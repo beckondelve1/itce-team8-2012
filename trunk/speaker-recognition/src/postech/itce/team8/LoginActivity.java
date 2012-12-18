@@ -72,7 +72,7 @@ public class LoginActivity extends Activity {
 	//
 	private SpeechRecognizer recognizer;
 	private Intent intent;
-	private byte[] audioData;
+	private byte[] audioData = new byte[0];
 	
 	//
 	private String lastLoginId;
