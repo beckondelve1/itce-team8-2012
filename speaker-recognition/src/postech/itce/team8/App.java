@@ -5,9 +5,19 @@ import java.security.KeyStore;
 
 import postech.itce.team8.util.AdditionalKeyStoresSSLSocketFactory;
 import android.app.Application;
+import android.content.Context;
 
 public class App extends Application {
 	
+	public static Context context;
+	
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		//
+		context = getApplicationContext();
+	}
+
 	//createAdditionalCertsSSLSocketFactory
 	public org.apache.http.conn.ssl.SSLSocketFactory createAdditionalCertsSSLSocketFactory() {
 	    try {

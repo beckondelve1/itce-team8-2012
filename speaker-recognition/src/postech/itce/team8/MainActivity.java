@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,12 +39,16 @@ public class MainActivity extends Activity {
 	private Button btnRegister;
 	private Button btnLogin;
 	private Button btnAgenda;
+	//
+	private Context context;
 	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //
+        context = getApplicationContext();
         //
         mHandler = new Handler();
         //
@@ -176,8 +181,14 @@ public class MainActivity extends Activity {
 				map.put("userName", userName);
 				map.put("password", password);
 				
+				//debug
+				//App app = (App)getApplicationContext();
+				//App app = (App)getApplication();
+				//App app = (App)context;
+				App app = (App)App.context;
+				
 				String responseStr = HttpPostRequester.postSecureData(Constants.LOGIN_PASSWORD_URL, map,
-						(App)getApplicationContext());
+						app);
 				
 				Log.i(LOG_TAG, "responseStr="+responseStr);
 				
