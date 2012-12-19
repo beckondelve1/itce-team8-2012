@@ -146,6 +146,17 @@ public class LoginActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				//TEMP
+				/*
+				String doctorName = spRecentUsers.getSelectedItem().toString();
+				Bundle savedBasicInfo = new Bundle();
+				savedBasicInfo.putString("doctorName", doctorName);
+				Intent intent = new Intent(LoginActivity.this, AgendaActivity.class);
+				intent.putExtras(savedBasicInfo);
+				//
+				startActivity(intent);
+				*/
+				
 				recognizer.startListening(intent);
 		        Log.d(LOG_TAG, "recognizer started");
 

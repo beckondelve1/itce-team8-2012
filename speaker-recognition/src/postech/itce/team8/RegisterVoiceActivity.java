@@ -70,6 +70,7 @@ public class RegisterVoiceActivity extends Activity {
         //
         btnRecord = (Button)findViewById(R.id.btnRecord);
         btnStop = (Button)findViewById(R.id.btnStop);
+        btnStop.setEnabled(false);
         btnPlay = (Button)findViewById(R.id.btnPlay);
         btnNext = (Button)findViewById(R.id.btnNext);
         

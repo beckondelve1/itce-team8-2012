@@ -71,8 +71,11 @@ public class AgendaActivity extends Activity {
 		Constants.updateURLs(serverAddress);
         
         //
+		Bundle savedBundle = this.getIntent().getExtras();
+		String doctorName = savedBundle.getString("doctorName");
+		
         showDialog(ID_DIALOG_FETCHING);
-        startFetchingAgenda();
+        startFetchingAgenda(doctorName);
         
     }
 
@@ -82,11 +85,12 @@ public class AgendaActivity extends Activity {
         return true;
     }
     
-    private void startFetchingAgenda(){
+    private void startFetchingAgenda(final String doctorName){
     	Thread t = new Thread() {
 			@Override
 			public void run() {
-				getAgenda("hiepnh");
+				
+				getAgenda(doctorName);
 				
 				dismissDialog(ID_DIALOG_FETCHING);
 				mHandler.post(postResults);
