@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Medical TeleConsultation</string>
+    <string name="welcome">Welcome to \"Secure Tele-consultation\"</string>
+    <string name="btnRegister">Register</string>
+    <string name="btnLogin">Login</string>
+    <string name="title_activity_register">Medical TeleConsultation</string>
+    <string name="title_activity_register_voice">Medical TeleConsultation</string>
+    <string name="title_activity_login">Medical TeleConsultation</string>
+    <string name="lblFullName">Full Name</string>
+    <string name="lblUserName">User Name</string>
+    <string name="lblPassword">Password</string>
+    <string name="btnNext">Next</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="lblRegisterBasicInfo">Register Basic Info</string>
+    <string name="lblRegisterVoice">Register Voice</string>
+    <string name="btnFinish">Finish</string>
+    <string name="lblSampleSentences">Sample Sentences</string>
+    <string name="sample_sentence_1">Chicken Little was in the woods one day when an acorn fell on her head. It scared her so much she trembled all over. She shook so hard, half her feathers fell out</string>
+    <string name="sample_sentence_2">Billions of black, shrimp-size bugs with transparent wings and beady red eyes carpeted trees from the U.S. eastern seaboard west through Indiana and south to Tennessee</string>
+    <string name="sample_sentence_3">Oymyakon, in Siberia, is the coldest permanently inhabited place on Earth. Now geographer and adventurer Nick Middleton reveals the local secret for coping with the cold</string>
+    <string name="sample_sentence_4">Few shores are immune from the tide of plastic soda bottles, bags, cartons, and other trash floating on the ocean today. Now a new study suggests the problem runs deeper: Microscopic bits of plastic permeate the world\'s beaches and marine environment</string>
+    <string name="sample_sentence_5">One hundred years later, the life of the Negro is still sadly crippled by the manacles of segregation and the chains of discrimination</string>
+    <string name="sample_sentence_6">People are finding medieval toys on Britian thames river and this toy has been changing how historians use the life of medieval kits</string>
+    <string name="sample_sentence_7">My friend Treccia suggests me to drive to the wood to watch the poor bear being hunting for pressure and I say yes</string>
+    <string name="btnRecord">Record</string>
+    <string name="btnStart">Start</string>
+    <string name="btnStop">Stop</string>
+    <string name="btnPlay">Play</string>
+    <string name="lblLogin">Login</string>
+    <string name="lblVoiceCaptcha">Voice CAPTCHA</string>
+    <string name="btnOK">OK</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_agenda">Medical TeleConsultation</string>
+    <string name="txtAgendaHelp">Select a consultation session to start</string>
+    <string name="title_activity_consultation">Medical TeleConsultation</string>
+</resources>
