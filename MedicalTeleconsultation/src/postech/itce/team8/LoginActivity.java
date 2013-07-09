@@ -13,10 +13,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.videolan.vlc.VLCApplication;
+
 import postech.itce.team8.util.AudioRecorder;
 import postech.itce.team8.util.Constants;
 import postech.itce.team8.util.FileUpload;
 import postech.itce.team8.util.HttpPostRequester;
+
+import postech.itce.teleconsultation.R;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -89,7 +93,7 @@ public class LoginActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+		setContentView(R.layout.doctor_login);
 		//
         mHandler = new Handler();
 		//
@@ -181,7 +185,7 @@ public class LoginActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_login, menu);
+		getMenuInflater().inflate(R.menu.doctor_login, menu);
 		return true;
 	}
 	
@@ -265,7 +269,7 @@ public class LoginActivity extends Activity {
 				// get prompts.xml view
 				LayoutInflater li = LayoutInflater.from(context);
 				View userNamePrompt = li
-						.inflate(R.layout.dialog_username, null);
+						.inflate(R.layout.doctor_dialog_username, null);
 
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 						context);
@@ -386,7 +390,7 @@ public class LoginActivity extends Activity {
 				
 				//String responseStr = HttpPostRequester.postData(Constants.IDENTIFY_URL, map);
 				String responseStr = HttpPostRequester.postSecureData(Constants.IDENTIFY_URL, map,
-						(App)getApplicationContext());
+						(VLCApplication)getApplicationContext());
 				
 				Log.i(LOG_TAG, "responseStr="+responseStr);
 				
@@ -412,7 +416,7 @@ public class LoginActivity extends Activity {
 				
 				//
 				lastLoginId = FileUpload.doSecureFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, 
-						Constants.UPLOAD_URL, userName, (App)getApplicationContext());	//selectedPath, fileName, urlString
+						Constants.UPLOAD_URL, userName, (VLCApplication)getApplicationContext());	//selectedPath, fileName, urlString
 				
 				Log.d(LOG_TAG, "lastLoginId = " + lastLoginId);
 				

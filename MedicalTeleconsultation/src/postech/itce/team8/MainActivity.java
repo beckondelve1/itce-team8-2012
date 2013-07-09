@@ -5,9 +5,14 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.videolan.vlc.VLCApplication;
+
+import postech.itce.teleconsultation.R;
+
 import postech.itce.team8.util.AeSimpleMD5;
 import postech.itce.team8.util.Constants;
 import postech.itce.team8.util.HttpPostRequester;
+import postech.itce.teleconsultation.PatientListActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -38,7 +43,7 @@ public class MainActivity extends Activity {
 	//
 	private Button btnRegister;
 	private Button btnLogin;
-	private Button btnAgenda;
+	private Button btnStart;
 	//
 	private Context context;
 	
@@ -46,7 +51,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.doctor_main);
         //
         context = getApplicationContext();
         //
@@ -54,7 +59,7 @@ public class MainActivity extends Activity {
         //
         btnRegister = (Button)findViewById(R.id.btnRegister);
         btnLogin = (Button)findViewById(R.id.btnLogin);
-        btnAgenda = (Button)findViewById(R.id.btnAgenda);
+        btnStart = (Button)findViewById(R.id.btnStart);
         //
         btnRegister.setOnClickListener(new View.OnClickListener() {
 			
@@ -64,7 +69,7 @@ public class MainActivity extends Activity {
 				
 				//new - password-based login
 				LayoutInflater factory = LayoutInflater.from(MainActivity.this);            
-		        final View textEntryView = factory.inflate(R.layout.dialog_user_pass, null);
+		        final View textEntryView = factory.inflate(R.layout.doctor_dialog_user_pass, null);
 
 		        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this); 
 
@@ -119,11 +124,11 @@ public class MainActivity extends Activity {
 		});
         
         //
-        btnAgenda.setOnClickListener(new View.OnClickListener() {
+        btnStart.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(MainActivity.this, AgendaActivity.class));
+				startActivity(new Intent(MainActivity.this, PatientListActivity.class));
 				
 			}
 		});
@@ -137,7 +142,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        getMenuInflater().inflate(R.menu.doctor_main, menu);
         return true;
     }
     
@@ -185,7 +190,7 @@ public class MainActivity extends Activity {
 				//App app = (App)getApplicationContext();
 				//App app = (App)getApplication();
 				//App app = (App)context;
-				App app = (App)App.context;
+				VLCApplication app = (VLCApplication)VLCApplication.context;
 				
 				String responseStr = HttpPostRequester.postSecureData(Constants.LOGIN_PASSWORD_URL, map,
 						app);

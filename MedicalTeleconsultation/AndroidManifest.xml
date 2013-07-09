@@ -115,11 +115,10 @@
                 android:resource="@xml/vlcwidget" />
         </receiver>
 
-        <activity android:name="postech.itce.teleconsultation.MainActivity"
+        <activity android:name="postech.itce.team8.MainActivity"
             android:configChanges="orientation"
             android:icon="@drawable/icon"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -147,6 +146,29 @@
         <activity
             android:name="net.majorkernelpanic.spydroid.AboutActivity"
             android:label="@string/about_activity_title" >
+        </activity>
+        
+        <!--  -->
+        <activity
+            android:name="postech.itce.team8.RegisterBasicInfoActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name="postech.itce.team8.RegisterVoiceActivity"
+            android:label="@string/title_activity_register_voice" >
+        </activity>
+        <activity
+            android:name="postech.itce.team8.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="postech.itce.team8.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
+        <activity android:name="postech.itce.teleconsultation.PatientListActivity"
+            android:label="@string/title_activity_agenda" >
+            
         </activity>
     </application>
 

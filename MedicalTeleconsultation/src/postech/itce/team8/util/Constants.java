@@ -13,13 +13,20 @@ public class Constants {
 	public static String IDENTIFY_URL = SERVER_ADDR + "itce600-team8/doctor/identifyVoice.do";
 	public static String AGENDA_URL = SERVER_ADDR + "itce600-team8/consultation/findConsultationsByDoctorName.do";
 	
+	public static String REGISTER_DOCTOR_IP_URL = SERVER_ADDR + "itce600-team8/doctor/registerIp.do";
+	public static String REGISTER_PATIENT_IP_URL = SERVER_ADDR + "itce600-team8/patient/registerIp.do";
+	
 	//
 	public static void updateURLs(String serverAddress){
 		SERVER_ADDR = serverAddress;
+		
 		LOGIN_PASSWORD_URL = SERVER_ADDR + "itce600-team8/doctor/loginPassword.do";
 		UPLOAD_URL = SERVER_ADDR + "itce600-team8/doctor/executeUpload.do";
 		ENROLL_URL = SERVER_ADDR + "itce600-team8/doctor/enrollVoice.do";
 		IDENTIFY_URL = SERVER_ADDR + "itce600-team8/doctor/identifyVoice.do";
 		AGENDA_URL = SERVER_ADDR + "itce600-team8/consultation/findConsultationsByDoctorName.do";
+		
+		REGISTER_DOCTOR_IP_URL = SERVER_ADDR + "itce600-team8/doctor/registerIp.do";
+		REGISTER_PATIENT_IP_URL = SERVER_ADDR + "itce600-team8/patient/registerIp.do";
 	}
 }

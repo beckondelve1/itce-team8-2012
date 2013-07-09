@@ -30,8 +30,8 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.videolan.vlc.VLCApplication;
 
-import postech.itce.team8.App;
 
 import android.util.Log;
 
@@ -142,7 +142,7 @@ public class FileUpload {
 	
 	//doSecureFileUpload (12-11-14)
 	public static String doSecureFileUpload(String selectedPath, String fileName, String urlString, 
-			String userName, App app) {
+			String userName, VLCApplication app) {
 		
 		final SchemeRegistry schemeRegistry = new SchemeRegistry();
 		schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 8080));

@@ -1,5 +1,6 @@
 package postech.itce.team8;
 
+import postech.itce.teleconsultation.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -30,7 +31,7 @@ public class RegisterBasicInfoActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_basic_info);
+        setContentView(R.layout.doctor_register_basic_info);
         //
         txtFullName = (TextView)findViewById(R.id.txtFullName);
         txtFullName.requestFocus();
@@ -86,7 +87,7 @@ public class RegisterBasicInfoActivity extends Activity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_register_basic_info, menu);
+        getMenuInflater().inflate(R.menu.doctor_register_basic_info, menu);
         return true;
     }
 
