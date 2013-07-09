@@ -28,6 +28,9 @@ public class ConsultationAction extends ActionSupport {
 	
 	//actions
 	public String findConsultationsByDoctorName(){
+		logger.info("PARAM: doctorName = " + doctorName);
+		System.out.println("PARAM: doctorName = " + doctorName);
+		
 		consultationList = consultationService.findConsultationsByDoctorName(doctorName);
 		
 		return SUCCESS;

@@ -134,18 +134,19 @@ public class DoctorTest {
 //	}
 	
 	
-//	@Test
-//	//testUpdateDoctor
-//	public void testUpdateDoctor(){
-//		System.out.println("testUpdateDoctor");
-//		
-//		Doctor doctor = new Doctor("abc", "def", "gih", 1);
-//		
-//		doctorService.updateDoctor(doctor);
-//		
-//		System.out.println("DONE");
-//		
-//	}
+	@Test
+	//testUpdateDoctor
+	public void testUpdateDoctor(){
+		System.out.println("testUpdateDoctor");
+		
+		Doctor doctor = new Doctor("Hiep.Nguyen", "hiepnh", "05664f7b8fca59f81e5a8e6d188fd41f", 
+				"141.223.202.244", 10);
+		
+		doctorService.updateDoctor(doctor);
+		
+		System.out.println("DONE");
+		
+	}
 	
 	/**
 	 * @param args

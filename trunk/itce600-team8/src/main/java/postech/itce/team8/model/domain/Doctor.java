@@ -6,7 +6,9 @@ public class Doctor {
 	private String fullName;
 	private String userName;
 	private String password;
+	private String currentIp;
 	private int lastLoginId;
+	
 
 	// ctr
 	public Doctor() {
@@ -26,6 +28,16 @@ public class Doctor {
 		this.fullName = fullName;
 		this.userName = userName;
 		this.password = password;
+		this.lastLoginId = lastLoginId;
+	}
+	
+	public Doctor(String fullName, String userName, String password,
+			String currentIp, int lastLoginId) {
+		super();
+		this.fullName = fullName;
+		this.userName = userName;
+		this.password = password;
+		this.currentIp = currentIp;
 		this.lastLoginId = lastLoginId;
 	}
 
@@ -70,4 +82,13 @@ public class Doctor {
 		this.lastLoginId = lastLoginId;
 	}
 
+	public String getCurrentIp() {
+		return currentIp;
+	}
+
+	public void setCurrentIp(String currentIp) {
+		this.currentIp = currentIp;
+	}
+
+	
 }
