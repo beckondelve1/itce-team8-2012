@@ -1,5 +1,7 @@
 package postech.itce.team8;
 
+import postech.itce.teleconsultation.R;
+
 import postech.itce.team8.util.Constants;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -15,7 +17,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preferences);
+        addPreferencesFromResource(R.xml.doctor_preferences);
     }
 
 	@Override

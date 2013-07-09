@@ -307,7 +307,7 @@
     </string-array>
 
     <string name="itce_voiceauthentication">Voice Authentication</string>
-    <string name="itce_patientlist">Patient List (Recognizing your voice)</string>
+    <string name="itce_patientlist">Patient List</string>
     <string name="itce_begin">Begin</string>
     <string name="itce_retry">Retry</string>
     <string name="itce_connect">Connect</string>

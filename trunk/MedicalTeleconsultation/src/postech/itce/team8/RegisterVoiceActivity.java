@@ -4,6 +4,10 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.videolan.vlc.VLCApplication;
+
+import postech.itce.teleconsultation.R;
+
 import postech.itce.team8.util.AudioRecorder;
 import postech.itce.team8.util.Constants;
 import postech.itce.team8.util.FileUpload;
@@ -63,7 +67,7 @@ public class RegisterVoiceActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_voice);
+        setContentView(R.layout.doctor_register_voice);
         //
         mHandler = new Handler();
         
@@ -121,7 +125,7 @@ public class RegisterVoiceActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_register_voice, menu);
+        getMenuInflater().inflate(R.menu.doctor_register_voice, menu);
         return true;
     }
     
@@ -225,7 +229,7 @@ public class RegisterVoiceActivity extends Activity {
 				
 				//FileUpload.doFileUpload(params[0]+"/"+fileName,fileName, params[1], params[2]);	//selectedPath, fileName, urlString
 				FileUpload.doSecureFileUpload(params[0]+"/"+fileName,fileName, params[1], params[2],
-						(App)getApplicationContext());	//selectedPath, fileName, urlString
+						(VLCApplication)getApplicationContext());	//selectedPath, fileName, urlString
 				
 				numberOfUploaded++;
 			}
@@ -246,7 +250,7 @@ public class RegisterVoiceActivity extends Activity {
 			map.put("numberOfFiles", Long.toString(result));
 			
 			//HttpPostRequester.postData(Constants.ENROLL_URL, map);
-			HttpPostRequester.postSecureData(Constants.ENROLL_URL, map, (App)getApplicationContext());	
+			HttpPostRequester.postSecureData(Constants.ENROLL_URL, map, (VLCApplication)getApplicationContext());	
 			
 	    }
 		
@@ -289,7 +293,7 @@ public class RegisterVoiceActivity extends Activity {
 				map.put("numberOfFiles", Long.toString(currentSentence+1));
 				
 				//HttpPostRequester.postData(Constants.ENROLL_URL, map);
-				HttpPostRequester.postSecureData(Constants.ENROLL_URL, map, (App)getApplicationContext());	
+				HttpPostRequester.postSecureData(Constants.ENROLL_URL, map, (VLCApplication)getApplicationContext());	
 				
 				//
 				dismissDialog(ID_DIALOG_ENROLLING);
@@ -312,7 +316,7 @@ public class RegisterVoiceActivity extends Activity {
 					
 					//FileUpload.doFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName);	//selectedPath, fileName, urlString
 					FileUpload.doSecureFileUpload("/sdcard/AudioRecorder/"+fileName,fileName, Constants.UPLOAD_URL, userName,
-							(App)getApplicationContext());		//selectedPath, fileName, urlString
+							(VLCApplication)getApplicationContext());		//selectedPath, fileName, urlString
 					numberOfUploaded++;
 				}
 				

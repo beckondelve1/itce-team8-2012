@@ -25,8 +25,8 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
+import org.videolan.vlc.VLCApplication;
 
-import postech.itce.team8.App;
 
 public class HttpPostRequester {
 
@@ -54,7 +54,7 @@ public class HttpPostRequester {
 	    }
 	}
 	
-	public static String postSecureData(String url, Map<String, String> map, App app) {
+	public static String postSecureData(String url, Map<String, String> map, VLCApplication app) {
 		final SchemeRegistry schemeRegistry = new SchemeRegistry();
 		schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 8080));
 		schemeRegistry.register(new Scheme("https", app.createAdditionalCertsSSLSocketFactory(), 8443));

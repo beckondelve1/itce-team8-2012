@@ -19,7 +19,12 @@
  *****************************************************************************/
 package org.videolan.vlc;
 
+import java.io.InputStream;
+import java.security.KeyStore;
 import java.util.Locale;
+
+import postech.itce.team8.util.AdditionalKeyStoresSSLSocketFactory;
+import postech.itce.teleconsultation.R;
 
 import android.app.Application;
 import android.content.Context;
@@ -29,10 +34,14 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+// hiepnh - merged with postech.itce.team8.App
+
 public class VLCApplication extends Application {
     public final static String TAG = "VLC/VLCApplication";
     private static VLCApplication instance;
 
+    public static Context context;
+    
     @Override
     public void onCreate() {
         super.onCreate();
@@ -56,6 +65,9 @@ public class VLCApplication extends Application {
         }
 
         instance = this;
+        
+        // hiepnh
+		context = getApplicationContext();
     }
 
     /**
@@ -84,4 +96,26 @@ public class VLCApplication extends Application {
     {
         return instance.getResources();
     }
+    
+    //createAdditionalCertsSSLSocketFactory
+  	public org.apache.http.conn.ssl.SSLSocketFactory createAdditionalCertsSSLSocketFactory() {
+  	    try {
+  	        final KeyStore ks = KeyStore.getInstance("BKS");
+
+  	        // the bks file we generated above
+  	        final InputStream in = getApplicationContext().getResources().openRawResource( R.raw.hiepnh_tomcat);  
+  	        try {
+  	            // don't forget to put the password used above in strings.xml/mystore_password
+  	            //ks.load(in, context.getString( R.string.mystore_password ).toCharArray());
+  	        	ks.load(in, "asdfgh".toCharArray());
+  	        } finally {
+  	            in.close();
+  	        }
+
+  	        return new AdditionalKeyStoresSSLSocketFactory(ks);
+
+  	    } catch( Exception e ) {
+  	        throw new RuntimeException(e);
+  	    }
+  	}
 }
