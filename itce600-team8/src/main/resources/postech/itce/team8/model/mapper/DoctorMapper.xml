@@ -27,6 +27,7 @@
 		SET 
 			fullname = #{fullName},
 			password = #{password},
+			current_ip = #{currentIp},
 			last_login_id = #{lastLoginId}
 		WHERE userName = #{userName}
 	</update>

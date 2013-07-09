@@ -6,7 +6,9 @@
 
 	<select id="findConsultationsByDoctorName" parameterType="string" 
 		resultType="postech.itce.team8.model.domain.Consultation">
-		SELECT c.id as id, d.id as doctorId, p.id as patientId, p.fullname as patientFullName, 
+		SELECT c.id as id, d.id as doctorId, d.current_ip as doctorCurrentIp,
+			p.id as patientId, p.fullname as patientFullName, p.ip_address as patientCurrentIp, 
+			p.default_profile_url as defaultURL, p.camera_user as cameraUser, p.camera_pass as cameraPass,
 			c.start_time as startTime, end_time as endTime, expected_time as expectedTime, status as status
 		FROM  patient as p, doctor as d, consultation as c
 		WHERE d.id = c.doctor_id and p.id = c.patient_id and d.username=#{doctorName}

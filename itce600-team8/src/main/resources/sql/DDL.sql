@@ -1,9 +1,11 @@
-CREATE TABLE `doctor` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(100) DEFAULT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE doctor (
+	id INT NOT NULL,
+	fullname VARCHAR(100),
+	username VARCHAR(50),
+	password VARCHAR(50),
+	current_ip VARCHAR(45),
+	last_login_id INT DEFAULT 0,
+	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `patient` (
@@ -71,13 +73,14 @@ CREATE TABLE `consultation` (
   `patient_id` int(11) NOT NULL,
   `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
-  `avatar` blob,
+  `expected_time` datetime DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'NEW',
   PRIMARY KEY (`id`),
   KEY `fk_doctor_consultation_idx` (`doctor_id`),
   KEY `fk_patient_consultation_idx` (`patient_id`),
   CONSTRAINT `fk_doctor_consultation` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_patient_consultation` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
 
 CREATE TABLE `screenshot` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -95,5 +98,5 @@ CREATE TABLE `user` (
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

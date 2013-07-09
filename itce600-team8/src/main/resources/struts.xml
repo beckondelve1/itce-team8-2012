@@ -101,6 +101,11 @@
 			<result name="error" type="dispatcher">/WEB-INF/jsp/doctor/loginPasswordError.txt</result>
 		</action>
 		
+		<action name="registerIp" class="doctorAction" method="registerIp">
+			<result name="success" type="dispatcher">/WEB-INF/jsp/doctor/registerIpSuccess.txt</result>
+			<result name="error" type="dispatcher">/WEB-INF/jsp/doctor/registerIpError.txt</result>
+		</action>
+		
 		<!-- DOCTOR DAO -->
 		<action name="prepare" class="registerDoctorBasicInfoAction" method="prepareDoctorBasicInfo">
 			<result name="success" type="tiles">prepareInsert</result>

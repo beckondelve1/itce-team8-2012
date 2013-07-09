@@ -17,6 +17,10 @@ public class DoctorAction extends ActionSupport {
 	@Autowired
 	private DoctorService doctorService;
 	
+	//
+	private String userName;
+	private String currentIp;
+	
 	//beans
 	private Doctor doctor;
 	
@@ -30,6 +34,22 @@ public class DoctorAction extends ActionSupport {
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getCurrentIp() {
+		return currentIp;
+	}
+
+	public void setCurrentIp(String currentIp) {
+		this.currentIp = currentIp;
+	}
 
 	//actions
 	public String loginPassword(){
@@ -42,4 +62,19 @@ public class DoctorAction extends ActionSupport {
 			return ERROR;
 	}
 
+	//
+	public String registerIp(){
+		logger.info("registerIp CALLED");
+		
+		Doctor doctor = doctorService.findDoctorByUserName(userName);
+		logger.info("userName=" + doctor.getUserName() + "|");
+		logger.info("(old)currentIp=" + doctor.getCurrentIp() + "|");
+		
+		doctor.setCurrentIp(currentIp);
+		logger.info("(new)currentIp=" + doctor.getCurrentIp() + "|");
+		
+		doctorService.updateDoctor(doctor);
+		
+		return SUCCESS;
+	}
 }
