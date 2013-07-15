@@ -48,13 +48,14 @@ public class PatientListActivity extends Activity {
                             R.id.txtId, R.id.txtPatientName, R.id.txtExpectedTime, R.id.txtStatus });
      
             listViewPatientList.setAdapter(adapter);
+            listViewPatientList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		}
 	};
 	
 	private final Runnable registerIpResult = new Runnable() {
 		@Override
 		public void run(){
-			Toast toast = Toast.makeText(getApplicationContext(), "Verified temp.wav file", 
+			Toast toast = Toast.makeText(getApplicationContext(), "IP registered to server !", 
 					Toast.LENGTH_SHORT);
 			toast.show();
 			
