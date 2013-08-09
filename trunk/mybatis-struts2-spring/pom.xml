@@ -74,6 +74,8 @@
 
 
 	<build>
+		<finalName>mybatis-struts2-spring</finalName>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
